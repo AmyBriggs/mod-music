@@ -1,0 +1,111 @@
+body {
+    text-align: center;
+    background: -webkit-linear-gradient(90deg, #161778 10%, #B0B0D6 90%);
+    /* Chrome 10+, Saf5.1+ */
+    background: -moz-linear-gradient(90deg, #161778 10%, #B0B0D6 90%);
+    /* FF3.6+ */
+    background: -ms-linear-gradient(90deg, #161778 10%, #B0B0D6 90%);
+    /* IE10 */
+    background: -o-linear-gradient(90deg, #161778 10%, #B0B0D6 90%);
+    /* Opera 11.10+ */
+    background: linear-gradient(90deg, #161778 10%, #B0B0D6 90%);
+    /* W3C */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #0A0A17;
+}
+div {
+    align-items: center;
+    margin-bottom: 20px;
+}
+.square {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    background-color: #BABBD9;
+    margin: -30px 5px -30px 5px;
+    border-radius: 2px;
+    position: relative;
+    flex: none;
+    font-size: 0;
+    cursor: crosshair;
+    overflow: hidden;
+}
+.playing {
+    background-color: #EDEEF5;
+}
+
+#controls {
+    display: inline-block;
+    align-items: center;
+}
+
+#play {
+    height: auto;
+    font-size: 2em;
+    color: white;
+    opacity: 0.60;
+    margin-right: 40px;
+    font-family: 'Special Elite', cursive;
+}
+
+#stop {
+    height: auto;
+    font-size: 2em;
+    color: white;
+    opacity: 0.60;
+    align-items: center;
+    font-family: 'Special Elite', cursive;
+}
+
+#refresh {
+    height: auto;
+    font-size: 2em;
+    color: white;
+    opacity: 0.60;
+    font-family: 'Special Elite', cursive;
+    margin-left: 40px;
+}
+
+h1 {
+    font-family: 'Special Elite', cursive;
+    font-size: 4em;
+    color: white;
+    opacity: 0.60;
+    letter-spacing: 3px;
+}
+
+#header {
+  margin-top: 30px;
+}
+
+#copyright {
+  float: left;
+  color: white;
+  opacity: 0.60;
+  font-family: 'Special Elite', cursive;
+  margin-left: 30px;
+}
+
+#facebook {
+  font-size: 2em;
+  margin-right: 10px;
+  color: #423EB8;
+}
+
+#twitter {
+  font-size: 2em;
+  margin-right: 5px;
+  color: #423EB8;
+}
+
+#linkedin {
+  font-size: 2em;
+  margin-right: 10px;
+  color: #423EB8;
+}
+
+#contact {
+  float: right;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
