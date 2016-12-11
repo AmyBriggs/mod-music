@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html ng-app="modmusic">
-
 <head>
     <meta charset="utf-8">
     <title>Mod Music</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Scripts for Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Scripts for Angular -->
     <script src="https://code.angularjs.org/1.5.8/angular.js" charset="utf-8"></script>
-    <script src="https://code.angularjs.org/1.5.8/angular-route.js" charset="utf-8"></script>```
+    <script src="https://code.angularjs.org/1.5.8/angular-route.js" charset="utf-8"></script>
+    <!-- Local scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
     <base href="/">
 </head>
 
 <body>
-    <h1>Hey</h1>
-
+    <ng-view></ng-view>
 </body>
 
 </html>
