@@ -1,0 +1,19 @@
+.grid{
+
+}
+table{
+  width:98%;
+  height:300px;
+  margin-left:2%;
+}
+td{
+  width:4%;
+  height:4%;
+  border:1px solid black;
+}
+.rack{
+  background-color:rgb(92, 164, 231);
+}
+.notes{
+  background-color:rgb(255, 20, 196)
+}
