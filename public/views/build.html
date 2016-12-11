@@ -148,7 +148,22 @@
     </div>
   </div>
   <div ng-show="notes" class="col-lg-12 notes text-center">
-    <h4>INSTRUMENT</h4>
+    <h4>{{ instrument }}</h4>
+    <div class="row">
+      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playNote('C')">C</button></div>
+      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playNote('Cs')">C#</button></div>
+      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playNote('D')">D</button></div>
+      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playNote('Eb')">Eb</button></div>
+      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playNote('E')">E</button></div>
+      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playNote('F')">F</button></div>
+      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playNote('Fs')">F#</button></div>
+      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playNote('G')">G</button></div>
+      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playNote('Ab')">Ab</button></div>
+      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playNote('A')">A</button></div>
+      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playNote('Bb')">Bb</button></div>
+      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playNote('B')">B</button></div>
+
+    </div>
   </div>
   <div ng-show="drums" class="col-lg-12 drums text-center">
     <h4>DRUMS</h4>
