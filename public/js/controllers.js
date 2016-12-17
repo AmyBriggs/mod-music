@@ -130,6 +130,18 @@ app.controller('BuildController', ['$scope', function($scope){
       $scope.drums = false;
       $scope.activeInst[0] = instr
       $scope.instrument = instr
+      console.log();
+      console.log('instrument is', instr);
+    }
+  }
+
+  $scope.attachInstr = function(selected){
+    if(!$scope.instrument){
+      console.log('Please select an instrument');
+    }
+    else {
+      let selected = $scope.instrument
+      console.log('you clicked', selected);
     }
   }
 
