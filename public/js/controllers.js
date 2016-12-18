@@ -138,8 +138,8 @@ app.controller('BuildController', ['$scope', function($scope){
   $scope.isActive = false
   $scope.attachInstr = function(){
     $scope.isActive = !$scope.isActive
-    console.log($scope.isActive);
     if(!$scope.instrument){
+      console.log($scope.isActive);
       console.log('Please select an instrument');
     }
     else {
