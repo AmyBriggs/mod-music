@@ -11,6 +11,17 @@ td{
   height:4%;
   border:1px solid black;
 }
+
+.instrument {
+  margin-left: 10px;
+  margin-right: -10px;
+}
+
+.selected-instr{
+  width:4%;
+  height:4%;
+  border:none;
+}
 .rack{
   background-color:rgb(92, 164, 231);
 }

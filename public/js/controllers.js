@@ -144,6 +144,11 @@ app.controller('BuildController', ['$scope', function($scope){
     }
     else {
       let instr = $scope.instrument
+      $scope.instr = {
+        show: true,
+        hide: false
+      }
+      $scope.selected = instr
       console.log('you clicked', instr);
 
     }
