@@ -135,15 +135,19 @@ app.controller('BuildController', ['$scope', function($scope){
     }
   }
 
-  $scope.attachInstr = function(selected){
+  $scope.isActive = false
+  $scope.attachInstr = function(){
+    $scope.isActive = !$scope.isActive
+    console.log($scope.isActive);
     if(!$scope.instrument){
       console.log('Please select an instrument');
     }
     else {
-      let selected = $scope.instrument
-      console.log('you clicked', selected);
+      let instr = $scope.instrument
+      console.log('you clicked', instr);
+
     }
-  }
+}
 
   $scope.playNote = function(note){
     sounds[$scope.instrument][note].play()
