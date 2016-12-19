@@ -180,13 +180,11 @@ app.controller('BuildController', ['$scope', function($scope) {
   } else {
    $scope.notes = true;
    $scope.drums = false;
-  //  $scope.activeInst[0] = instr
   }
  }
 
- $scope.isActive = false
  $scope.addInstr = function(instr) {
-  $scope.isActive = !$scope.isActive
+   $scope.instrument = instr;
    let instrObj = {}
    instrObj.instrument = instr
    instrObj.notes = []
@@ -195,11 +193,6 @@ app.controller('BuildController', ['$scope', function($scope) {
    let index = $scope.build.length-1
    let label = document.getElementsByClassName(`${index} selected-instr`)[0]
    label.innerHTML = instr;
- }
-
- $scope.test = function(){
-
-   $scope.meow = true;
  }
 
  $scope.playNote = function(note) {
