@@ -2,6 +2,7 @@ app.controller('BuildController', ['$scope', function($scope) {
  $scope.build = [];
  $scope.notes = false;
  $scope.drums = false;
+ $scope.collapsePiano = true; $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapseDrums = false;
  $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
 
  var sounds = {
@@ -152,7 +153,26 @@ app.controller('BuildController', ['$scope', function($scope) {
    })
   }
  }
-
+ $scope.collapse = function(instr) {
+  switch (instr) {
+   case 'piano':
+    $scope.collapsePiano = true;
+    $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapseDrums = false;
+    break;
+   case 'guitar':
+    $scope.collapseGuitar = true;
+    $scope.collapsePiano = false; $scope.collapseBass = false; $scope.collapseDrums = false;
+    break;
+   case 'bass':
+    $scope.collapseBass = true;
+    $scope.collapseGuitar = false; $scope.collapsePiano = false; $scope.collapseDrums = false;
+    break;
+   case 'drums':
+    $scope.collapseDrums = true;
+    $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapsePiano = false;
+    break;
+  }
+ }
  $scope.notesOn = function(instr) {
   if (instr == 'drums') {
    $scope.drums = true
@@ -238,5 +258,16 @@ app.controller('BuildController', ['$scope', function($scope) {
     $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false;
     break;
   }
+ }
+ $scope.addToRack = function(part){
+   var rack = document.getElementsByClassName('d-rack');
+   var partHtml = `<button type="button" class="btn btn-default btn-lg" ng-click="playDrum('${part}')">${part}</button>`;
+   for(var i = 0; i < rack.length; i++){
+     if(rack[i].innerHTML === 'empty'){
+       rack[i].innerHTML = partHtml;
+       break;
+     }
+   }
+   $scope.$apply()
  }
 }])

@@ -11,7 +11,10 @@ td{
   height:4%;
   border:1px solid black;
 }
-
+.collapseHeading{
+  background-color:rgb(172, 172, 172);
+  border:1px solid black;
+}
 .instrument {
   margin-left: 10px;
   margin-right: -10px;

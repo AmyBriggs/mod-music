@@ -108,68 +108,44 @@
   </div>
   <div class="col-lg-3 rack text-center">
     <h4>RACK</h4>
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingFive">
-          <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-          Piano/Keyboards
+    <div class="row">
+      <div class="col-lg-12 collapseHeading">
+        <a ng-click="collapse('piano')">
+          <h4>Piano/Keyboards</h4>
         </a>
-      </h4>
-        </div>
-        <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
-          <div class="panel-body">
-            <button ng-click="notesOn('piano')" type="button" class="btn btn-default btn-lg">Piano</button>
-          </div>
-        </div>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingTwo">
-          <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          Guitar
-        </a>
-      </h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-          <div class="panel-body">
-            <div class="panel-body">
-              <button ng-click="notesOn('guitar')" type="button" class="btn btn-default btn-lg">Guitar</button>
-            </div>
-          </div>
-        </div>
+      <div ng-show="collapsePiano" class="col-lg-12">
+        <button ng-click="notesOn('piano'); addInstr(instr)" type="button" class="btn btn-default btn-lg">Piano</button>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-          <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Bass
+    </div>
+    <div class="row">
+      <div class="col-lg-12 collapseHeading">
+        <a ng-click="collapse('guitar')">
+          <h4>Guitar</h4>
         </a>
-      </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-          <div class="panel-body">
-            <div class="panel-body">
-              <button ng-click="notesOn('bass')" type="button" class="btn btn-default btn-lg">Bass</button>
-            </div>
-          </div>
-        </div>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingFour">
-          <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          Drum Rack
+      <div ng-show="collapseGuitar" class="col-lg-12">
+        <button ng-click="notesOn('guitar'); addInstr(instr)" type="button" class="btn btn-default btn-lg">Guitar</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 collapseHeading">
+        <a ng-click="collapse('bass')">
+          <h4>Bass</h4>
         </a>
-      </h4>
-        </div>
-        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-          <div class="panel-body">
-            <div class="panel-body">
-              <button ng-click="notesOn('drums')" type="button" class="btn btn-default btn-lg">Drum Rack</button>
-            </div>
-          </div>
-        </div>
+      </div>
+      <div ng-show="collapseBass" class="col-lg-12">
+        <button ng-click="notesOn('bass'); addInstr(instr)" type="button" class="btn btn-default btn-lg">Bass</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 collapseHeading">
+        <a ng-click="collapse('drums')">
+          <h4>Drum Rack</h4>
+        </a>
+      </div>
+      <div ng-show="collapseDrums" class="col-lg-12">
+        <button ng-click="notesOn('drums'); addInstr(instr)" type="button" class="btn btn-default btn-lg">Drum Rack</button>
       </div>
     </div>
   </div>
@@ -218,18 +194,39 @@
     <h4>drums</h4>
     <div class="row d-chooser">
       <div class="col-lg-1"></div>
-      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('bd')">Bass Drum</button></div>
-      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('lt')">Low Tom</button></div>
-      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('mt')">Mid Tom</button></div>
-      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('ht')">High Tom</button></div>
-      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('sd')">Snare Drum</button></div>
-      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('cp')">Clap</button></div>
-      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('rd')">Ride</button></div>
-      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('oh')">Open Hat</button></div>
-      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('hh')">Hi Hat</button></div>
-      <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('cr')">Crash</button></div>
+      <div class="col-lg-1">
+        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('bd')">Bass Drum</button>
+      </div>
+      <div class="col-lg-1">
+        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('lt')">Low Tom</button>
+      </div>
+      <div class="col-lg-1">
+        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('mt')">Mid Tom</button>
+      </div>
+      <div class="col-lg-1">
+        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('ht')">High Tom</button>
+      </div>
+      <div class="col-lg-1">
+        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('sd')">Snare Drum</button>
+      </div>
+      <div class="col-lg-1">
+        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('cp')">Clap</button>
+      </div>
+      <div class="col-lg-1">
+        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('rd')">Ride</button>
+      </div>
+      <div class="col-lg-1">
+        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('oh')">Open Hat</button>
+      </div>
+      <div class="col-lg-1">
+        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('hh')">Hi Hat</button>
+      </div>
+      <div class="col-lg-1">
+        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('cr')">Crash</button>
+      </div>
       <div class="col-lg-1"></div>
-    </div><br>
+    </div>
+    <br>
     <div class="row">
       <div class="col-lg-3">
         <div class="row">
@@ -252,61 +249,111 @@
         <div class="row bd" ng-show="bd">
           <div class="col-lg-12">
             <h4>Bass Drum</h4>
-            <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playDrum('bd')">Bass Drum</button></div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('bd')">Bass Drum</button>
+            </div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('bd')">+</button>
+            </div>
           </div>
         </div>
         <div class="row cp" ng-show="cp">
           <div class="col-lg-12">
             <h4>Clap</h4>
-            <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playDrum('cp')">Clap</button></div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('cp')">Clap</button>
+            </div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('cp')">+</button>
+            </div>
           </div>
         </div>
         <div class="row cr" ng-show="cr">
           <div class="col-lg-12">
             <h4>Crash</h4>
-            <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playDrum('cr')">Crash</button></div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('cr')">Crash</button>
+            </div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('cr')">+</button>
+            </div>
           </div>
         </div>
         <div class="row hh" ng-show="hh">
           <div class="col-lg-12">
             <h4>Hi Hat</h4>
-            <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playDrum('hh')">Hi Hat</button></div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('hh')">Hi Hat</button>
+            </div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('hh')">+</button>
+            </div>
           </div>
         </div>
         <div class="row ht" ng-show="ht">
           <div class="col-lg-12">
             <h4>Hi Tom</h4>
-            <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playDrum('ht')">Hi Tom</button></div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('ht')">Hi Tom</button>
+            </div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('ht')">+</button>
+            </div>
           </div>
         </div>
         <div class="row lt" ng-show="lt">
           <div class="col-lg-12">
             <h4>Low Tom</h4>
-            <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playDrum('lt')">Low Tom</button></div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('lt')">Low Tom</button>
+            </div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('lt')">+</button>
+            </div>
           </div>
         </div>
         <div class="row mt" ng-show="mt">
           <div class="col-lg-12">
             <h4>Mid Tom</h4>
-            <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playDrum('mt')">Mid Tom</button></div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('mt')">Mid Tom</button>
+            </div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('mt')">+</button>
+            </div>
           </div>
         </div>
         <div class="row oh" ng-show="oh">
           <div class="col-lg-12">
             <h4>Open Hat</h4>
-            <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playDrum('oh')">Open Hat</button></div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('oh')">Open Hat</button>
+            </div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('oh')">+</button>
+            </div>
           </div>
         </div>
         <div class="row rd" ng-show="rd">
           <div class="col-lg-12">
             <h4>Ride</h4>
-            <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playDrum('rd')">Ride</button></div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('rd')">Ride</button>
+            </div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('rd')">+</button>
+            </div>
           </div>
         </div>
         <div class="row sd" ng-show="sd">
           <div class="col-lg-12">
             <h4>Snare</h4>
-            <div class="col-lg-1"><button type="button" class="btn btn-default btn-lg" ng-click="playDrum('sd')">Snare</button></div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('sd')">Snare</button>
+            </div>
+            <div class="col-lg-1">
+              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('sd')">+</button>
+            </div>
           </div>
         </div>
       </div>
