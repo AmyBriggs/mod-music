@@ -188,7 +188,7 @@ app.controller('BuildController', ['$scope', function($scope) {
  $scope.playNote = function(note) {
   sounds[$scope.instrument][note].play()
  }
- 
+
  //play the drum sound
  $scope.playDrum = function(part) {
   sounds.drums[part].play()
