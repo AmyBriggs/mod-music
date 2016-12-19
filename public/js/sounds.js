@@ -46,7 +46,7 @@ let dMajChords = {
   'aMaj': ['sound9', 'sound13', 'sound16'],
   'aMaj1': ['sound1', 'sound4', 'sound9'],
   'aMaj2': ['sound4', 'sound9', 'sound13'],
-  'aMaj7': ['sound4', 'sound7', 'sound9', 'sound13']
+  'aMaj7': ['sound4', 'sound7', 'sound9', 'sound13'],
   'bmin1': ['sound2', 'sound6', 'sound11'],
-  'bmin2': ['sound6', 'sound11', 'sound14'],
+  'bmin2': ['sound6', 'sound11', 'sound14']
 }
