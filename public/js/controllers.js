@@ -1,8 +1,8 @@
 app.controller('BuildController', ['$scope', function($scope) {
+ $scope.build = [];
  $scope.notes = false;
  $scope.drums = false;
  $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
- $scope.activeInst = [];
 
  var sounds = {
   piano: {
