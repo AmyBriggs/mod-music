@@ -117,6 +117,38 @@ app.controller('BuildController', ['$scope', function($scope){
       B: new Howl({
         urls: ['sounds/bass/acoustic_bass-mp3/B2.mp3'],
       })
+    },
+    drums: {
+      bd: new Howl({
+        urls: ['sounds/drums/909/bd02.wav']
+      }),
+      cp: new Howl({
+        urls: ['sounds/drums/909/cp01.wav']
+      }),
+      cr: new Howl({
+        urls: ['sounds/drums/909/cr02.wav']
+      }),
+      hh: new Howl({
+        urls: ['sounds/drums/909/hh01.wav']
+      }),
+      ht: new Howl({
+        urls: ['sounds/drums/909/ht01.wav']
+      }),
+      lt: new Howl({
+        urls: ['sounds/drums/909/lt01.wav']
+      }),
+      mt: new Howl({
+        urls: ['sounds/drums/909/mt01.wav']
+      }),
+      oh: new Howl({
+        urls: ['sounds/drums/909/oh01.wav']
+      }),
+      rd: new Howl({
+        urls: ['sounds/drums/909/rd01.wav']
+      }),
+      sd: new Howl({
+        urls: ['sounds/drums/909/sd01.wav']
+      })
     }
 
   }
