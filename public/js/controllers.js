@@ -160,29 +160,39 @@ app.controller('BuildController', ['$scope', function($scope) {
   } else {
    $scope.notes = true;
    $scope.drums = false;
-   $scope.activeInst[0] = instr
+  //  $scope.activeInst[0] = instr
    $scope.instrument = instr
-   console.log();
-   console.log('instrument is', instr);
   }
  }
 
  $scope.isActive = false
- $scope.attachInstr = function() {
+ $scope.addInstr = function(instr) {
+   console.log($scope.build);
   $scope.isActive = !$scope.isActive
   if (!$scope.instrument) {
    console.log($scope.isActive);
    console.log('Please select an instrument');
   } else {
    let instr = $scope.instrument
-   $scope.instr = {
-    show: true,
-    hide: false
-   }
-   $scope.selected = instr
-   console.log('you clicked', instr);
+   let instrObj = {}
+   instrObj.instrument = instr
+   instrObj.notes = []
+  //  console.log(instrObj)
+   $scope.build.push(instrObj)
+   console.log($scope.build);
+  //  $scope.instr = {
+  //   show: true,
+  //   hide: false
+  //  }
+  //  $scope.selected = instr
+
 
   }
+ }
+
+ $scope.test = function(){
+   console.log('meow');
+   $scope.meow = true;
  }
 
  $scope.playNote = function(note) {

@@ -32,7 +32,7 @@
   </div>
   <div class="col-lg-8 grid text-center">
     <table class="grid-table">
-      <tr ng-click="attachInstr()" ng-class="{'active': isActive}">
+      <tr ng-click="activeInstr()" ng-class="{'active': isActive}">
         <td></td>
         <td></td>
         <td></td>
@@ -50,7 +50,7 @@
         <td></td>
         <td></td>
       </tr>
-      <tr ng-click="attachInstr()" ng-class="{'active': isActive}">
+      <tr ng-click="activeInstr()" ng-class="{'active': isActive}">
         <td></td>
         <td></td>
         <td></td>
@@ -68,7 +68,7 @@
         <td></td>
         <td></td>
       </tr>
-      <tr ng-click="attachInstr()" ng-class="{'active': isActive}">
+      <tr ng-click="activeInstr()" ng-class="{'active': isActive}">
         <td></td>
         <td></td>
         <td></td>
@@ -86,7 +86,7 @@
         <td></td>
         <td></td>
       </tr>
-      <tr ng-click="attachInstr()" ng-class="{'active': isActive}">
+      <tr ng-click="activeInstr()" ng-class="{'active': isActive}">
         <td></td>
         <td></td>
         <td></td>
@@ -108,7 +108,7 @@
   </div>
   <div class="col-lg-3 rack text-center">
     <h4>RACK</h4>
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel-group" id="" role="tablist" aria-multiselectable="true">
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingFive">
           <h4 class="panel-title">
@@ -119,7 +119,7 @@
         </div>
         <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
           <div class="panel-body">
-            <button ng-click="notesOn('piano')" type="button" class="btn btn-default btn-lg">Piano</button>
+            <button ng-click="notesOn('piano'); addInstr(instr)" type="button" class="btn btn-default btn-lg">Piano</button>
           </div>
         </div>
       </div>
@@ -134,7 +134,7 @@
         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
           <div class="panel-body">
             <div class="panel-body">
-              <button ng-click="notesOn('guitar')" type="button" class="btn btn-default btn-lg">Guitar</button>
+              <button ng-click="notesOn('guitar'); addInstr(instr)" type="button" class="btn btn-default btn-lg">Guitar</button>
             </div>
           </div>
         </div>
@@ -150,7 +150,7 @@
         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="panel-body">
             <div class="panel-body">
-              <button ng-click="notesOn('bass')" type="button" class="btn btn-default btn-lg">Bass</button>
+              <button ng-click="notesOn('bass'); addInstr(instr)" type="button" class="btn btn-default btn-lg">Bass</button>
             </div>
           </div>
         </div>
@@ -166,7 +166,7 @@
         <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
           <div class="panel-body">
             <div class="panel-body">
-              <button ng-click="notesOn('drums')" type="button" class="btn btn-default btn-lg">Drum Rack</button>
+              <button ng-click="notesOn('drums'); addInstr(instr)" type="button" class="btn btn-default btn-lg">Drum Rack</button>
             </div>
           </div>
         </div>
