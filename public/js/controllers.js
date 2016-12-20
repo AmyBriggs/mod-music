@@ -1,12 +1,19 @@
 app.controller('BuildController', ['$scope', function($scope) {
  $scope.build = [];
- var colors = ['rgb(51, 5, 91)', 'rgb(69, 0, 147)', 'rgb(101, 2, 180)', 'rgb(152, 22, 255)'];
+ let colors = ['rgb(51, 5, 91)', 'rgb(69, 0, 147)', 'rgb(101, 2, 180)', 'rgb(152, 22, 255)'];
  $scope.notes = false;
  $scope.drums = false;
  $scope.collapsePiano = true; $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapseDrums = false;
  $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
+ let playIndex;
+ let noteTime;
+ let startTime;
+ let aheadTime = 0.200;
+ let context = new AudioContext();
+ let gain = context.createGain();
+ gain.connect(context.destination);
 
- var sounds = {
+ let sounds = {
   piano: {
    C: new Howl({
     urls: ['sounds/piano/acoustic_grand_piano-mp3/C4.mp3'],
@@ -190,7 +197,6 @@ app.controller('BuildController', ['$scope', function($scope) {
    let instrObj = {}
    instrObj.instrument = instr
    instrObj.notes = []
-   console.log(instrObj);
    $scope.build.push(instrObj)
    let index = $scope.build.length-1
    let label = document.getElementsByClassName(`${index} selected-instr`)[0]
@@ -198,16 +204,63 @@ app.controller('BuildController', ['$scope', function($scope) {
  }
 
  $scope.populate = function(elem){
-   var rowIndex = elem.currentTarget.parentNode.className;
-   var chosenInstr = $scope.note[0];
-   var note = $scope.note[1];
+   let rowIndex = elem.currentTarget.parentNode.className;
+   let chosenInstr = $scope.note[0];
+   let note = $scope.note[1];
    if($scope.build[rowIndex].instrument === chosenInstr) {
-     elem.currentTarget.style.backgroundColor=colors[rowIndex];
+     elem.currentTarget.style.backgroundColor = colors[rowIndex];
+     elem.currentTarget.className = `${note}`;
      elem.currentTarget.addEventListener('click', sounds[chosenInstr][note].play());
    }
-
+   updateBuild();
+   console.log($scope.build);
  }
 
+ function updateBuild(){
+   for(var i = 0; i < $scope.build.length; i++){
+     var row = document.getElementsByClassName(`${i}`)[1];
+     var cells = row.children;
+     for(var j = 0; j < cells.length; j++){
+       $scope.build[i].notes[j] = cells[j].className;
+     }
+   }
+ }
+
+ $scope.startPlay = function() {
+  playIndex = 0;
+  noteTime = 0.0;
+  startTime = context.currentTime + aheadTime;
+  schedule();
+ }
+
+ function schedule() {
+  var currentTime = context.currentTime;
+  currentTime -= startTime;
+  while (noteTime < currentTime + aheadTime) {
+   var contextPlayTime = noteTime + startTime;
+   var $currentSquares = $(".column_" + playIndex);
+   $currentSquares.each(function() {
+    if ($(this).hasClass("active") && $(this).hasClass("pitch1")) {
+     sounds.sound0.play();
+    }
+    if ($(this).hasClass("active") && $(this).hasClass("pitch2")) {
+     sounds.sound1.play();
+    }
+    if ($(this).hasClass("active") && $(this).hasClass("pitch3")) {
+     sounds.sound2.play();
+    }
+    if ($(this).hasClass("active") && $(this).hasClass("pitch4")) {
+     sounds.sound3.play();
+    }
+    if ($(this).hasClass("active") && $(this).hasClass("pitch5")) {
+     sounds.sound4.play();
+    }
+   })
+   drawPlayhead(playIndex);
+   advanceNote();
+  }
+  timeoutId = requestAnimationFrame(schedule)
+ }
  $scope.playNote = function(note) {
   sounds[$scope.instrument][note].play()
   //most recent note that was selected
@@ -265,9 +318,9 @@ app.controller('BuildController', ['$scope', function($scope) {
   }
  }
  $scope.addToRack = function(part){
-   var rack = document.getElementsByClassName('d-rack');
-   var partHtml = `<button type="button" class="btn btn-default btn-lg" onclick="playDrum('${part}')">${part}</button>`;
-   for(var i = 0; i < rack.length; i++){
+   let rack = document.getElementsByClassName('d-rack');
+   let partHtml = `<button type="button" class="btn btn-default btn-lg" onclick="playDrum('${part}')">${part}</button>`;
+   for(let i = 0; i < rack.length; i++){
      if(rack[i].innerHTML === 'empty'){
        rack[i].innerHTML = partHtml;
        break;
