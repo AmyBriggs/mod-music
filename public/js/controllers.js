@@ -55,7 +55,7 @@ app.controller('BuildController', ['$scope', function($scope) {
    C1: new Howl({
     urls: ['sounds/piano/acoustic_grand_piano-mp3/C5.mp3'],
   }),
-   Db1: new Howl({
+   Cs1: new Howl({
     urls: ['sounds/piano/acoustic_grand_piano-mp3/Db5.mp3'],
   }),
    D1: new Howl({
@@ -68,7 +68,6 @@ app.controller('BuildController', ['$scope', function($scope) {
     urls: ['sounds/piano/acoustic_grand_piano-mp3/E5.mp3'],
   })
   },
-
 
 
   guitar: {
@@ -178,8 +177,66 @@ app.controller('BuildController', ['$scope', function($scope) {
    sd: new Howl({
     urls: ['sounds/drums/909/sd01.wav']
    })
-  }
+ },
  }
+
+ let chords = {
+   cMajChords: {
+     cMaj: ['C', 'E', 'G'],
+     cMaj1: ['E', 'G', 'C'],
+     cMaj2: ['G', 'C', 'E'],
+     dmin: ['D', 'F', 'A'],
+     dmin1: ['F', 'A', 'D'],
+     emin: ['E', 'G', 'B'],
+     emin1: ['G', 'B', 'E'],
+     fMaj: ['F', 'A', 'C'],
+     fMaj2: ['C', 'F', 'A'],
+     gMaj: ['G', 'B', 'D'],
+     gMaj2: ['B', 'D', 'G'],
+     gMaj7: ['B', 'D', 'F', 'G'],
+     amin: ['A', 'C', 'E'],
+     amin1: ['C', 'E', 'A'],
+     amin2: ['E', 'A', 'C']
+   },
+   gMajChords: {
+     gMaj: ['G', 'B', 'D'],
+     gMaj2: ['B', 'D', 'G'],
+     amin: ['A', 'C', 'E'],
+     amin1: ['C', 'E', 'A'],
+     amin2: ['E', 'A', 'C'],
+     bmin1: ['B', 'D', 'Fs'],
+     bmin2: ['D', 'Fs', 'B'],
+     cMaj: ['C', 'E', 'G'],
+     cMaj1: ['E', 'G', 'C'],
+     cMaj2: ['G', 'C', 'E'],
+     dMaj: ['D', 'Fs', 'A'],
+     dMaj1: ['Fs', 'A', 'D'],
+     dMaj7: ['Fs', 'A', 'C', 'D'],
+     emin: ['E', 'G', 'B'],
+     emin1: ['G', 'B', 'E']
+   },
+   dMajChords: {
+     dMaj: ['D', 'Fs', 'A'],
+     dMaj1: ['Fs', 'A', 'D'],
+     emin: ['E', 'G', 'B'],
+     emin1: ['G', 'B', 'E'],
+     gbmin: ['Fs', 'A', 'Cs'],
+     gbmin2: ['Cs', 'Fs', 'A'],
+     gMaj: ['G', 'B', 'D'],
+     gMaj2: ['D', 'G', 'B'],
+     aMaj: ['A', 'Cs1', 'E1'],
+     aMaj1: ['Cs1', 'E', 'A'],
+     aMaj2: ['E', 'A', 'Cs1'],
+     aMaj7: ['E', 'G', 'A', 'Cs1'],
+     bmin1: ['D', 'Fs', 'B'],
+     bmin2: ['Fs', 'B', 'D1']
+   }
+ }
+
+
+
+
+
  $scope.collapse = function(instr) {
   switch (instr) {
    case 'piano':
@@ -288,12 +345,17 @@ app.controller('BuildController', ['$scope', function($scope) {
   $scope.note = [$scope.instrument, note];
  }
 
- $scope.playChord = function(chord){
-  //  sounds[$scope.instrument][chord].play()
-  sounds[$scope.instrument].C.play()
-  sounds[$scope.instrument].E.play()
-  sounds[$scope.instrument].G.play()
 
+
+ $scope.playChord = function(elem){
+   let key = elem.currentTarget.parentNode.parentNode.id
+   let chord = elem.currentTarget.innerHTML
+   let chordNotes = chords[key][chord]
+   console.log($scope.instrument, chordNotes);
+   sounds[$scope.instrument][chordNotes[0]].play()
+   sounds[$scope.instrument][chordNotes[1]].play()
+   sounds[$scope.instrument][chordNotes[2]].play()
+   sounds[$scope.instrument][chordNotes[3]].play()
  }
 
  //play the drum sound
