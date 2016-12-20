@@ -106,7 +106,22 @@ app.controller('BuildController', ['$scope', function($scope) {
    }),
    B: new Howl({
     urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/B4.mp3'],
-   })
+  }),
+   C1: new Howl({
+    urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/C5.mp3'],
+  }),
+   Cs1: new Howl({
+    urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/Db5.mp3'],
+  }),
+   D1: new Howl({
+    urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/D5.mp3'],
+  }),
+   Eb1: new Howl({
+    urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/Eb5.mp3'],
+  }),
+   E1: new Howl({
+    urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/E5.mp3'],
+  })
   },
   bass: {
    C: new Howl({
