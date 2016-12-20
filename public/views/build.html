@@ -148,7 +148,7 @@
     </div>
   </div>
   <div ng-show="notes" class="col-lg-12 notes text-center">
-    <h4>{{ instrument }}</h4>
+    <h4>{{ instrument }} notes</h4>
     <div class="row">
       <div class="col-lg-1">
         <button type="button" class="btn btn-default btn-lg" ng-click="playNote('C')">C</button>
@@ -185,6 +185,56 @@
       </div>
       <div class="col-lg-1">
         <button type="button" class="btn btn-default btn-lg" ng-click="playNote('B')">B</button>
+      </div>
+    </div>
+  </div>
+  <div ng-show="notes" class="col-lg-12 notes text-center">
+    <h4>{{ instrument }} chords</h4>
+    <div id="cMajChords" class="row">
+      <div class="col-lg-1 cMaj">
+        <button type="button" class="btn btn-default btn-lg cMaj" ng-click="playChord($event)">cMaj</button>
+      </div>
+      <div class="col-lg-1 cMaj1">
+        <button type="button" class="btn btn-default btn-lg cMaj1" ng-click="playChord($event)">cMaj1</button>
+      </div>
+      <div class="col-lg-1 cMaj2">
+        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">cMaj2</button>
+      </div>
+      <div class="col-lg-1 dmin">
+        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">dmin</button>
+      </div>
+      <div class="col-lg-1 dmin1">
+        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">dmin1</button>
+      </div>
+      <div class="col-lg-1 emin">
+        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">emin</button>
+      </div>
+      <div class="col-lg-1 emin1">
+        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">emin1</button>
+      </div>
+      <div class="col-lg-1 fMaj">
+        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">fMaj</button>
+      </div>
+      <div class="col-lg-1 fMaj2">
+        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">fMaj2</button>
+      </div>
+      <div class="col-lg-1 gMaj">
+        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">gMaj</button>
+      </div>
+      <div class="col-lg-1 gMaj2">
+        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">gMaj2</button>
+      </div>
+      <div class="col-lg-1 gMaj7">
+        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">gMaj7</button>
+      </div>
+      <div class="col-lg-1 amin">
+        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">amin</button>
+      </div>
+      <div class="col-lg-1 amin1">
+        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">amin1</button>
+      </div>
+      <div class="col-lg-1 amin2">
+        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">amin2</button>
       </div>
     </div>
   </div>
