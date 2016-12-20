@@ -1,19 +1,25 @@
 app.controller('BuildController', ['$scope','$rootScope', function($scope, $rootScope) {
-  $rootScope.vm = {};
+  //$rootScope.vm.build: data structure representing our grid
+ $rootScope.vm = {};
  $rootScope.vm.build = [];
- let colors = ['rgb(51, 5, 91)', 'rgb(69, 0, 147)', 'rgb(101, 2, 180)', 'rgb(152, 22, 255)'];
+ //notes: instruments, chords: harmonic presets, drums: drum rack
+ //variables used for display logic
  $scope.notes = false;
  $scope.chords = false;
  $scope.drums = false;
+ //variables used for side-accordion display logic
  $scope.collapsePiano = true; $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapseDrums = false;
+ //variables used for drum rack part display logic
  $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
+ //initialize play feature variables
  let bpm = 60;
  let playIndex;
  let noteTime;
  let startTime;
  let aheadTime = 0.200;
- var loop_length = 16;
-
+ let loop_length = 16;
+ //colors array for each grid row
+ let colors = ['rgb(51, 5, 91)', 'rgb(69, 0, 147)', 'rgb(101, 2, 180)', 'rgb(152, 22, 255)'];
  let sounds = {
   piano: {
    C: new Howl({
@@ -68,8 +74,6 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
     urls: ['sounds/piano/acoustic_grand_piano-mp3/E5.mp3'],
   })
   },
-
-
   guitar: {
    C: new Howl({
     urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/C4.mp3'],
@@ -192,7 +196,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    sd: new Howl({
     urls: ['sounds/drums/909/sd01.wav']
    })
- },
+ }
  }
 
  let chords = {
@@ -248,8 +252,129 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    }
  }
 
+ /*** LOGIC FOR PLAYING SOUNDS ***/
+ $scope.playNote = function(note) {
+  sounds[$scope.instrument][note].play()
+  //most recent note that was selected
+  $scope.currentNote = [$scope.instrument, note];
+ }
+ $scope.playChord = function(elem){
+   let key = elem.currentTarget.parentNode.parentNode.id
+   let chord = elem.currentTarget.innerHTML
+   let chordNotes = chords[key][chord]
+   for(var i = 0; i < chordNotes.length; i++){
+     sounds[$scope.instrument][chordNotes[i]].play()
+   }
+ }
+ $scope.playDrum = function(part) {
+  sounds.drums[part].play()
+ }
 
+ //adding drum parts to actual rack
+  $scope.addToRack = function(part){
+    let rack = document.getElementsByClassName('d-rack');
+    let partHtml = `<button type="button" class="btn btn-default btn-lg" onclick="playDrum('${part}')">${part}</button>`;
+    for(let i = 0; i < rack.length; i++){
+      if(rack[i].innerHTML === 'empty'){
+        rack[i].innerHTML = partHtml;
+        break;
+      }
+    }
+  }
+
+//logic for when you choose an instrument
+ $scope.addInstr = function(instr) {
+   //push into build array
+   //labels the row with the instrument
+   $scope.instrument = instr;
+   let instrObj = {}
+   instrObj.instrument = instr
+   instrObj.notes = []
+   $rootScope.vm.build.push(instrObj)
+   let index = $rootScope.vm.build.length-1
+   let label = document.getElementsByClassName(`${index} selected-instr`)[0]
+   label.innerHTML = instr;
+ }
+ //populating the cells
+ $scope.populate = function(elem){
+   //applies color and notes to grid
+   //updates build array
+   let rowIndex = elem.currentTarget.parentNode.className;
+   let chosenInstr = $scope.currentNote[0];
+   let note = $scope.currentNote[1];
+   if($rootScope.vm.build[rowIndex].instrument === chosenInstr) {
+     elem.currentTarget.style.backgroundColor = colors[rowIndex];
+     elem.currentTarget.className = `${note}`;
+     elem.currentTarget.addEventListener('click', sounds[chosenInstr][note].play());
+   }
+   updateBuild();
+ }
+ //updates build array with notes
+ function updateBuild(){
+   for(let i = 0; i < $rootScope.vm.build.length; i++){
+     let row = document.getElementsByClassName(`${i}`)[1];
+     let cells = row.children;
+     for(let j = 0; j < cells.length; j++){
+       cells[j].setAttribute("data-col", j);
+       $rootScope.vm.build[i].notes[j] = cells[j].className;
+     }
+   }
+ }
+
+//play functionality
+ $scope.startPlay = function() {
+   let context = new AudioContext();
+   playIndex = 0;
+   noteTime = 0.0;
+   startTime = context.currentTime + aheadTime;
+   schedule(context);
+ }
+
+ function schedule(context) {
+   let gain = context.createGain();
+   gain.connect(context.destination);
+   let currentTime = context.currentTime;
+   while (noteTime < currentTime + aheadTime) {
+    let allSquares = document.querySelectorAll("[data-col]");
+    let currentSquares = [];
+    for (let i = 0; i < allSquares.length; i++) {
+     if (allSquares[i].getAttribute("data-col") == playIndex) {
+      currentSquares.push(allSquares[i]);
+     }
+    }
+    for (let i = 0; i < currentSquares.length; i++) {
+     let index = currentSquares[i].parentNode.className;
+     let instrument = $rootScope.vm.build[index].instrument;
+     let note = currentSquares[i].className;
+     sounds[instrument][note].play();
+    }
+    //pause
+    sleep(1000);
+    advanceNote();
+   }
+   }
+  //function for pausing
+  function sleep(milliseconds) {
+   let start = new Date().getTime();
+   for (let i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds) {
+     break;
+    }
+   }
+  }
+  //advance the note (iffy)
+ function advanceNote() {
+    let secondsPerBeat = 45.0 / bpm;
+    playIndex++;
+    if (playIndex == loop_length) {
+        playIndex = 0;
+    }
+    noteTime += 0.25 * secondsPerBeat
+}
+
+ /*** DISPLAY LOGIC ***/
  $scope.collapse = function(instr) {
+   //side-accordion
   switch (instr) {
    case 'piano':
     $scope.collapsePiano = true;
@@ -270,6 +395,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
   }
  }
  $scope.notesOn = function(instr) {
+   //showing the notes
   if (instr == 'drums') {
    $scope.drums = true
    $scope.notes = false
@@ -280,113 +406,8 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    $scope.drums = false;
   }
  }
-
-//adding instrument to build array and also labeling the row with the appropriate instrument
- $scope.addInstr = function(instr) {
-   $scope.instrument = instr;
-   let instrObj = {}
-   instrObj.instrument = instr
-   instrObj.notes = []
-   $rootScope.vm.build.push(instrObj)
-   let index = $rootScope.vm.build.length-1
-   let label = document.getElementsByClassName(`${index} selected-instr`)[0]
-   label.innerHTML = instr;
- }
-
- $scope.populate = function(elem){
-   let rowIndex = elem.currentTarget.parentNode.className;
-   let chosenInstr = $scope.note[0];
-   let note = $scope.note[1];
-   if($rootScope.vm.build[rowIndex].instrument === chosenInstr) {
-     elem.currentTarget.style.backgroundColor = colors[rowIndex];
-     elem.currentTarget.className = `${note}`;
-     elem.currentTarget.addEventListener('click', sounds[chosenInstr][note].play());
-   }
-   updateBuild();
- }
-
- function updateBuild(){
-   for(var i = 0; i < $rootScope.vm.build.length; i++){
-     var row = document.getElementsByClassName(`${i}`)[1];
-     var cells = row.children;
-     for(var j = 0; j < cells.length; j++){
-       cells[j].setAttribute("data-col", j);
-       $rootScope.vm.build[i].notes[j] = cells[j].className;
-     }
-   }
- }
-
- $scope.startPlay = function() {
-   let context = new AudioContext();
-   playIndex = 0;
-   noteTime = 0.0;
-   startTime = context.currentTime + aheadTime;
-   schedule(context);
- }
-
- function schedule(context) {
-   let gain = context.createGain();
-   gain.connect(context.destination);
-  var currentTime = context.currentTime;
-  while (noteTime < currentTime + aheadTime) {
-   var allSquares = document.querySelectorAll("[data-col]");
-   var currentSquares = [];
-   for(var i = 0; i < allSquares.length; i++){
-     if(allSquares[i].getAttribute("data-col") == playIndex){
-       currentSquares.push(allSquares[i]);
-     }
-   }
-   for(var i = 0; i < currentSquares.length; i++){
-     var index = currentSquares[i].parentNode.className;
-     var instrument = $rootScope.vm.build[index].instrument;
-     var note = currentSquares[i].className;
-     sounds[instrument][note].play();
-   }
-  sleep(1000);
-  advanceNote();
-  }
- }
- function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-}
- function advanceNote() {
-    var secondsPerBeat = 45.0 / bpm;
-    playIndex++;
-    if (playIndex == loop_length) {
-        playIndex = 0;
-    }
-    noteTime += 0.25 * secondsPerBeat
-}
- $scope.playNote = function(note) {
-  sounds[$scope.instrument][note].play()
-  //most recent note that was selected
-  $scope.note = [$scope.instrument, note];
- }
-
-
-
- $scope.playChord = function(elem){
-   let key = elem.currentTarget.parentNode.parentNode.id
-   let chord = elem.currentTarget.innerHTML
-   let chordNotes = chords[key][chord]
-   sounds[$scope.instrument][chordNotes[0]].play()
-   sounds[$scope.instrument][chordNotes[1]].play()
-   sounds[$scope.instrument][chordNotes[2]].play()
-   sounds[$scope.instrument][chordNotes[3]].play()
- }
-
- //play the drum sound
- $scope.playDrum = function(part) {
-  sounds.drums[part].play()
- }
-
- //Logic for showing a panel when a certain part is clicked on (handling the ng-show logic)
  $scope.activeDrum = function(part) {
+   //drum rack parts
   switch (part) {
    case 'bd':
     $scope.bd = true;
@@ -430,14 +451,5 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
     break;
   }
  }
- $scope.addToRack = function(part){
-   let rack = document.getElementsByClassName('d-rack');
-   let partHtml = `<button type="button" class="btn btn-default btn-lg" onclick="playDrum('${part}')">${part}</button>`;
-   for(let i = 0; i < rack.length; i++){
-     if(rack[i].innerHTML === 'empty'){
-       rack[i].innerHTML = partHtml;
-       break;
-     }
-   }
- }
+
 }])
