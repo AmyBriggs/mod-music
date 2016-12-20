@@ -212,7 +212,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
      fMaj2: ['C', 'F', 'A'],
      gMaj: ['G', 'B', 'D1'],
      gMaj2: ['D', 'G', 'B'],
-     gMaj7: ['D', 'F', 'G', 'B'],
+     gDom7: ['D', 'F', 'G', 'B'],
      amin: ['A', 'C1', 'E1'],
      amin1: ['C', 'E', 'A'],
      amin2: ['E', 'A', 'C1']
@@ -236,17 +236,17 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    },
    dMajChords: {
      dMaj: ['D', 'Fs', 'A'],
-     dMaj1: ['Fs', 'A', 'D'],
+     dMaj1: ['Fs', 'A', 'D1'],
      emin: ['E', 'G', 'B'],
-     emin1: ['G', 'B', 'E'],
-     gbmin: ['Fs', 'A', 'Cs'],
-     gbmin2: ['Cs', 'Fs', 'A'],
-     gMaj: ['G', 'B', 'D'],
+     emin1: ['G', 'B', 'E1'],
+     fsmin: ['Fs', 'A', 'Cs1'],
+     fsmin2: ['Cs', 'Fs', 'A'],
+     gMaj: ['G', 'B', 'D1'],
      gMaj2: ['D', 'G', 'B'],
      aMaj: ['A', 'Cs1', 'E1'],
-     aMaj1: ['Cs1', 'E', 'A'],
+     aMaj1: ['Cs', 'E', 'A'],
      aMaj2: ['E', 'A', 'Cs1'],
-     aMaj7: ['E', 'G', 'A', 'Cs1'],
+     aDom7: ['E', 'G', 'A', 'Cs1'],
      bmin1: ['D', 'Fs', 'B'],
      bmin2: ['Fs', 'B', 'D1']
    }
