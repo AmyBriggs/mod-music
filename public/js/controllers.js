@@ -183,20 +183,20 @@ app.controller('BuildController', ['$scope', function($scope) {
  let chords = {
    cMajChords: {
      cMaj: ['C', 'E', 'G'],
-     cMaj1: ['E', 'G', 'C'],
-     cMaj2: ['G', 'C', 'E'],
+     cMaj1: ['E', 'G', 'C1'],
+     cMaj2: ['G', 'C1', 'E1'],
      dmin: ['D', 'F', 'A'],
-     dmin1: ['F', 'A', 'D'],
+     dmin1: ['F', 'A', 'D1'],
      emin: ['E', 'G', 'B'],
-     emin1: ['G', 'B', 'E'],
-     fMaj: ['F', 'A', 'C'],
+     emin1: ['G', 'B', 'E1'],
+     fMaj: ['F', 'A', 'C1'],
      fMaj2: ['C', 'F', 'A'],
-     gMaj: ['G', 'B', 'D'],
-     gMaj2: ['B', 'D', 'G'],
-     gMaj7: ['B', 'D', 'F', 'G'],
-     amin: ['A', 'C', 'E'],
+     gMaj: ['G', 'B', 'D1'],
+     gMaj2: ['D', 'G', 'B'],
+     gMaj7: ['D', 'F', 'G', 'B'],
+     amin: ['A', 'C1', 'E1'],
      amin1: ['C', 'E', 'A'],
-     amin2: ['E', 'A', 'C']
+     amin2: ['E', 'A', 'C1']
    },
    gMajChords: {
      gMaj: ['G', 'B', 'D'],
