@@ -2,6 +2,7 @@ app.controller('BuildController', ['$scope', function($scope) {
  $scope.build = [];
  let colors = ['rgb(51, 5, 91)', 'rgb(69, 0, 147)', 'rgb(101, 2, 180)', 'rgb(152, 22, 255)'];
  $scope.notes = false;
+ $scope.chords = false;
  $scope.drums = false;
  $scope.collapsePiano = true; $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapseDrums = false;
  $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
@@ -50,8 +51,26 @@ app.controller('BuildController', ['$scope', function($scope) {
    }),
    B: new Howl({
     urls: ['sounds/piano/acoustic_grand_piano-mp3/B4.mp3'],
-   })
+  }),
+   C1: new Howl({
+    urls: ['sounds/piano/acoustic_grand_piano-mp3/C5.mp3'],
+  }),
+   Db1: new Howl({
+    urls: ['sounds/piano/acoustic_grand_piano-mp3/Db5.mp3'],
+  }),
+   D1: new Howl({
+    urls: ['sounds/piano/acoustic_grand_piano-mp3/D5.mp3'],
+  }),
+   Eb1: new Howl({
+    urls: ['sounds/piano/acoustic_grand_piano-mp3/Eb5.mp3'],
+  }),
+   E1: new Howl({
+    urls: ['sounds/piano/acoustic_grand_piano-mp3/E5.mp3'],
+  })
   },
+
+
+
   guitar: {
    C: new Howl({
     urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/C4.mp3'],
@@ -185,8 +204,10 @@ app.controller('BuildController', ['$scope', function($scope) {
   if (instr == 'drums') {
    $scope.drums = true
    $scope.notes = false
+   $scope.chords = false
   } else {
    $scope.notes = true;
+   $scope.chords = true;
    $scope.drums = false;
   }
  }
@@ -265,6 +286,14 @@ app.controller('BuildController', ['$scope', function($scope) {
   sounds[$scope.instrument][note].play()
   //most recent note that was selected
   $scope.note = [$scope.instrument, note];
+ }
+
+ $scope.playChord = function(chord){
+  //  sounds[$scope.instrument][chord].play()
+  sounds[$scope.instrument].C.play()
+  sounds[$scope.instrument].E.play()
+  sounds[$scope.instrument].G.play()
+
  }
 
  //play the drum sound
