@@ -5,10 +5,12 @@ app.controller('BuildController', ['$scope', function($scope) {
  $scope.drums = false;
  $scope.collapsePiano = true; $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapseDrums = false;
  $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
+ let bpm = 60;
  let playIndex;
  let noteTime;
  let startTime;
  let aheadTime = 0.200;
+ var loop_length = 16;
  let context = new AudioContext();
  let gain = context.createGain();
  gain.connect(context.destination);
@@ -213,7 +215,6 @@ app.controller('BuildController', ['$scope', function($scope) {
      elem.currentTarget.addEventListener('click', sounds[chosenInstr][note].play());
    }
    updateBuild();
-   console.log($scope.build);
  }
 
  function updateBuild(){
@@ -221,12 +222,14 @@ app.controller('BuildController', ['$scope', function($scope) {
      var row = document.getElementsByClassName(`${i}`)[1];
      var cells = row.children;
      for(var j = 0; j < cells.length; j++){
+       cells[j].setAttribute("data-col", j);
        $scope.build[i].notes[j] = cells[j].className;
      }
    }
  }
 
  $scope.startPlay = function() {
+   console.log('hi');
   playIndex = 0;
   noteTime = 0.0;
   startTime = context.currentTime + aheadTime;
@@ -236,31 +239,58 @@ app.controller('BuildController', ['$scope', function($scope) {
  function schedule() {
   var currentTime = context.currentTime;
   currentTime -= startTime;
-  while (noteTime < currentTime + aheadTime) {
-   var contextPlayTime = noteTime + startTime;
-   var $currentSquares = $(".column_" + playIndex);
-   $currentSquares.each(function() {
-    if ($(this).hasClass("active") && $(this).hasClass("pitch1")) {
-     sounds.sound0.play();
-    }
-    if ($(this).hasClass("active") && $(this).hasClass("pitch2")) {
-     sounds.sound1.play();
-    }
-    if ($(this).hasClass("active") && $(this).hasClass("pitch3")) {
-     sounds.sound2.play();
-    }
-    if ($(this).hasClass("active") && $(this).hasClass("pitch4")) {
-     sounds.sound3.play();
-    }
-    if ($(this).hasClass("active") && $(this).hasClass("pitch5")) {
-     sounds.sound4.play();
-    }
-   })
-   drawPlayhead(playIndex);
-   advanceNote();
-  }
-  timeoutId = requestAnimationFrame(schedule)
+  var allSquares = document.querySelectorAll("[data-col]");
+  var currentSquares = [];
+  // for(var i = 0; i < allSquares.length; i++){
+  //   if(allSquares[i].getAttribute("data-col") == playIndex){
+  //     // console.log('hey');
+  //     currentSquares.push(allSquares[i]);
+  //   }
+  // }
+  // console.log(currentSquares);
+  // while (noteTime < currentTime + aheadTime) {
+  //  var contextPlayTime = noteTime + startTime;
+  //  var allSquares = document.querySelectorAll("[data-col]");
+  //  var currentSquares = [];
+  //  for(var i = 0; i < allSquares.length; i++){
+  //    console.log(allSquares[i].getAttribute("data-col"), playIndex);
+  //    if(allSquares[i].getAttribute("data-col") === playIndex){
+  //      currentSquares.push(allSquares[i]);
+  //    }
+  //  }
+  //  for(var i = 0; i < currentSquares.length; i++){
+  //    console.log(currentSquares[i]);
+  //  }
+  //  currentSquares.each(function() {
+    // if ($(this).hasClass("active") && $(this).hasClass("pitch1")) {
+    //  sounds.sound0.play();
+    // }
+    // if ($(this).hasClass("active") && $(this).hasClass("pitch2")) {
+    //  sounds.sound1.play();
+    // }
+    // if ($(this).hasClass("active") && $(this).hasClass("pitch3")) {
+    //  sounds.sound2.play();
+    // }
+    // if ($(this).hasClass("active") && $(this).hasClass("pitch4")) {
+    //  sounds.sound3.play();
+    // }
+    // if ($(this).hasClass("active") && $(this).hasClass("pitch5")) {
+    //  sounds.sound4.play();
+    // }
+  //  })
+  //  drawPlayhead(playIndex);
+  //  advanceNote();
+  // }
+  // timeoutId = requestAnimationFrame(schedule)
  }
+ function advanceNote() {
+    var secondsPerBeat = 45.0 / bpm;
+    playIndex++;
+    if (playIndex == loop_length) {
+        playIndex = 0;
+    }
+    noteTime += 0.25 * secondsPerBeat
+}
  $scope.playNote = function(note) {
   sounds[$scope.instrument][note].play()
   //most recent note that was selected
