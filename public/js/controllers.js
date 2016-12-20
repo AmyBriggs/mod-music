@@ -1,5 +1,6 @@
 app.controller('BuildController', ['$scope', function($scope) {
  $scope.build = [];
+ var colors = ['rgb(51, 5, 91)', 'rgb(69, 0, 147)', 'rgb(101, 2, 180)', 'rgb(152, 22, 255)'];
  $scope.notes = false;
  $scope.drums = false;
  $scope.collapsePiano = true; $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapseDrums = false;
@@ -183,6 +184,7 @@ app.controller('BuildController', ['$scope', function($scope) {
   }
  }
 
+//adding instrument to build array and also labeling the row with the appropriate instrument
  $scope.addInstr = function(instr) {
    $scope.instrument = instr;
    let instrObj = {}
@@ -195,8 +197,21 @@ app.controller('BuildController', ['$scope', function($scope) {
    label.innerHTML = instr;
  }
 
+ $scope.populate = function(elem){
+   var rowIndex = elem.currentTarget.parentNode.className;
+   var chosenInstr = $scope.note[0];
+   var note = $scope.note[1];
+   if($scope.build[rowIndex].instrument === chosenInstr) {
+     elem.currentTarget.style.backgroundColor=colors[rowIndex];
+     elem.currentTarget.addEventListener('click', sounds[chosenInstr][note].play());
+   }
+
+ }
+
  $scope.playNote = function(note) {
   sounds[$scope.instrument][note].play()
+  //most recent note that was selected
+  $scope.note = [$scope.instrument, note];
  }
 
  //play the drum sound
@@ -251,13 +266,12 @@ app.controller('BuildController', ['$scope', function($scope) {
  }
  $scope.addToRack = function(part){
    var rack = document.getElementsByClassName('d-rack');
-   var partHtml = `<button type="button" class="btn btn-default btn-lg" ng-click="playDrum('${part}')">${part}</button>`;
+   var partHtml = `<button type="button" class="btn btn-default btn-lg" onclick="playDrum('${part}')">${part}</button>`;
    for(var i = 0; i < rack.length; i++){
      if(rack[i].innerHTML === 'empty'){
        rack[i].innerHTML = partHtml;
        break;
      }
    }
-   $scope.$apply()
  }
 }])
