@@ -213,23 +213,6 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
      amin1: ['C', 'E', 'A'],
      amin2: ['E', 'A', 'C1']
    },
-   gMajChords: {
-     gMaj: ['G', 'B', 'D1'],
-     gMaj2: ['D', 'G', 'B'],
-     amin: ['A', 'C1', 'E1'],
-     amin1: ['C', 'E', 'A'],
-     amin2: ['E', 'A', 'C1'],
-     bmin1: ['D', 'Fs', 'B'],
-     bmin2: ['Fs', 'B', 'D1'],
-     cMaj: ['C', 'E', 'G'],
-     cMaj1: ['E', 'G', 'C1'],
-     cMaj2: ['G', 'C1', 'E1'],
-     dMaj: ['D', 'Fs', 'A'],
-     dMaj1: ['Fs', 'A', 'D1'],
-     dDom7: ['Fs', 'A', 'C1', 'D1'],
-     emin: ['E', 'G', 'B'],
-     emin1: ['G', 'B', 'E1']
-   },
    dMajChords: {
      dMaj: ['D', 'Fs', 'A'],
      dMaj1: ['Fs', 'A', 'D1'],
@@ -245,6 +228,23 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
      aDom7: ['E', 'G', 'A', 'Cs1'],
      bmin1: ['D', 'Fs', 'B'],
      bmin2: ['Fs', 'B', 'D1']
+   },
+    ebMajChords: {
+     ebMaj: ['Eb', 'G', 'Bb'],
+     ebMaj1: ['G', 'Bb', 'Eb1'],
+     fmin: ['F', 'Ab', 'C1'],
+     fmin2: ['C', 'F', 'Ab'],
+     gmin: ['G', 'Bb', 'D1'],
+     gmin2: ['D', 'G', 'Bb'],
+     abMaj: ['Ab', 'C1', 'Eb1'],
+     abMaj1: ['C', 'Eb', 'Ab'],
+     abMaj2: ['Eb', 'Ab', 'C1'],
+     BbMaj1: ['D', 'F', 'Bb'],
+     BbMaj2: ['F', 'Bb', 'D1'],
+     BbDom7: ['F', 'Ab', 'Bb', 'D1'],
+     cmin: ['C', 'Eb', 'G'],
+     cmin1: ['Eb', 'G', 'C1'],
+     cmin2: ['G', 'C1', 'Eb1']
    },
    eMajChords: {
      eMaj: ['E', 'Ab', 'B'],
@@ -263,23 +263,6 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
      csmin1: ['E', 'Ab', 'Cs1'],
      csmin2: ['Ab', 'Cs1', 'E1']
    },
-   aMajChords: {
-     aMaj: ['A', 'Cs1', 'E1'],
-     aMaj1: ['Cs', 'E', 'A'],
-     aMaj2: ['E', 'A', 'Cs1'],
-     bmin1: ['D', 'Fs', 'B'],
-     bmin2: ['Fs', 'B', 'D1'],
-     csmin: ['Cs', 'E', 'Ab'],
-     csmin1: ['E', 'Ab', 'Cs1'],
-     csmin2: ['Ab', 'Cs1', 'E1'],
-     dMaj: ['D', 'Fs', 'A'],
-     dMaj1: ['Fs', 'A', 'D1'],
-     eMaj: ['E', 'Ab', 'B'],
-     eMaj1: ['Ab', 'B', 'E1'],
-     eDom7: ['E', 'Ab', 'B', 'D1'],
-     fsmin: ['Fs', 'A', 'Cs1'],
-     fsmin2: ['Cs', 'Fs', 'A']
-   },
    fMajChords: {
      fMaj: ['F', 'A', 'C1'],
      fMaj2: ['C', 'F', 'A'],
@@ -297,22 +280,55 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
      dmin: ['D', 'F', 'A'],
      dmin1: ['F', 'A', 'D1']
    },
-   ebMajChords: {
-     ebMaj: ['Eb', 'G', 'Bb'],
-     ebMaj1: ['G', 'Bb', 'Eb1'],
-     fmin: ['F', 'Ab', 'C1'],
-     fmin2: ['C', 'F', 'Ab'],
-     gmin: ['G', 'Bb', 'D1'],
-     gmin2: ['D', 'G', 'Bb'],
-     abMaj: ['Ab', 'C1', 'Eb1'],
-     abMaj1: ['C', 'Eb', 'Ab'],
-     abMaj2: ['Eb', 'Ab', 'C1'],
+   gMajChords: {
+     gMaj: ['G', 'B', 'D1'],
+     gMaj2: ['D', 'G', 'B'],
+     amin: ['A', 'C1', 'E1'],
+     amin1: ['C', 'E', 'A'],
+     amin2: ['E', 'A', 'C1'],
+     bmin1: ['D', 'Fs', 'B'],
+     bmin2: ['Fs', 'B', 'D1'],
+     cMaj: ['C', 'E', 'G'],
+     cMaj1: ['E', 'G', 'C1'],
+     cMaj2: ['G', 'C1', 'E1'],
+     dMaj: ['D', 'Fs', 'A'],
+     dMaj1: ['Fs', 'A', 'D1'],
+     dDom7: ['Fs', 'A', 'C1', 'D1'],
+     emin: ['E', 'G', 'B'],
+     emin1: ['G', 'B', 'E1']
+   },
+   aMajChords: {
+     aMaj: ['A', 'Cs1', 'E1'],
+     aMaj1: ['Cs', 'E', 'A'],
+     aMaj2: ['E', 'A', 'Cs1'],
+     bmin1: ['D', 'Fs', 'B'],
+     bmin2: ['Fs', 'B', 'D1'],
+     csmin: ['Cs', 'E', 'Ab'],
+     csmin1: ['E', 'Ab', 'Cs1'],
+     csmin2: ['Ab', 'Cs1', 'E1'],
+     dMaj: ['D', 'Fs', 'A'],
+     dMaj1: ['Fs', 'A', 'D1'],
+     eMaj: ['E', 'Ab', 'B'],
+     eMaj1: ['Ab', 'B', 'E1'],
+     eDom7: ['E', 'Ab', 'B', 'D1'],
+     fsmin: ['Fs', 'A', 'Cs1'],
+     fsmin2: ['Cs', 'Fs', 'A']
+   },
+   BbMajChords: {
      BbMaj1: ['D', 'F', 'Bb'],
      BbMaj2: ['F', 'Bb', 'D1'],
-     BbDom7: ['F', 'Ab', 'Bb', 'D1'],
      cmin: ['C', 'Eb', 'G'],
      cmin1: ['Eb', 'G', 'C1'],
-     cmin2: ['G', 'C1', 'Eb1']
+     cmin2: ['G', 'C1', 'Eb1'],
+     dmin: ['D', 'F', 'A'],
+     dmin1: ['F', 'A', 'D1'],
+     ebMaj: ['Eb', 'G', 'Bb'],
+     ebMaj1: ['G', 'Bb', 'Eb1'],
+     fMaj: ['F', 'A', 'C1'],
+     fMaj2: ['C', 'F', 'A'],
+     fDom7: ['C', 'Eb', 'F', 'A'],
+     gmin: ['G', 'Bb', 'D1'],
+     gmin2: ['D', 'G', 'Bb']
    }
  }
 
