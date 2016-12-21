@@ -12,11 +12,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  //variables used for drum rack part display logic
  $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
  //initialize play feature variables
- let bpm = 60;
  let playIndex;
- let noteTime;
- let startTime;
- let aheadTime = 0.200;
  let loop_length = 16;
  //colors array for each grid row
  let colors = ['rgb(51, 5, 91)', 'rgb(69, 0, 147)', 'rgb(101, 2, 180)', 'rgb(152, 22, 255)'];
@@ -393,16 +389,13 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  $scope.startPlay = function() {
    let context = new AudioContext();
    playIndex = 0;
-   noteTime = 0.0;
-   startTime = context.currentTime + aheadTime;
    schedule(context);
  }
 
  function schedule(context) {
    let gain = context.createGain();
    gain.connect(context.destination);
-   let currentTime = context.currentTime;
-   while (noteTime < currentTime + aheadTime) {
+   while (playIndex < loop_length) {
     let allSquares = document.querySelectorAll("[data-col]");
     let currentSquares = [];
     for (let i = 0; i < allSquares.length; i++) {
@@ -414,10 +407,13 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
      let index = currentSquares[i].parentNode.className;
      let instrument = $rootScope.vm.build[index].instrument;
      let note = currentSquares[i].className;
-     sounds[instrument][note].play();
+     if(note == ''){
+     }else{
+       sounds[instrument][note].play();
+     }
     }
     //pause
-    sleep(1000);
+    sleep(800);
     advanceNote();
    }
    }
@@ -430,14 +426,9 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
     }
    }
   }
-  //advance the note (iffy)
+  //advance the note
  function advanceNote() {
-    let secondsPerBeat = 45.0 / bpm;
-    playIndex++;
-    if (playIndex == loop_length) {
-        playIndex = 0;
-    }
-    noteTime += 0.25 * secondsPerBeat
+   playIndex++;
 }
 
  /*** DISPLAY LOGIC ***/
