@@ -392,6 +392,8 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    schedule(context);
  }
 
+ 
+
  function schedule(context) {
    let gain = context.createGain();
    gain.connect(context.destination);
@@ -412,7 +414,6 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
        sounds[instrument][note].play();
      }
     }
-    //pause
     sleep(800);
     advanceNote();
    }
