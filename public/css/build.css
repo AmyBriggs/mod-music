@@ -89,7 +89,9 @@ h4 {
   font-family: 'Maven Pro', sans-serif;
   font-size: 18px;
 }
-
+.icon{
+  width:24px;
+}
 .rack-title {
   color: white;
   font-family: 'Maven Pro', sans-serif;
