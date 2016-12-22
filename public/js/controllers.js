@@ -342,7 +342,12 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  $scope.playChord = function(elem){
    let key = elem.currentTarget.parentNode.parentNode.id
    let chord = elem.currentTarget.innerHTML
+   if(chord.includes('#')){
+     chord.replace('#', 's')
+
+   }
    let chordNotes = chords[key][chord]
+   $scope.currentChord = [$scope.instrument, chord]
    for(var i = 0; i < chordNotes.length; i++){
      sounds[$scope.instrument][chordNotes[i]].play()
    }
@@ -383,11 +388,17 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    let rowIndex = elem.currentTarget.parentNode.className;
    let chosenInstr = $scope.currentNote[0];
    let note = $scope.currentNote[1];
+  //  let chord = $scope.currentChord[1];
    if($rootScope.vm.build[rowIndex].instrument === chosenInstr) {
      elem.currentTarget.style.backgroundColor = colors[rowIndex];
      elem.currentTarget.className = `${note}`;
      elem.currentTarget.addEventListener('click', sounds[chosenInstr][note].play());
    }
+  //  else if($rootScope.vm.build[rowIndex].instrument === chosenInstr) {
+  //    elem.currentTarget.style.backgroundColor = colors[rowIndex];
+  //    elem.currentTarget.className = `${chord}`;
+  //    elem.currentTarget.addEventListener('click', sounds[chosenInstr][chord].play());
+  //  }
    updateBuild();
  }
  //updates build array with notes
