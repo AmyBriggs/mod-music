@@ -403,10 +403,6 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  }
 
 //play functionality
- $scope.stopPlay = function(){
-   playing = false;
-   playIndex = 0;
- }
 
  $scope.startPlay = function() {
    playing = true;
@@ -418,7 +414,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  function schedule(context) {
    let gain = context.createGain();
    gain.connect(context.destination);
-   while (playIndex < loop_length && playing) {
+   while (playIndex < loop_length && !$scope.stop) {
     let allSquares = document.querySelectorAll("[data-col]");
     let currentSquares = [];
     for (let i = 0; i < allSquares.length; i++) {
