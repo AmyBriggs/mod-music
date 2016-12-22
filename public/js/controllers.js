@@ -198,138 +198,138 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
 
  let chords = {
    cMajChords: {
-     cMaj: ['C', 'E', 'G'],
-     cMaj1: ['E', 'G', 'C1'],
-     cMaj2: ['G', 'C1', 'E1'],
-     dmin: ['D', 'F', 'A'],
-     dmin1: ['F', 'A', 'D1'],
-     emin: ['E', 'G', 'B'],
-     emin1: ['G', 'B', 'E1'],
-     fMaj: ['F', 'A', 'C1'],
-     fMaj2: ['C', 'F', 'A'],
-     gMaj: ['G', 'B', 'D1'],
-     gMaj2: ['D', 'G', 'B'],
-     gDom7: ['D', 'F', 'G', 'B'],
-     amin: ['A', 'C1', 'E1'],
-     amin1: ['C', 'E', 'A'],
-     amin2: ['E', 'A', 'C1']
+     CM: ['C', 'E', 'G'],
+     CM1: ['E', 'G', 'C1'],
+     CM2: ['G', 'C1', 'E1'],
+     dm: ['D', 'F', 'A'],
+     dm1: ['F', 'A', 'D1'],
+     em: ['E', 'G', 'B'],
+     em1: ['G', 'B', 'E1'],
+     FM: ['F', 'A', 'C1'],
+     FM2: ['C', 'F', 'A'],
+     GM: ['G', 'B', 'D1'],
+     GM2: ['D', 'G', 'B'],
+     G7: ['D', 'F', 'G', 'B'],
+     am: ['A', 'C1', 'E1'],
+     am1: ['C', 'E', 'A'],
+     am2: ['E', 'A', 'C1']
    },
    dMajChords: {
-     dMaj: ['D', 'Fs', 'A'],
-     dMaj1: ['Fs', 'A', 'D1'],
-     emin: ['E', 'G', 'B'],
-     emin1: ['G', 'B', 'E1'],
-     fsmin: ['Fs', 'A', 'Cs1'],
-     fsmin2: ['Cs', 'Fs', 'A'],
-     gMaj: ['G', 'B', 'D1'],
-     gMaj2: ['D', 'G', 'B'],
-     aMaj: ['A', 'Cs1', 'E1'],
-     aMaj1: ['Cs', 'E', 'A'],
-     aMaj2: ['E', 'A', 'Cs1'],
-     aDom7: ['E', 'G', 'A', 'Cs1'],
-     bmin1: ['D', 'Fs', 'B'],
-     bmin2: ['Fs', 'B', 'D1']
+     DM: ['D', 'Fs', 'A'],
+     DM1: ['Fs', 'A', 'D1'],
+     em: ['E', 'G', 'B'],
+     em1: ['G', 'B', 'E1'],
+     fsm: ['Fs', 'A', 'Cs1'],
+     fsm2: ['Cs', 'Fs', 'A'],
+     GM: ['G', 'B', 'D1'],
+     GM2: ['D', 'G', 'B'],
+     AM: ['A', 'Cs1', 'E1'],
+     AM1: ['Cs', 'E', 'A'],
+     AM2: ['E', 'A', 'Cs1'],
+     A7: ['E', 'G', 'A', 'Cs1'],
+     bm1: ['D', 'Fs', 'B'],
+     bm2: ['Fs', 'B', 'D1']
    },
     ebMajChords: {
-     ebMaj: ['Eb', 'G', 'Bb'],
-     ebMaj1: ['G', 'Bb', 'Eb1'],
-     fmin: ['F', 'Ab', 'C1'],
-     fmin2: ['C', 'F', 'Ab'],
-     gmin: ['G', 'Bb', 'D1'],
-     gmin2: ['D', 'G', 'Bb'],
-     abMaj: ['Ab', 'C1', 'Eb1'],
-     abMaj1: ['C', 'Eb', 'Ab'],
-     abMaj2: ['Eb', 'Ab', 'C1'],
-     BbMaj1: ['D', 'F', 'Bb'],
-     BbMaj2: ['F', 'Bb', 'D1'],
-     BbDom7: ['F', 'Ab', 'Bb', 'D1'],
-     cmin: ['C', 'Eb', 'G'],
-     cmin1: ['Eb', 'G', 'C1'],
-     cmin2: ['G', 'C1', 'Eb1']
+     EbM: ['Eb', 'G', 'Bb'],
+     EbM1: ['G', 'Bb', 'Eb1'],
+     fm: ['F', 'Ab', 'C1'],
+     fm2: ['C', 'F', 'Ab'],
+     gm: ['G', 'Bb', 'D1'],
+     gm2: ['D', 'G', 'Bb'],
+     AbM: ['Ab', 'C1', 'Eb1'],
+     AbM1: ['C', 'Eb', 'Ab'],
+     AbM2: ['Eb', 'Ab', 'C1'],
+     BbM1: ['D', 'F', 'Bb'],
+     BbM2: ['F', 'Bb', 'D1'],
+     Bb7: ['F', 'Ab', 'Bb', 'D1'],
+     cm: ['C', 'Eb', 'G'],
+     cm1: ['Eb', 'G', 'C1'],
+     cm2: ['G', 'C1', 'Eb1']
    },
    eMajChords: {
-     eMaj: ['E', 'Ab', 'B'],
-     eMaj1: ['Ab', 'B', 'E1'],
-     fsmin: ['Fs', 'A', 'Cs1'],
-     fsmin2: ['Cs', 'Fs', 'A'],
-     gsmin: ['Ab', 'B', 'Eb1'],
-     gsmin2: ['Eb', 'Ab', 'B'],
-     aMaj: ['A', 'Cs1', 'E1'],
-     aMaj1: ['Cs', 'E', 'A'],
-     aMaj2: ['E', 'A', 'Cs1'],
-     bMaj1: ['Eb', 'Fs', 'B'],
-     bMaj2: ['Fs', 'B', 'Eb1'],
-     bDom7: ['Fs', 'A', 'B', 'Eb1'],
-     csmin: ['Cs', 'E', 'Ab'],
-     csmin1: ['E', 'Ab', 'Cs1'],
-     csmin2: ['Ab', 'Cs1', 'E1']
+     EM: ['E', 'Ab', 'B'],
+     EM1: ['Ab', 'B', 'E1'],
+     fsm: ['Fs', 'A', 'Cs1'],
+     fsm2: ['Cs', 'Fs', 'A'],
+     gsm: ['Ab', 'B', 'Eb1'],
+     gsm2: ['Eb', 'Ab', 'B'],
+     AM: ['A', 'Cs1', 'E1'],
+     AM1: ['Cs', 'E', 'A'],
+     AM2: ['E', 'A', 'Cs1'],
+     BM1: ['Eb', 'Fs', 'B'],
+     BM2: ['Fs', 'B', 'Eb1'],
+     B7: ['Fs', 'A', 'B', 'Eb1'],
+     csm: ['Cs', 'E', 'Ab'],
+     csm1: ['E', 'Ab', 'Cs1'],
+     csm2: ['Ab', 'Cs1', 'E1']
    },
    fMajChords: {
-     fMaj: ['F', 'A', 'C1'],
-     fMaj2: ['C', 'F', 'A'],
-     gmin: ['G', 'Bb', 'D1'],
-     gmin2: ['D', 'G', 'Bb'],
-     amin: ['A', 'C1', 'E1'],
-     amin1: ['C', 'E', 'A'],
-     amin2: ['E', 'A', 'C1'],
-     BbMaj1: ['D', 'F', 'Bb'],
-     BbMaj2: ['F', 'Bb', 'D1'],
-     cMaj: ['C', 'E', 'G'],
-     cMaj1: ['E', 'G', 'C1'],
-     cMaj2: ['G', 'C1', 'E1'],
-     cDom7: ['E', 'G', 'Bb', 'C1'],
-     dmin: ['D', 'F', 'A'],
-     dmin1: ['F', 'A', 'D1']
+     FM: ['F', 'A', 'C1'],
+     FM2: ['C', 'F', 'A'],
+     gm: ['G', 'Bb', 'D1'],
+     gm2: ['D', 'G', 'Bb'],
+     am: ['A', 'C1', 'E1'],
+     am1: ['C', 'E', 'A'],
+     am2: ['E', 'A', 'C1'],
+     BbM1: ['D', 'F', 'Bb'],
+     BbM2: ['F', 'Bb', 'D1'],
+     CM: ['C', 'E', 'G'],
+     CM1: ['E', 'G', 'C1'],
+     CM2: ['G', 'C1', 'E1'],
+     C7: ['E', 'G', 'Bb', 'C1'],
+     dm: ['D', 'F', 'A'],
+     dm1: ['F', 'A', 'D1']
    },
    gMajChords: {
-     gMaj: ['G', 'B', 'D1'],
-     gMaj2: ['D', 'G', 'B'],
-     amin: ['A', 'C1', 'E1'],
-     amin1: ['C', 'E', 'A'],
-     amin2: ['E', 'A', 'C1'],
-     bmin1: ['D', 'Fs', 'B'],
-     bmin2: ['Fs', 'B', 'D1'],
-     cMaj: ['C', 'E', 'G'],
-     cMaj1: ['E', 'G', 'C1'],
-     cMaj2: ['G', 'C1', 'E1'],
-     dMaj: ['D', 'Fs', 'A'],
-     dMaj1: ['Fs', 'A', 'D1'],
-     dDom7: ['Fs', 'A', 'C1', 'D1'],
-     emin: ['E', 'G', 'B'],
-     emin1: ['G', 'B', 'E1']
+     GM: ['G', 'B', 'D1'],
+     GM2: ['D', 'G', 'B'],
+     am: ['A', 'C1', 'E1'],
+     am1: ['C', 'E', 'A'],
+     am2: ['E', 'A', 'C1'],
+     bm1: ['D', 'Fs', 'B'],
+     bm2: ['Fs', 'B', 'D1'],
+     CM: ['C', 'E', 'G'],
+     CM1: ['E', 'G', 'C1'],
+     CM2: ['G', 'C1', 'E1'],
+     DM: ['D', 'Fs', 'A'],
+     DM1: ['Fs', 'A', 'D1'],
+     D7: ['Fs', 'A', 'C1', 'D1'],
+     em: ['E', 'G', 'B'],
+     em1: ['G', 'B', 'E1']
    },
    aMajChords: {
-     aMaj: ['A', 'Cs1', 'E1'],
-     aMaj1: ['Cs', 'E', 'A'],
-     aMaj2: ['E', 'A', 'Cs1'],
-     bmin1: ['D', 'Fs', 'B'],
-     bmin2: ['Fs', 'B', 'D1'],
-     csmin: ['Cs', 'E', 'Ab'],
-     csmin1: ['E', 'Ab', 'Cs1'],
-     csmin2: ['Ab', 'Cs1', 'E1'],
-     dMaj: ['D', 'Fs', 'A'],
-     dMaj1: ['Fs', 'A', 'D1'],
-     eMaj: ['E', 'Ab', 'B'],
-     eMaj1: ['Ab', 'B', 'E1'],
-     eDom7: ['E', 'Ab', 'B', 'D1'],
-     fsmin: ['Fs', 'A', 'Cs1'],
-     fsmin2: ['Cs', 'Fs', 'A']
+     AM: ['A', 'Cs1', 'E1'],
+     AM1: ['Cs', 'E', 'A'],
+     AM2: ['E', 'A', 'Cs1'],
+     bm1: ['D', 'Fs', 'B'],
+     bm2: ['Fs', 'B', 'D1'],
+     csm: ['Cs', 'E', 'Ab'],
+     csm1: ['E', 'Ab', 'Cs1'],
+     csm2: ['Ab', 'Cs1', 'E1'],
+     DM: ['D', 'Fs', 'A'],
+     DM1: ['Fs', 'A', 'D1'],
+     EM: ['E', 'Ab', 'B'],
+     EM1: ['Ab', 'B', 'E1'],
+     E7: ['E', 'Ab', 'B', 'D1'],
+     fsm: ['Fs', 'A', 'Cs1'],
+     fsm2: ['Cs', 'Fs', 'A']
    },
    BbMajChords: {
-     BbMaj1: ['D', 'F', 'Bb'],
-     BbMaj2: ['F', 'Bb', 'D1'],
-     cmin: ['C', 'Eb', 'G'],
-     cmin1: ['Eb', 'G', 'C1'],
-     cmin2: ['G', 'C1', 'Eb1'],
-     dmin: ['D', 'F', 'A'],
-     dmin1: ['F', 'A', 'D1'],
-     ebMaj: ['Eb', 'G', 'Bb'],
-     ebMaj1: ['G', 'Bb', 'Eb1'],
-     fMaj: ['F', 'A', 'C1'],
-     fMaj2: ['C', 'F', 'A'],
-     fDom7: ['C', 'Eb', 'F', 'A'],
-     gmin: ['G', 'Bb', 'D1'],
-     gmin2: ['D', 'G', 'Bb']
+     BbM1: ['D', 'F', 'Bb'],
+     BbM2: ['F', 'Bb', 'D1'],
+     cm: ['C', 'Eb', 'G'],
+     cm1: ['Eb', 'G', 'C1'],
+     cm2: ['G', 'C1', 'Eb1'],
+     dm: ['D', 'F', 'A'],
+     dm1: ['F', 'A', 'D1'],
+     EbM: ['Eb', 'G', 'Bb'],
+     EbM1: ['G', 'Bb', 'Eb1'],
+     FM: ['F', 'A', 'C1'],
+     FM2: ['C', 'F', 'A'],
+     F7: ['C', 'Eb', 'F', 'A'],
+     gm: ['G', 'Bb', 'D1'],
+     gm2: ['D', 'G', 'Bb']
    }
  }
 
@@ -342,7 +342,12 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  $scope.playChord = function(elem){
    let key = elem.currentTarget.parentNode.parentNode.id
    let chord = elem.currentTarget.innerHTML
+   if(chord.includes('#')){
+     chord.replace('#', 's')
+
+   }
    let chordNotes = chords[key][chord]
+   $scope.currentChord = [$scope.instrument, chord]
    for(var i = 0; i < chordNotes.length; i++){
      sounds[$scope.instrument][chordNotes[i]].play()
    }
@@ -383,11 +388,17 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    let rowIndex = elem.currentTarget.parentNode.className;
    let chosenInstr = $scope.currentNote[0];
    let note = $scope.currentNote[1];
+  //  let chord = $scope.currentChord[1];
    if($rootScope.vm.build[rowIndex].instrument === chosenInstr) {
      elem.currentTarget.style.backgroundColor = colors[rowIndex];
      elem.currentTarget.className = `${note}`;
      elem.currentTarget.addEventListener('click', sounds[chosenInstr][note].play());
    }
+  //  else if($rootScope.vm.build[rowIndex].instrument === chosenInstr) {
+  //    elem.currentTarget.style.backgroundColor = colors[rowIndex];
+  //    elem.currentTarget.className = `${chord}`;
+  //    elem.currentTarget.addEventListener('click', sounds[chosenInstr][chord].play());
+  //  }
    updateBuild();
  }
  //updates build array with notes

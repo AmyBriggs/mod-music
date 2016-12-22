@@ -78,7 +78,7 @@ td{
   border:1px solid black;
 }
 .notes{
-  background-color:rgb(255, 20, 196)
+  background-color:rgba(66, 57, 77, 0.67)
 }
 .d-rack{
   border: 1px solid black;
@@ -89,7 +89,9 @@ h4 {
   font-family: 'Maven Pro', sans-serif;
   font-size: 18px;
 }
-
+.icon{
+  width:24px;
+}
 .rack-title {
   color: white;
   font-family: 'Maven Pro', sans-serif;
@@ -111,4 +113,19 @@ h4 {
   text-align:left;
   cursor:pointer;
   cursor:hand;
+}
+
+.chord-button {
+  border-radius: 50%;
+  border: 1px solid silver;
+  background-color: rgb(172, 172, 172);
+  height: 2.5em;
+  width: 2.5em;
+  align-content: center;
+  padding: 2px 1px;
+  font-size: 16px;
+  font-family: 'Maven Pro', sans-serif;
+  font-weight: bold;
+  color: rgb(14, 5, 24);
+
 }
