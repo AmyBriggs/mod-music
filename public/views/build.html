@@ -5,9 +5,9 @@
 <div ng-controller="BuildController" class="row">
 
     <div class="col-lg-12 text-center">
-        <h1>build</h1>
-        <i class="fa fa-play" ng-click="startPlay()" id="play" aria-hidden="true"></i>
-        <i class="fa fa-stop" ng-click="stopPlay()" id="stop" aria-hidden="true"></i>
+        <i class="fa fa-play" ng-click="startPlay()" id="play" aria-hidden="true"></i><i class="fa fa-stop" ng-click="stopPlay()" id="stop" aria-hidden="true"></i><span>build</span>
+
+
         <!-- <button type="button" ng-click="startPlay()" class="btn btn-default btn-lg">Play</button> -->
     </div>
 </div>
@@ -322,48 +322,48 @@
             <td ng-click="populate($event)"></td>
         </tr>
     </table>
-  </div>
-  <div class="col-lg-3 rack text-center">
-    <h4>RACK</h4>
+</div>
+<div class="col-lg-3 rack text-center">
+    <h4 class="rack-title">Instrument Rack</h4>
     <div class="row">
-      <div class="col-lg-12 collapseHeading">
-        <a ng-click="collapse('piano')">
-          <h4>Piano/Keyboards</h4>
-        </a>
-      </div>
-      <div ng-show="collapsePiano" class="col-lg-12">
-        <button ng-click="notesOn('piano'); addInstr('piano')" type="button" class="btn btn-default btn-lg">Piano</button>
-      </div>
+        <div class="col-lg-12 collapse-heading">
+            <a ng-click="collapse('piano')">
+                <h4>Piano/Keyboards</h4>
+            </a>
+        </div>
+        <div ng-show="collapsePiano" class="col-lg-12 collapse-panel">
+            <button ng-click="notesOn('piano'); addInstr('piano')" type="button" class="btn btn-default btn-lg">Piano</button>
+        </div>
     </div>
     <div class="row">
-      <div class="col-lg-12 collapseHeading">
-        <a ng-click="collapse('guitar')">
-          <h4>Guitar</h4>
-        </a>
-      </div>
-      <div ng-show="collapseGuitar" class="col-lg-12">
-        <button ng-click="notesOn('guitar'); addInstr('guitar')" type="button" class="btn btn-default btn-lg">Guitar</button>
-      </div>
+        <div class="col-lg-12 collapse-heading">
+            <a ng-click="collapse('guitar')">
+                <h4>Guitar</h4>
+            </a>
+        </div>
+        <div ng-show="collapseGuitar" class="col-lg-12 collapse-panel">
+            <button ng-click="notesOn('guitar'); addInstr('guitar')" type="button" class="btn btn-default btn-lg">Guitar</button>
+        </div>
     </div>
     <div class="row">
-      <div class="col-lg-12 collapseHeading">
-        <a ng-click="collapse('bass')">
-          <h4>Bass</h4>
-        </a>
-      </div>
-      <div ng-show="collapseBass" class="col-lg-12">
-        <button ng-click="notesOn('bass'); addInstr('bass')" type="button" class="btn btn-default btn-lg">Bass</button>
-      </div>
+        <div class="col-lg-12 collapse-heading">
+            <a ng-click="collapse('bass')">
+                <h4>Bass</h4>
+            </a>
+        </div>
+        <div ng-show="collapseBass" class="col-lg-12 collapse-panel">
+            <button ng-click="notesOn('bass'); addInstr('bass')" type="button" class="btn btn-default btn-lg">Bass</button>
+        </div>
     </div>
     <div class="row">
-      <div class="col-lg-12 collapseHeading">
-        <a ng-click="collapse('drums')">
-          <h4>Drum Rack</h4>
-        </a>
-      </div>
-      <div ng-show="collapseDrums" class="col-lg-12">
-        <button ng-click="notesOn('drums'); addInstr('drums')" type="button" class="btn btn-default btn-lg">Drum Rack</button>
-      </div>
+        <div class="col-lg-12 collapse-heading">
+            <a ng-click="collapse('drums')">
+                <h4>Drum Rack</h4>
+            </a>
+        </div>
+        <div ng-show="collapseDrums" class="col-lg-12 collapse-panel">
+            <button ng-click="notesOn('drums'); addInstr('drums')" type="button" class="btn btn-default btn-lg">Drum Rack</button>
+        </div>
     </div>
   </div>
 
