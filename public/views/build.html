@@ -4,416 +4,417 @@
 <script src="../js/build.js"></script>
 <div ng-controller="BuildController" class="row">
 
-    <div class="col-lg-12 text-center">
-        <i class="fa fa-play" ng-click="startPlay()" id="play" aria-hidden="true"></i><i class="fa fa-stop" ng-click="stop=true" id="stop" aria-hidden="true"></i><span>build</span>
-
-
-        <!-- <button type="button" ng-click="startPlay()" class="btn btn-default btn-lg">Play</button> -->
-    </div>
+  <div class="col-lg-12 text-center">
+    <i class="fa fa-play" ng-click="startPlay()" id="play" aria-hidden="true"></i><i class="fa fa-stop" ng-click="stop=true" id="stop" aria-hidden="true"></i><span>modmusic</span>
+  </div>
 </div>
-<div class="col-lg-1 instrument text-center">
+<div class="row whole">
+  <div class="col-lg-1 instrument text-center">
     <table>
-        <tr>
-            <td class="7 selected-instr">
-            </td>
-        </tr>
-        <tr>
-            <td class="6 selected-instr">
-            </td>
-        </tr>
-        <tr>
-            <td class="5 selected-instr">
-            </td>
-        </tr>
-        <tr>
-            <td class="4 selected-instr">
-            </td>
-        </tr>
-        <tr>
-            <td class="3 selected-instr">
-            </td>
-        </tr>
-        <tr>
-            <td class="2 selected-instr">
-            </td>
-        </tr>
-        <tr>
-            <td class="1 selected-instr">
-            </td>
-        </tr>
-        <tr>
-            <td class="0 selected-instr">
-            </td>
-        </tr>
+      <tr>
+        <td class="7 selected-instr">
+        </td>
+      </tr>
+      <tr>
+        <td class="6 selected-instr">
+        </td>
+      </tr>
+      <tr>
+        <td class="5 selected-instr">
+        </td>
+      </tr>
+      <tr>
+        <td class="4 selected-instr">
+        </td>
+      </tr>
+      <tr>
+        <td class="3 selected-instr">
+        </td>
+      </tr>
+      <tr>
+        <td class="2 selected-instr">
+        </td>
+      </tr>
+      <tr>
+        <td class="1 selected-instr">
+        </td>
+      </tr>
+      <tr>
+        <td class="0 selected-instr">
+        </td>
+      </tr>
     </table>
   </div>
   <div class="col-lg-8 grid text-center">
     <table class="grid-table">
-        <tr class="7" ng-click="activeInstr()" ng-class="{'active': isActive}">
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-        </tr>
-        <tr class="6" ng-click="activeInstr()" ng-class="{'active': isActive}">
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-        </tr>
-        <tr class="5" ng-click="activeInstr()" ng-class="{'active': isActive}">
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-        </tr>
-        <tr class="4" ng-click="activeInstr()" ng-class="{'active': isActive}">
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-        </tr>
-        <tr class="3" ng-click="activeInstr()" ng-class="{'active': isActive}">
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-        </tr>
-        <tr class="2" ng-click="activeInstr()" ng-class="{'active': isActive}">
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-        </tr>
-        <tr class="1" ng-click="activeInstr()" ng-class="{'active': isActive}">
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-        </tr>
-        <tr class="0" ng-click="activeInstr()" ng-class="{'active': isActive}">
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-            <td ng-click="populate($event)"></td>
-        </tr>
+      <tr class="7" ng-click="activeInstr()" ng-class="{'active': isActive}">
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+      </tr>
+      <tr class="6" ng-click="activeInstr()" ng-class="{'active': isActive}">
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+      </tr>
+      <tr class="5" ng-click="activeInstr()" ng-class="{'active': isActive}">
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+      </tr>
+      <tr class="4" ng-click="activeInstr()" ng-class="{'active': isActive}">
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+      </tr>
+      <tr class="3" ng-click="activeInstr()" ng-class="{'active': isActive}">
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+      </tr>
+      <tr class="2" ng-click="activeInstr()" ng-class="{'active': isActive}">
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+      </tr>
+      <tr class="1" ng-click="activeInstr()" ng-class="{'active': isActive}">
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+      </tr>
+      <tr class="0" ng-click="activeInstr()" ng-class="{'active': isActive}">
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+        <td ng-click="populate($event)"></td>
+      </tr>
     </table>
-</div>
-<div class="col-lg-3 rack text-center">
+  </div>
+  <div class="col-lg-3 rack text-center">
     <h4 class="rack-title">Instrument Rack</h4>
     <div class="row">
-        <div class="col-lg-12 collapse-heading">
-            <a ng-click="collapse('piano')">
-                <h4>Piano/Keyboards</h4>
-            </a>
-        </div>
-        <div ng-show="collapsePiano" class="col-lg-12 collapse-panel">
-            <p class="panel-p" ng-click="notesOn('piano'); addInstr('piano')">Piano</p>
-        </div>
+      <div class="col-lg-12 collapse-heading">
+        <a ng-click="collapse('piano')">
+          <h4>Piano/Keyboards</h4>
+        </a>
+      </div>
+      <div ng-show="collapsePiano" class="col-lg-12 collapse-panel">
+        <p class="panel-p" ng-click="notesOn('piano'); addInstr('piano')">Piano</p>
+      </div>
     </div>
     <div class="row">
-        <div class="col-lg-12 collapse-heading">
-            <a ng-click="collapse('guitar')">
-              <h4>Guitar  <img class="icon" src="../img/icons/guitar.png" alt=""> </h4>
-            </a>
-        </div>
-        <div ng-show="collapseGuitar" class="col-lg-12 collapse-panel">
-            <p class="panel-p" ng-click="notesOn('guitar'); addInstr('guitar')">Guitar</p>
-        </div>
+      <div class="col-lg-12 collapse-heading">
+        <a ng-click="collapse('guitar')">
+          <h4>Guitar  <img class="icon" src="../img/icons/guitar.png" alt=""> </h4>
+        </a>
+      </div>
+      <div ng-show="collapseGuitar" class="col-lg-12 collapse-panel">
+        <p class="panel-p" ng-click="notesOn('guitar'); addInstr('guitar')">Guitar</p>
+      </div>
     </div>
     <div class="row">
-        <div class="col-lg-12 collapse-heading">
-            <a ng-click="collapse('bass')">
-                <h4>Bass</h4>
-            </a>
-        </div>
-        <div ng-show="collapseBass" class="col-lg-12 collapse-panel">
-            <p class="panel-p" ng-click="notesOn('bass'); addInstr('bass')">Bass</p>
-        </div>
+      <div class="col-lg-12 collapse-heading">
+        <a ng-click="collapse('bass')">
+          <h4>Bass</h4>
+        </a>
+      </div>
+      <div ng-show="collapseBass" class="col-lg-12 collapse-panel">
+        <p class="panel-p" ng-click="notesOn('bass'); addInstr('bass')">Bass</p>
+      </div>
     </div>
     <div class="row">
-        <div class="col-lg-12 collapse-heading">
-            <a ng-click="collapse('drums')">
-                <h4>Drum Rack</h4>
-            </a>
-        </div>
-        <div ng-show="collapseDrums" class="col-lg-12 collapse-panel">
-            <p class="panel-p" ng-click="notesOn('drums'); addInstr('drums')">Drum Rack</p>
-        </div>
+      <div class="col-lg-12 collapse-heading">
+        <a ng-click="collapse('drums')">
+          <h4>Drum Rack</h4>
+        </a>
+      </div>
+      <div ng-show="collapseDrums" class="col-lg-12 collapse-panel">
+        <p class="panel-p" ng-click="notesOn('drums'); addInstr('drums')">Drum Rack</p>
+      </div>
     </div>
   </div>
-
-  <!-- Note selection for instruments -->
-
-  <div ng-show="notes" class="col-lg-12 notes text-center">
-    <h4>{{ instrument }} notes</h4>
+</div>
+<!-- Note selection for instruments -->
+<div class="row note-select">
+  <div ng-show="notes" class="col-lg-9 notes text-center">
+    <h4 class="note-label">{{instrument}}</h4>
     <div class="row">
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playNote('C')">C</button>
+      <div class="col-lg-12">
+        <table class="bk-table">
+          <tr>
+            <td class="black-keys"></td>
+            <td class="black-keys"></td>
+            <td class="black-keys two-width" ng-click="playNote('Ab')"><p class="bk-note">Ab</p></td>
+            <td class="black-keys"></td>
+            <td class="black-keys two-width" ng-click="playNote('Bb')"><p class="bk-note">Bb</p></td>
+            <td class="black-keys"></td>
+            <td class="black-keys"></td>
+            <td class="black-keys"></td>
+            <td class="black-keys"></td>
+            <td class="black-keys two-width" ng-click="playNote('Cs')"><p class="bk-note">C#</p></td>
+            <td class="black-keys"></td>
+            <td class="black-keys two-width" ng-click="playNote('Eb')"><p class="bk-note">Eb</p></td>
+            <td class="black-keys"></td>
+            <td class="black-keys"></td>
+            <td class="black-keys"></td>
+            <td class="black-keys"></td>
+            <td class="black-keys two-width" ng-click="playNote('Fs')"><p class="bk-note">F#</p></td>
+            <td class="black-keys"></td>
+            <td class="black-keys"></td>
+          </tr>
+        </table>
       </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playNote('Cs')">C#</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playNote('D')">D</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playNote('Eb')">Eb</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playNote('E')">E</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playNote('F')">F</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playNote('Fs')">F#</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playNote('G')">G</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playNote('Ab')">Ab</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playNote('A')">A</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playNote('Bb')">Bb</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playNote('B')">B</button>
+      <div class="col-lg-12">
+        <table class="wk-table">
+          <tr>
+            <td class="white-keys" ng-click="playNote('G')"><p class="w-note">G</p></td>
+            <td class="white-keys" ng-click="playNote('A')"><p class="w-note">A</p></td>
+            <td class="white-keys" ng-click="playNote('B')"><p class="w-note">B</p></td>
+            <td class="white-keys" ng-click="playNote('C')"><p class="w-note">C</p></td>
+            <td class="white-keys" ng-click="playNote('D')"><p class="w-note">D</p></td>
+            <td class="white-keys" ng-click="playNote('E')"><p class="w-note">E</p></td>
+            <td class="white-keys" ng-click="playNote('F')"><p class="w-note">F</p></td>
+            <td class="white-keys" ng-click="playNote('G')"><p class="w-note">G</p></td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
 
   <!-- Chord Selection for Instruments -->
 
-<div ng-show="chords && instrument!=='bass'" class="col-lg-12 notes text-center">
+  <div ng-show="chords && instrument!=='bass'" class="col-lg-3 notes text-center">
     <h4>{{ instrument }} chords</h4>
 
     <!-- C Major -->
@@ -971,5 +972,7 @@
       </div>
     </div>
   </div>
+
+</div>
 </div>
 </div>
