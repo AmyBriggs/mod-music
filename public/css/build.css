@@ -97,7 +97,7 @@ td{
 td.black-keys{
   background-color: rgb(190, 190, 190);
   border-style:none;
-  width: 4.16666666667%
+  width: 2.22222222222%;
 }
 td.black-keys.two-width{
   background-color: rgb(190, 190, 190);
@@ -105,10 +105,9 @@ td.black-keys.two-width{
   cursor:pointer;
   cursor:hand;
   color:white;
-  width: 8.33333333333%;
+  width: 4.44444444444%;
 }
 .bk-note{
-  border-radius:50%;
   border:1px solid white;
   height:90%;
   width:90%;
