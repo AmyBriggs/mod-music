@@ -9,7 +9,10 @@ span {
   letter-spacing: 3px;
   margin-right:9%;
 }
-
+a{
+  cursor:pointer;
+  cursor:hand;
+}
 #play {
     height: 50%;
     font-size: 2em;
@@ -45,6 +48,7 @@ table{
 
 td{
   width:3%;
+  background-color:rgb(69, 69, 69);
   border-left:0.5px solid black;
   border-right:0.5px solid black;
   border-top:1px solid black;
@@ -94,5 +98,17 @@ h4 {
 
 .collapse-panel {
   padding: 5px;
-  height: 200px;
+  overflow-y: auto;
+  height:auto;
+  max-height: 200px;
+}
+.panel-p{
+  font-family:'Maven Pro', sans-serif;
+  font-size:18px;
+  background-color:rgb(124, 124, 124);
+  color:white;
+  padding-left:2%;
+  text-align:left;
+  cursor:pointer;
+  cursor:hand;
 }
