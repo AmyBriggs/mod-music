@@ -12,8 +12,6 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
        value: 120
      };
 
-
-
  //variables used for side-accordion display logic
  $scope.collapsePiano = true; $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapseDrums = false;
  //variables used for drum rack part display logic
@@ -811,10 +809,21 @@ $scope.stopPlay = function(){
     for (let i = 0; i < currentSquares.length; i++) {
      let index = currentSquares[i].parentNode.className;
      let instrument = $rootScope.vm.build[index].instrument;
-     let note = currentSquares[i].className;
-     if(note == ''){
+     let note = currentSquares[i].className.split(' ');
+     if(note[0] == ''){
      }else{
-       sounds[instrument][note].play();
+       if(instrument === 'drums'){
+         sounds.drums[note[0]][note[1]].play();
+       }else{
+         if(note.length > 1){
+           var playChordArr = chords[note[0]][note[1]];
+           for(var j = 0; j < playChordArr.length; j++){
+             sounds[instrument][playChordArr[j]].play()
+           }
+         }else{
+           sounds[instrument][note[0]].play();
+         }
+       }
      }
     }
     advanceNote();
@@ -909,5 +918,4 @@ $scope.stopPlay = function(){
     break;
   }
  }
-
 }])
