@@ -542,6 +542,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  $scope.playNote = function(note) {
   sounds[$scope.instrument][note].play()
   //most recent note that was selected
+  $scope.current = 'note';
   $scope.currentNote = [$scope.instrument, note];
  }
  $scope.playChord = function(elem){
@@ -549,9 +550,9 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    let chord = elem.currentTarget.innerHTML
    if(chord.includes('#')){
      chord.replace('#', 's')
-
    }
    let chordNotes = chords[key][chord]
+   $scope.current = 'chord';
    $scope.currentChord = [$scope.instrument, [key, chord]]
    for(var i = 0; i < chordNotes.length; i++){
      sounds[$scope.instrument][chordNotes[i]].play()
@@ -560,6 +561,8 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  $scope.playDrum = function(elem){
    let rackId = elem.currentTarget.parentNode.parentNode.parentNode.id;
    let part = elem.currentTarget.innerText.substr(0,2);
+   $scope.current = 'drums';
+   $scope.currentDrums = [rackId, part];
    sounds.drums[rackId][part].play();
  }
 //logic for when you choose an instrument
@@ -577,14 +580,14 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  }
 
  $scope.checkPop = function(elem){
-   if($scope.currentNote){
-     $scope.current = $scope.currentNote
-     let note = $scope.current[1]
+   if($scope.current == 'note'){
      $scope.populate(elem)
-   } else if($scope.currentChord){
-     $scope.current = $scope.currentChord
-     let chord = $scope.current[1]
+   }
+   if($scope.current == 'chord'){
      $scope.populateChord(elem)
+   }
+   if($scope.current == 'drums'){
+     $scope.populateDrums(elem)
    }
 
  }
@@ -595,21 +598,11 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    let rowIndex = elem.currentTarget.parentNode.className;
    let chosenInstr = $scope.currentNote[0];
    let note = $scope.currentNote[1];
-   console.log($rootScope.vm.build[rowIndex].instrument);
-   console.log('made it to populate');
-
-
-  //  let chord = $scope.currentChord[1];
    if($rootScope.vm.build[rowIndex].instrument === chosenInstr) {
      elem.currentTarget.style.backgroundColor = colors[rowIndex];
      elem.currentTarget.className = `${note}`;
      elem.currentTarget.addEventListener('click', sounds[chosenInstr][note].play());
    }
-  //  else if($rootScope.vm.build[rowIndex].instrument === chosenInstr) {
-  //    elem.currentTarget.style.backgroundColor = colors[rowIndex];
-  //    elem.currentTarget.className = `${chord}`;
-  //    elem.currentTarget.addEventListener('click', sounds[chosenInstr][chord].play());
-  //  }
    updateBuild();
  }
 
@@ -621,16 +614,26 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    let instrument = $scope.instrument;
    if($rootScope.vm.build[rowIndex].instrument === instrument){
      elem.currentTarget.style.backgroundColor = colors[rowIndex]
-     elem.currentTarget.className = `${chord}`
+     elem.currentTarget.className = `${key} ${chord}`
      var playChordArr = chords[key][chord];
      for(var i = 0; i < playChordArr.length; i++){
        elem.currentTarget.addEventListener('click', sounds[instrument][playChordArr[i]].play())
      }
    }
-
    updateBuild()
+ }
 
-
+ $scope.populateDrums = function(elem){
+   let rowIndex = elem.currentTarget.parentNode.className;
+   let instrument = 'drums';
+   let rackId = $scope.currentDrums[0];
+   let part = $scope.currentDrums[1];
+   if($rootScope.vm.build[rowIndex].instrument === instrument){
+     elem.currentTarget.style.backgroundColor = colors[rowIndex]
+     elem.currentTarget.className = `${rackId} ${part}`
+     elem.currentTarget.addEventListener('click', sounds.drums[rackId][part].play());
+   }
+   updateBuild()
  }
  //updates build array with notes
  function updateBuild(){
