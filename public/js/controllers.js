@@ -257,36 +257,122 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  })
   },
   drums: {
-   bd: new Howl({
-    urls: ['sounds/drums/909/bd02.wav']
-   }),
-   cp: new Howl({
-    urls: ['sounds/drums/909/cp01.wav']
-   }),
-   cr: new Howl({
-    urls: ['sounds/drums/909/cr02.wav']
-   }),
-   hh: new Howl({
-    urls: ['sounds/drums/909/hh01.wav']
-   }),
-   ht: new Howl({
-    urls: ['sounds/drums/909/ht01.wav']
-   }),
-   lt: new Howl({
-    urls: ['sounds/drums/909/lt01.wav']
-   }),
-   mt: new Howl({
-    urls: ['sounds/drums/909/mt01.wav']
-   }),
-   oh: new Howl({
-    urls: ['sounds/drums/909/oh01.wav']
-   }),
-   rd: new Howl({
-    urls: ['sounds/drums/909/rd01.wav']
-   }),
-   sd: new Howl({
-    urls: ['sounds/drums/909/sd01.wav']
-   })
+    606: {
+      bd: new Howl({
+       urls: ['sounds/drums/606/bd.wav']
+      }),
+      cp: new Howl({
+       urls: ['sounds/drums/606/cp.wav']
+      }),
+      cr: new Howl({
+       urls: ['sounds/drums/606/cr.wav']
+      }),
+      hh: new Howl({
+       urls: ['sounds/drums/606/hh.wav']
+      }),
+      ht: new Howl({
+       urls: ['sounds/drums/606/ht.wav']
+      }),
+      lt: new Howl({
+       urls: ['sounds/drums/606/lt.wav']
+      }),
+      mt: new Howl({
+       urls: ['sounds/drums/606/mt.wav']
+      }),
+      oh: new Howl({
+       urls: ['sounds/drums/606/oh.wav']
+      }),
+      sd: new Howl({
+       urls: ['sounds/drums/606/sd.wav']
+      })
+    },
+    707: {
+      bd: new Howl({
+       urls: ['sounds/drums/707/bd.wav']
+      }),
+      cp: new Howl({
+       urls: ['sounds/drums/707/cp.wav']
+      }),
+      cr: new Howl({
+       urls: ['sounds/drums/707/cr.wav']
+      }),
+      hh: new Howl({
+       urls: ['sounds/drums/707/hh.wav']
+      }),
+      ht: new Howl({
+       urls: ['sounds/drums/707/ht.wav']
+      }),
+      lt: new Howl({
+       urls: ['sounds/drums/707/lt.wav']
+      }),
+      mt: new Howl({
+       urls: ['sounds/drums/707/mt.wav']
+      }),
+      oh: new Howl({
+       urls: ['sounds/drums/707/oh.wav']
+      }),
+      sd: new Howl({
+       urls: ['sounds/drums/707/sd.wav']
+      })
+    },
+    808: {
+      bd: new Howl({
+       urls: ['sounds/drums/808/bd.wav']
+      }),
+      cp: new Howl({
+       urls: ['sounds/drums/808/cp.wav']
+      }),
+      cr: new Howl({
+       urls: ['sounds/drums/808/cr.wav']
+      }),
+      hh: new Howl({
+       urls: ['sounds/drums/808/hh.wav']
+      }),
+      ht: new Howl({
+       urls: ['sounds/drums/808/ht.wav']
+      }),
+      lt: new Howl({
+       urls: ['sounds/drums/808/lt.wav']
+      }),
+      mt: new Howl({
+       urls: ['sounds/drums/808/mt.wav']
+      }),
+      oh: new Howl({
+       urls: ['sounds/drums/808/oh.wav']
+      }),
+      sd: new Howl({
+       urls: ['sounds/drums/808/sd.wav']
+      })
+    },
+    909: {
+      bd: new Howl({
+       urls: ['sounds/drums/909/bd.wav']
+      }),
+      cp: new Howl({
+       urls: ['sounds/drums/909/cp.wav']
+      }),
+      cr: new Howl({
+       urls: ['sounds/drums/909/cr.wav']
+      }),
+      hh: new Howl({
+       urls: ['sounds/drums/909/hh.wav']
+      }),
+      ht: new Howl({
+       urls: ['sounds/drums/909/ht.wav']
+      }),
+      lt: new Howl({
+       urls: ['sounds/drums/909/lt.wav']
+      }),
+      mt: new Howl({
+       urls: ['sounds/drums/909/mt.wav']
+      }),
+      oh: new Howl({
+       urls: ['sounds/drums/909/oh.wav']
+      }),
+      sd: new Howl({
+       urls: ['sounds/drums/909/sd.wav']
+      })
+    }
  }
  }
 
