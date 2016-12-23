@@ -15,8 +15,15 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  let playing = false;
  let playIndex;
  let loop_length = 32;
+ let timeoutId;
+ let startTime;
+ let aheadTime = 0.200;
+ let bpm = 60;
+ let context = new AudioContext();
+ let gain = context.createGain();
+ gain.connect(context.destination);
  //colors array for each grid row
- let colors = ['rgb(51, 5, 91)', 'rgb(69, 0, 147)', 'rgb(101, 2, 180)', 'rgb(152, 22, 255)'];
+ let colors = ['rgb(30, 0, 56)', 'rgb(51, 5, 91)','rgb(69, 0, 147)', 'rgb(101, 2, 180)' ,'rgb(152, 22, 255)', 'rgb(192, 101, 247)', 'rgb(208, 150, 249)', 'rgb(232, 200, 247)'];
  let sounds = {
   piano: {
     GL: new Howl({
@@ -501,18 +508,20 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  }
 
 //play functionality
-
+$scope.stopPlay = function(){
+  cancelAnimationFrame(timeoutId);
+}
  $scope.startPlay = function() {
-   playing = true;
-   let context = new AudioContext();
    playIndex = 0;
-   schedule(context);
+  noteTime = 0.0;
+  startTime = context.currentTime + aheadTime;
+   schedule();
  }
 
- function schedule(context) {
-   let gain = context.createGain();
-   gain.connect(context.destination);
-   while (playIndex < loop_length && !$scope.stop) {
+ function schedule() {
+   var currentTime = context.currentTime;
+   currentTime -= startTime;
+   while (noteTime < currentTime + aheadTime) {
     let allSquares = document.querySelectorAll("[data-col]");
     let currentSquares = [];
     for (let i = 0; i < allSquares.length; i++) {
@@ -529,24 +538,29 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
        sounds[instrument][note].play();
      }
     }
-    sleep(400);
     advanceNote();
    }
+   timeoutId = requestAnimationFrame(schedule)
    }
   //function for pausing
-  function sleep(milliseconds) {
-   let start = new Date().getTime();
-   for (let i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds) {
-     break;
-    }
-   }
-  }
+  // function sleep(milliseconds) {
+  //  let start = new Date().getTime();
+  //  for (let i = 0; i < 1e7; i++) {
+  //   if ((new Date().getTime() - start) > milliseconds) {
+  //    break;
+  //   }
+  //  }
+  // }
   //advance the note
  function advanceNote() {
-   playIndex++;
-}
+  var secondsPerBeat = 60 / bpm;
+  playIndex++;
+  if (playIndex == loop_length) {
+   playIndex = 0;
+  }
 
+  noteTime += 0.25 * secondsPerBeat
+ }
  /*** DISPLAY LOGIC ***/
  $scope.collapse = function(instr) {
    //side-accordion
