@@ -19,6 +19,21 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  let colors = ['rgb(51, 5, 91)', 'rgb(69, 0, 147)', 'rgb(101, 2, 180)', 'rgb(152, 22, 255)'];
  let sounds = {
   piano: {
+    GL: new Howl({
+     urls: ['sounds/piano/acoustic_grand_piano-mp3/G3.mp3'],
+    }),
+      AbL: new Howl({
+     urls: ['sounds/piano/acoustic_grand_piano-mp3/Ab3.mp3'],
+    }),
+    AL: new Howl({
+     urls: ['sounds/piano/acoustic_grand_piano-mp3/A3.mp3'],
+    }),
+    BbL: new Howl({
+     urls: ['sounds/piano/acoustic_grand_piano-mp3/Bb3.mp3'],
+    }),
+    BL: new Howl({
+     urls: ['sounds/piano/acoustic_grand_piano-mp3/B3.mp3'],
+    }),
    C: new Howl({
     urls: ['sounds/piano/acoustic_grand_piano-mp3/C4.mp3'],
    }),
@@ -69,9 +84,33 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
   }),
    E1: new Howl({
     urls: ['sounds/piano/acoustic_grand_piano-mp3/E5.mp3'],
+  }),
+   F1: new Howl({
+    urls: ['sounds/piano/acoustic_grand_piano-mp3/F5.mp3'],
+  }),
+   Fs1: new Howl({
+    urls: ['sounds/piano/acoustic_grand_piano-mp3/Gb5.mp3'],
+  }),
+   G1: new Howl({
+    urls: ['sounds/piano/acoustic_grand_piano-mp3/G5.mp3'],
   })
   },
   guitar: {
+    GL: new Howl({
+     urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/G3.mp3'],
+    }),
+    AbL: new Howl({
+     urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/Ab3.mp3'],
+    }),
+    AL: new Howl({
+     urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/A3.mp3'],
+    }),
+    BbL: new Howl({
+     urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/Bb3.mp3'],
+    }),
+    BL: new Howl({
+     urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/B3.mp3'],
+    }),
    C: new Howl({
     urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/C4.mp3'],
    }),
@@ -122,6 +161,15 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
   }),
    E1: new Howl({
     urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/E5.mp3'],
+  }),
+   F1: new Howl({
+    urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/F5.mp3'],
+  }),
+   Fs1: new Howl({
+    urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/Gb5.mp3'],
+  }),
+   G1: new Howl({
+    urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/G5.mp3'],
   })
   },
   bass: {
