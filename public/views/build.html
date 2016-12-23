@@ -4,997 +4,1127 @@
 <script src="../js/build.js"></script>
 <div ng-controller="BuildController" class="row">
 
-  <div class="col-lg-12 text-center">
-    <i class="fa fa-play" ng-click="startPlay()" id="play" aria-hidden="true"></i><i class="fa fa-stop" ng-click="stop=true" id="stop" aria-hidden="true"></i><span>modmusic</span>
-  </div>
+    <div class="col-lg-12 text-center">
+        <i class="fa fa-play" ng-click="startPlay()" id="play" aria-hidden="true"></i><i class="fa fa-stop" ng-click="stop=true" id="stop" aria-hidden="true"></i><span>modmusic</span>
+    </div>
 </div>
 <div class="row whole">
-  <div class="col-lg-1 instrument text-center">
-    <table>
-      <tr>
-        <td class="7 selected-instr">
-        </td>
-      </tr>
-      <tr>
-        <td class="6 selected-instr">
-        </td>
-      </tr>
-      <tr>
-        <td class="5 selected-instr">
-        </td>
-      </tr>
-      <tr>
-        <td class="4 selected-instr">
-        </td>
-      </tr>
-      <tr>
-        <td class="3 selected-instr">
-        </td>
-      </tr>
-      <tr>
-        <td class="2 selected-instr">
-        </td>
-      </tr>
-      <tr>
-        <td class="1 selected-instr">
-        </td>
-      </tr>
-      <tr>
-        <td class="0 selected-instr">
-        </td>
-      </tr>
-    </table>
-  </div>
-  <div class="col-lg-8 grid text-center">
-    <table class="grid-table">
-      <tr class="7" ng-click="activeInstr()" ng-class="{'active': isActive}">
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-      </tr>
-      <tr class="6" ng-click="activeInstr()" ng-class="{'active': isActive}">
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-      </tr>
-      <tr class="5" ng-click="activeInstr()" ng-class="{'active': isActive}">
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-      </tr>
-      <tr class="4" ng-click="activeInstr()" ng-class="{'active': isActive}">
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-      </tr>
-      <tr class="3" ng-click="activeInstr()" ng-class="{'active': isActive}">
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-      </tr>
-      <tr class="2" ng-click="activeInstr()" ng-class="{'active': isActive}">
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-      </tr>
-      <tr class="1" ng-click="activeInstr()" ng-class="{'active': isActive}">
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-      </tr>
-      <tr class="0" ng-click="activeInstr()" ng-class="{'active': isActive}">
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-        <td ng-click="populate($event)"></td>
-      </tr>
-    </table>
-  </div>
-  <div class="col-lg-3 rack text-center">
-    <h4 class="rack-title">Instrument Rack</h4>
-    <div class="row">
-      <div class="col-lg-12 collapse-heading">
-        <a ng-click="collapse('piano')">
-          <h4>Piano/Keyboards</h4>
-        </a>
-      </div>
-      <div ng-show="collapsePiano" class="col-lg-12 collapse-panel">
-        <p class="panel-p" ng-click="notesOn('piano'); addInstr('piano')">Piano</p>
-      </div>
+    <div class="col-lg-1 instrument text-center">
+        <table>
+            <tr>
+                <td class="7 selected-instr">
+                </td>
+            </tr>
+            <tr>
+                <td class="6 selected-instr">
+                </td>
+            </tr>
+            <tr>
+                <td class="5 selected-instr">
+                </td>
+            </tr>
+            <tr>
+                <td class="4 selected-instr">
+                </td>
+            </tr>
+            <tr>
+                <td class="3 selected-instr">
+                </td>
+            </tr>
+            <tr>
+                <td class="2 selected-instr">
+                </td>
+            </tr>
+            <tr>
+                <td class="1 selected-instr">
+                </td>
+            </tr>
+            <tr>
+                <td class="0 selected-instr">
+                </td>
+            </tr>
+        </table>
     </div>
-    <div class="row">
-      <div class="col-lg-12 collapse-heading">
-        <a ng-click="collapse('guitar')">
-          <h4>Guitar  <img class="icon" src="../img/icons/guitar.png" alt=""> </h4>
-        </a>
-      </div>
-      <div ng-show="collapseGuitar" class="col-lg-12 collapse-panel">
-        <p class="panel-p" ng-click="notesOn('guitar'); addInstr('guitar')">Guitar</p>
-      </div>
+    <div class="col-lg-8 grid text-center">
+        <table class="grid-table">
+            <tr class="7" ng-click="activeInstr()" ng-class="{'active': isActive}">
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+            </tr>
+            <tr class="6" ng-click="activeInstr()" ng-class="{'active': isActive}">
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+            </tr>
+            <tr class="5" ng-click="activeInstr()" ng-class="{'active': isActive}">
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+            </tr>
+            <tr class="4" ng-click="activeInstr()" ng-class="{'active': isActive}">
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+            </tr>
+            <tr class="3" ng-click="activeInstr()" ng-class="{'active': isActive}">
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+            </tr>
+            <tr class="2" ng-click="activeInstr()" ng-class="{'active': isActive}">
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+            </tr>
+            <tr class="1" ng-click="activeInstr()" ng-class="{'active': isActive}">
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+            </tr>
+            <tr class="0" ng-click="activeInstr()" ng-class="{'active': isActive}">
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+                <td ng-click="populate($event)"></td>
+            </tr>
+        </table>
     </div>
-    <div class="row">
-      <div class="col-lg-12 collapse-heading">
-        <a ng-click="collapse('bass')">
-          <h4>Bass</h4>
-        </a>
-      </div>
-      <div ng-show="collapseBass" class="col-lg-12 collapse-panel">
-        <p class="panel-p" ng-click="notesOn('bass'); addInstr('bass')">Bass</p>
-      </div>
+    <div class="col-lg-3 rack text-center">
+        <h4 class="rack-title">Instrument Rack</h4>
+        <div class="row">
+            <div class="col-lg-12 collapse-heading">
+                <a ng-click="collapse('piano')">
+                    <h4>Piano/Keyboards</h4>
+                </a>
+            </div>
+            <div ng-show="collapsePiano" class="col-lg-12 collapse-panel">
+                <p class="panel-p" ng-click="notesOn('piano'); addInstr('piano')">Piano</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 collapse-heading">
+                <a ng-click="collapse('guitar')">
+                    <h4>Guitar  <img class="icon" src="../img/icons/guitar.png" alt=""> </h4>
+                </a>
+            </div>
+            <div ng-show="collapseGuitar" class="col-lg-12 collapse-panel">
+                <p class="panel-p" ng-click="notesOn('guitar'); addInstr('guitar')">Guitar</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 collapse-heading">
+                <a ng-click="collapse('bass')">
+                    <h4>Bass</h4>
+                </a>
+            </div>
+            <div ng-show="collapseBass" class="col-lg-12 collapse-panel">
+                <p class="panel-p" ng-click="notesOn('bass'); addInstr('bass')">Bass</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 collapse-heading">
+                <a ng-click="collapse('drums')">
+                    <h4>Drum Rack</h4>
+                </a>
+            </div>
+            <div ng-show="collapseDrums" class="col-lg-12 collapse-panel">
+                <p class="panel-p" ng-click="notesOn('drums'); addInstr('drums')">Drum Rack</p>
+            </div>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-lg-12 collapse-heading">
-        <a ng-click="collapse('drums')">
-          <h4>Drum Rack</h4>
-        </a>
-      </div>
-      <div ng-show="collapseDrums" class="col-lg-12 collapse-panel">
-        <p class="panel-p" ng-click="notesOn('drums'); addInstr('drums')">Drum Rack</p>
-      </div>
-    </div>
-  </div>
 </div>
 <!-- Note selection for instruments -->
 <div class="row note-select">
-  <div ng-show="notes" class="col-lg-9 notes text-center">
-    <h4 class="note-label">{{instrument}}</h4>
-    <div class="row">
-      <div class="col-lg-12">
-        <table class="bk-table">
-          <tr>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-            <td class="black-keys two-width" ng-click="playNote('Ab')"><p class="bk-note">Ab</p></td>
-            <td class="black-keys"></td>
-            <td class="black-keys two-width" ng-click="playNote('Bb')"><p class="bk-note">Bb</p></td>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-            <td class="black-keys two-width" ng-click="playNote('Cs')"><p class="bk-note">C#</p></td>
-            <td class="black-keys"></td>
-            <td class="black-keys two-width" ng-click="playNote('Eb')"><p class="bk-note">Eb</p></td>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-            <td class="black-keys two-width" ng-click="playNote('Fs')"><p class="bk-note">F#</p></td>
-            <td class="black-keys"></td>
-            <td class="black-keys two-width" ng-click="playNote('Ab')"><p class="bk-note">Ab</p></td>
-            <td class="black-keys"></td>
-            <td class="black-keys two-width" ng-click="playNote('Bb')"><p class="bk-note">Bb</p></td>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-            <td class="black-keys two-width" ng-click="playNote('Cs')"><p class="bk-note">C#</p></td>
-            <td class="black-keys"></td>
-            <td class="black-keys two-width" ng-click="playNote('Eb')"><p class="bk-note">Eb</p></td>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-            <td class="black-keys two-width" ng-click="playNote('Fs')"><p class="bk-note">F#</p></td>
-            <td class="black-keys"></td>
-            <td class="black-keys"></td>
-          </tr>
-        </table>
-      </div>
-      <div class="col-lg-12">
-        <table class="wk-table">
-          <tr>
-            <td class="white-keys" ng-click="playNote('G')"><p class="w-note">G</p></td>
-            <td class="white-keys" ng-click="playNote('A')"><p class="w-note">A</p></td>
-            <td class="white-keys" ng-click="playNote('B')"><p class="w-note">B</p></td>
-            <td class="white-keys" ng-click="playNote('C')"><p class="w-note">C</p></td>
-            <td class="white-keys" ng-click="playNote('D')"><p class="w-note">D</p></td>
-            <td class="white-keys" ng-click="playNote('E')"><p class="w-note">E</p></td>
-            <td class="white-keys" ng-click="playNote('F')"><p class="w-note">F</p></td>
-            <td class="white-keys" ng-click="playNote('G')"><p class="w-note">G</p></td>
-            <td class="white-keys" ng-click="playNote('A')"><p class="w-note">A</p></td>
-            <td class="white-keys" ng-click="playNote('B')"><p class="w-note">B</p></td>
-            <td class="white-keys" ng-click="playNote('C')"><p class="w-note">C</p></td>
-            <td class="white-keys" ng-click="playNote('D')"><p class="w-note">D</p></td>
-            <td class="white-keys" ng-click="playNote('E')"><p class="w-note">E</p></td>
-            <td class="white-keys" ng-click="playNote('F')"><p class="w-note">F</p></td>
-            <td class="white-keys" ng-click="playNote('G')"><p class="w-note">G</p></td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- Chord Selection for Instruments -->
-
-  <div ng-show="chords && instrument!=='bass'" class="col-lg-3 notes text-center">
-    <h4>{{ instrument }} chords</h4>
-
-    <!-- C Major -->
-    <div id="cMajChords" class="row">
-      <div class="col-lg-1 CM">
-        <button type="button" class="btn btn-default btn-lg CM chord-button" ng-click="playChord($event)">CM</button>
-      </div>
-      <div class="col-lg-1 CM1">
-        <button type="button" class="btn btn-default btn-lg CM1 chord-button" ng-click="playChord($event)">CM1</button>
-      </div>
-      <div class="col-lg-1 CM2">
-        <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">CM2</button>
-      </div>
-      <div class="col-lg-1 dm">
-        <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">dm</button>
-      </div>
-      <div class="col-lg-1 dm1">
-        <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">dm1</button>
-      </div>
-      <div class="col-lg-1 em">
-        <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">em</button>
-      </div>
-      <div class="col-lg-1 em1">
-        <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">em1</button>
-      </div>
-      <div class="col-lg-1 FM">
-        <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">FM</button>
-      </div>
-      <div class="col-lg-1 FM2">
-        <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">FM2</button>
-      </div>
-      <div class="col-lg-1 GM">
-        <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">GM</button>
-      </div>
-      <div class="col-lg-1 GM2">
-        <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">GM2</button>
-      </div>
-      <div class="col-lg-1 G7">
-        <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">G7</button>
-      </div>
-      <div class="col-lg-1 am">
-        <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">am</button>
-      </div>
-      <div class="col-lg-1 am1">
-        <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">am1</button>
-      </div>
-      <div class="col-lg-1 am2">
-        <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">am2</button>
-      </div>
-    </div>
-
-    <!-- D Major -->
-    <div id="dMajChords" class="row">
-      <div class="col-lg-1 DM">
-        <button type="button" class="btn btn-default btn-lg DM" ng-click="playChord($event)">DM</button>
-      </div>
-      <div class="col-lg-1 DM1">
-        <button type="button" class="btn btn-default btn-lg DM1" ng-click="playChord($event)">DM1</button>
-      </div>
-      <div class="col-lg-1 em">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">em</button>
-      </div>
-      <div class="col-lg-1 em1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">em1</button>
-      </div>
-      <div class="col-lg-1 f#m">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">f#m</button>
-      </div>
-      <div class="col-lg-1 fsm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">fsm2</button>
-      </div>
-      <div class="col-lg-1 GM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">GM</button>
-      </div>
-      <div class="col-lg-1 GM2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">GM2</button>
-      </div>
-      <div class="col-lg-1 AM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">AM</button>
-      </div>
-      <div class="col-lg-1 AM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">AM1</button>
-      </div>
-      <div class="col-lg-1 AM2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">AM2</button>
-      </div>
-      <div class="col-lg-1 A7">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">A7</button>
-      </div>
-      <div class="col-lg-1 bm1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">bm1</button>
-      </div>
-      <div class="col-lg-1 bm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">bm2</button>
-      </div>
-    </div>
-
-    <!-- Eb Major -->
-    <div id="ebMajChords" class="row">
-      <div class="col-lg-1 EbM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">EbM</button>
-      </div>
-      <div class="col-lg-1 EbM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">EbM1</button>
-      </div>
-      <div class="col-lg-1 fm">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">fm</button>
-      </div>
-      <div class="col-lg-1 fm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">fm2</button>
-      </div>
-      <div class="col-lg-1 gm">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">gm</button>
-      </div>
-      <div class="col-lg-1 gm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">gm2</button>
-      </div>
-      <div class="col-lg-1 AbM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">AbM</button>
-      </div>
-      <div class="col-lg-1 AbM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">AbM1</button>
-      </div>
-      <div class="col-lg-1 AbM2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">AbM2</button>
-      </div>
-      <div class="col-lg-1 BbM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">BbM1</button>
-      </div>
-      <div class="col-lg-1 BbM2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">BbM2</button>
-      </div>
-      <div class="col-lg-1 Bb7">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">Bb7</button>
-      </div>
-      <div class="col-lg-1 cm">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">cm</button>
-      </div>
-      <div class="col-lg-1 cm1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">cm1</button>
-      </div>
-      <div class="col-lg-1 cm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">cm2</button>
-      </div>
-    </div>
-
-    <!-- E Major -->
-    <div id="eMajChords" class="row">
-      <div class="col-lg-1 EM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">EM</button>
-      </div>
-      <div class="col-lg-1 EM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">EM1</button>
-      </div>
-      <div class="col-lg-1 fsm">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">fsm</button>
-      </div>
-      <div class="col-lg-1 fsm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">fsm2</button>
-      </div>
-      <div class="col-lg-1 gsm">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">gsm</button>
-      </div>
-      <div class="col-lg-1 gsm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">gsm2</button>
-      </div>
-      <div class="col-lg-1 AM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">AM</button>
-      </div>
-      <div class="col-lg-1 AM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">AM1</button>
-      </div>
-      <div class="col-lg-1 AM2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">AM2</button>
-      </div>
-      <div class="col-lg-1 BM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">BM1</button>
-      </div>
-      <div class="col-lg-1 BM2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">BM2</button>
-      </div>
-      <div class="col-lg-1 B7">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">B7</button>
-      </div>
-      <div class="col-lg-1 csm">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">csm</button>
-      </div>
-      <div class="col-lg-1 csm1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">csm1</button>
-      </div>
-      <div class="col-lg-1 csm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">csm2</button>
-      </div>
-    </div>
-
-    <!-- F Major -->
-    <div id="fMajChords" class="row">
-      <div class="col-lg-1 FM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">FM</button>
-      </div>
-      <div class="col-lg-1 FM2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">FM2</button>
-      </div>
-      <div class="col-lg-1 gm">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">gm</button>
-      </div>
-      <div class="col-lg-1 gm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">gm2</button>
-      </div>
-      <div class="col-lg-1 am">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">am</button>
-      </div>
-      <div class="col-lg-1 am1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">am1</button>
-      </div>
-      <div class="col-lg-1 am2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">am2</button>
-      </div>
-      <div class="col-lg-1 BbM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">BbM1</button>
-      </div>
-      <div class="col-lg-1 BbM2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">BbM2</button>
-      </div>
-      <div class="col-lg-1 CM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">CM</button>
-      </div>
-      <div class="col-lg-1 CM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">CM1</button>
-      </div>
-      <div class="col-lg-1 CM2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">CM2</button>
-      </div>
-      <div class="col-lg-1 C7">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">C7</button>
-      </div>
-      <div class="col-lg-1 dm">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">dm</button>
-      </div>
-      <div class="col-lg-1 dm1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">dm1</button>
-      </div>
-    </div>
-
-    <!-- G Major -->
-    <div id="gMajChords" class="row">
-      <div class="col-lg-1 GM">
-        <button type="button" class="btn btn-default btn-lg GM" ng-click="playChord($event)">GM</button>
-      </div>
-      <div class="col-lg-1 GM2">
-        <button type="button" class="btn btn-default btn-lg GM2" ng-click="playChord($event)">GM2</button>
-      </div>
-      <div class="col-lg-1 am">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">am</button>
-      </div>
-      <div class="col-lg-1 am1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">am1</button>
-      </div>
-      <div class="col-lg-1 am2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">am2</button>
-      </div>
-      <div class="col-lg-1 bm1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">bm1</button>
-      </div>
-      <div class="col-lg-1 bm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">bm2</button>
-      </div>
-      <div class="col-lg-1 CM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">CM</button>
-      </div>
-      <div class="col-lg-1 CM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">CM1</button>
-      </div>
-      <div class="col-lg-1 CM2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">CM2</button>
-      </div>
-      <div class="col-lg-1 DM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">DM</button>
-      </div>
-      <div class="col-lg-1 DM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">DM1</button>
-      </div>
-      <div class="col-lg-1 D7">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">D7</button>
-      </div>
-      <div class="col-lg-1 em">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">em</button>
-      </div>
-      <div class="col-lg-1 em1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">em1</button>
-      </div>
-    </div>
-
-    <!-- A Major -->
-    <div id="aMajChords" class="row">
-      <div class="col-lg-1 AM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">AM</button>
-      </div>
-      <div class="col-lg-1 AM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">AM1</button>
-      </div>
-      <div class="col-lg-1 AM2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">AM2</button>
-      </div>
-      <div class="col-lg-1 bm1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">bm1</button>
-      </div>
-      <div class="col-lg-1 bm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">bm2</button>
-      </div>
-      <div class="col-lg-1 csm">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">csm</button>
-      </div>
-      <div class="col-lg-1 csm1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">csm1</button>
-      </div>
-      <div class="col-lg-1 csm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">csm2</button>
-      </div>
-      <div class="col-lg-1 DM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">DM</button>
-      </div>
-      <div class="col-lg-1 DM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">DM1</button>
-      </div>
-      <div class="col-lg-1 EM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">EM</button>
-      </div>
-      <div class="col-lg-1 EM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">EM1</button>
-      </div>
-      <div class="col-lg-1 E7">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">E7</button>
-      </div>
-      <div class="col-lg-1 fsm">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">fsm</button>
-      </div>
-      <div class="col-lg-1 fsm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">fsm2</button>
-      </div>
-    </div>
-
-    <!-- Bb Major -->
-    <div id="BbMajChords" class="row">
-      <div class="col-lg-1 BbM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">BbM1</button>
-      </div>
-      <div class="col-lg-1 BbM2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">BbM2</button>
-      </div>
-      <div class="col-lg-1 cm">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">cm</button>
-      </div>
-      <div class="col-lg-1 cm1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">cm1</button>
-      </div>
-      <div class="col-lg-1 cm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">cm2</button>
-      </div>
-      <div class="col-lg-1 dm">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">dm</button>
-      </div>
-      <div class="col-lg-1 dm1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">dm1</button>
-      </div>
-      <div class="col-lg-1 EbM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">EbM</button>
-      </div>
-      <div class="col-lg-1 EbM1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">EbM1</button>
-      </div>
-      <div class="col-lg-1 FM">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">FM</button>
-      </div>
-      <div class="col-lg-1 FM2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">FM2</button>
-      </div>
-      <div class="col-lg-1 F7">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">F7</button>
-      </div>
-      <div class="col-lg-1 gm2">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">gm2</button>
-      </div>
-      <div class="col-lg-1 gm">
-        <button type="button" class="btn btn-default btn-lg" ng-click="playChord($event)">gm</button>
-      </div>
-    </div>
-  </div>
-  <div ng-show="drums" class="col-lg-12 drums text-center">
-    <h4>drums</h4>
-    <div class="row d-chooser">
-      <div class="col-lg-1"></div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('bd')">Bass Drum</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('lt')">Low Tom</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('mt')">Mid Tom</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('ht')">High Tom</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('sd')">Snare Drum</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('cp')">Clap</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('rd')">Ride</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('oh')">Open Hat</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('hh')">Hi Hat</button>
-      </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('cr')">Crash</button>
-      </div>
-      <div class="col-lg-1"></div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-lg-3">
+    <div ng-show="notes" class="col-lg-9 notes text-center">
+        <h4 class="note-label">{{instrument}}</h4>
         <div class="row">
-          <div class="col-lg-4 d-rack">empty</div>
-          <div class="col-lg-4 d-rack">empty</div>
-          <div class="col-lg-4 d-rack">empty</div>
+            <div class="col-lg-12">
+                <table class="bk-table">
+                    <tr>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys two-width" ng-click="playNote('Ab')">
+                            <p class="bk-note">Ab</p>
+                        </td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys two-width" ng-click="playNote('Bb')">
+                            <p class="bk-note">Bb</p>
+                        </td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys two-width" ng-click="playNote('Cs')">
+                            <p class="bk-note">C#</p>
+                        </td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys two-width" ng-click="playNote('Eb')">
+                            <p class="bk-note">Eb</p>
+                        </td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys two-width" ng-click="playNote('Fs')">
+                            <p class="bk-note">F#</p>
+                        </td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys two-width" ng-click="playNote('Ab')">
+                            <p class="bk-note">Ab</p>
+                        </td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys two-width" ng-click="playNote('Bb')">
+                            <p class="bk-note">Bb</p>
+                        </td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys two-width" ng-click="playNote('Cs')">
+                            <p class="bk-note">C#</p>
+                        </td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys two-width" ng-click="playNote('Eb')">
+                            <p class="bk-note">Eb</p>
+                        </td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys two-width" ng-click="playNote('Fs')">
+                            <p class="bk-note">F#</p>
+                        </td>
+                        <td class="black-keys"></td>
+                        <td class="black-keys"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-12">
+                <table class="wk-table">
+                    <tr>
+                        <td class="white-keys" ng-click="playNote('G')">
+                            <p class="w-note">G</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('A')">
+                            <p class="w-note">A</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('B')">
+                            <p class="w-note">B</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('C')">
+                            <p class="w-note">C</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('D')">
+                            <p class="w-note">D</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('E')">
+                            <p class="w-note">E</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('F')">
+                            <p class="w-note">F</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('G')">
+                            <p class="w-note">G</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('A')">
+                            <p class="w-note">A</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('B')">
+                            <p class="w-note">B</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('C')">
+                            <p class="w-note">C</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('D')">
+                            <p class="w-note">D</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('E')">
+                            <p class="w-note">E</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('F')">
+                            <p class="w-note">F</p>
+                        </td>
+                        <td class="white-keys" ng-click="playNote('G')">
+                            <p class="w-note">G</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div class="row">
-          <div class="col-lg-4 d-rack">empty</div>
-          <div class="col-lg-4 d-rack">empty</div>
-          <div class="col-lg-4 d-rack">empty</div>
+    </div>
+
+    <!-- Chord Selection for Instruments -->
+
+    <div ng-show="chords && instrument!=='bass'" class="col-lg-3 notes text-center">
+        <h4>{{ instrument }} chords</h4>
+
+        <!-- C Major -->
+        <div>
+            <button class="btn btn-primary button-chord" type="button" data-toggle="collapse" data-target=".collapse-exampleC" aria-expanded="false" aria-controls="collapseExample">
+                C Maj
+            </button>
+            <div class="collapse collapse-exampleC">
+              <div id="cMajChords" class="row">
+                  <div class="col-lg-1 CM">
+                      <button type="button" class="btn btn-default btn-lg CM chord-button" ng-click="playChord($event)">CM</button>
+                  </div>
+                  <div class="col-lg-1 CM1">
+                      <button type="button" class="btn btn-default btn-lg CM1 chord-button" ng-click="playChord($event)">CM1</button>
+                  </div>
+                  <div class="col-lg-1 CM2">
+                      <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">CM2</button>
+                  </div>
+                  <div class="col-lg-1 dm">
+                      <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">dm</button>
+                  </div>
+                  <div class="col-lg-1 dm1">
+                      <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">dm1</button>
+                  </div>
+                  <div class="col-lg-1 em">
+                      <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">em</button>
+                  </div>
+                  <div class="col-lg-1 em1">
+                      <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">em1</button>
+                  </div>
+                  <div class="col-lg-1 FM">
+                      <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">FM</button>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="col-lg-1 FM2">
+                      <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">FM2</button>
+                  </div>
+                  <div class="col-lg-1 GM">
+                      <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">GM</button>
+                  </div>
+                  <div class="col-lg-1 GM2">
+                      <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">GM2</button>
+                  </div>
+                  <div class="col-lg-1 G7">
+                      <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">G7</button>
+                  </div>
+                  <div class="col-lg-1 am">
+                      <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">am</button>
+                  </div>
+                  <div class="col-lg-1 am1">
+                      <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">am1</button>
+                  </div>
+                  <div class="col-lg-1 am2">
+                      <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">am2</button>
+                  </div>
+              </div>
+            </div>
         </div>
-        <div class="row">
-          <div class="col-lg-4 d-rack">empty</div>
-          <div class="col-lg-4 d-rack">empty</div>
-          <div class="col-lg-4 d-rack">empty</div>
+
+
+        <!-- D Major -->
+      <div>
+        <button class="btn btn-primary button-chord" type="button" data-toggle="collapse" data-target=".collapse-exampleD" aria-expanded="false" aria-controls="collapseExample">
+            D Maj
+        </button>
+        <div class="collapse collapse-exampleD">
+        <div id="dMajChords" class="row">
+            <div class="col-lg-1 DM">
+                <button type="button" class="btn btn-default btn-lg DM chord-button" ng-click="playChord($event)">DM</button>
+            </div>
+            <div class="col-lg-1 DM1">
+                <button type="button" class="btn btn-default btn-lg DM1 chord-button" ng-click="playChord($event)">DM1</button>
+            </div>
+            <div class="col-lg-1 em">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">em</button>
+            </div>
+            <div class="col-lg-1 em1">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">em1</button>
+            </div>
+            <div class="col-lg-1 f#m">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">f#m</button>
+            </div>
+            <div class="col-lg-1 fsm2">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">fsm2</button>
+            </div>
+            <div class="col-lg-1 GM">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">GM</button>
+            </div>
+            <div class="col-lg-1 GM2">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">GM2</button>
+            </div>
+            <br>
+            <br>
+            <div class="col-lg-1 AM">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">AM</button>
+            </div>
+            <div class="col-lg-1 AM1">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">AM1</button>
+            </div>
+            <div class="col-lg-1 AM2">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">AM2</button>
+            </div>
+            <div class="col-lg-1 A7">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">A7</button>
+            </div>
+            <div class="col-lg-1 bm1">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">bm1</button>
+            </div>
+            <div class="col-lg-1 bm2">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">bm2</button>
+            </div>
         </div>
       </div>
-      <div class="col-lg-9">
-        <div class="row bd" ng-show="bd">
-          <div class="col-lg-12">
-            <h4>Bass Drum</h4>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('bd')">Bass Drum</button>
+      </div>
+
+
+        <!-- Eb Major -->
+      <div>
+        <button class="btn btn-primary button-chord" type="button" data-toggle="collapse" data-target=".collapse-exampleEb" aria-expanded="false" aria-controls="collapseExample">
+            Eb Maj
+        </button>
+        <div class="collapse collapse-exampleEb">
+        <div id="ebMajChords" class="row">
+            <div class="col-lg-1 EbM">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">EbM</button>
             </div>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('bd')">+</button>
+            <div class="col-lg-1 EbM1">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">EbM1</button>
             </div>
-          </div>
+            <div class="col-lg-1 fm">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">fm</button>
+            </div>
+            <div class="col-lg-1 fm2">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">fm2</button>
+            </div>
+            <div class="col-lg-1 gm">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">gm</button>
+            </div>
+            <div class="col-lg-1 gm2">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">gm2</button>
+            </div>
+            <div class="col-lg-1 AbM">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">AbM</button>
+            </div>
+            <div class="col-lg-1 AbM1">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">AbM1</button>
+            </div>
+            <br>
+            <br>
+            <div class="col-lg-1 AbM2">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">AbM2</button>
+            </div>
+            <div class="col-lg-1 BbM1">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">BbM1</button>
+            </div>
+            <div class="col-lg-1 BbM2">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">BbM2</button>
+            </div>
+            <div class="col-lg-1 Bb7">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">Bb7</button>
+            </div>
+            <div class="col-lg-1 cm">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">cm</button>
+            </div>
+            <div class="col-lg-1 cm1">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">cm1</button>
+            </div>
+            <div class="col-lg-1 cm2">
+                <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">cm2</button>
+            </div>
         </div>
-        <div class="row cp" ng-show="cp">
-          <div class="col-lg-12">
-            <h4>Clap</h4>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('cp')">Clap</button>
-            </div>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('cp')">+</button>
-            </div>
+      </div>
+      </div>
+
+
+        <!-- E Major -->
+    <div>
+      <button class="btn btn-primary button-chord" type="button" data-toggle="collapse" data-target=".collapse-exampleE" aria-expanded="false" aria-controls="collapseExample">
+          E Maj
+      </button>
+        <div class="collapse collapse-exampleE">
+      <div id="eMajChords" class="row">
+          <div class="col-lg-1 EM">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">EM</button>
           </div>
-        </div>
-        <div class="row cr" ng-show="cr">
-          <div class="col-lg-12">
-            <h4>Crash</h4>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('cr')">Crash</button>
-            </div>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('cr')">+</button>
-            </div>
+          <div class="col-lg-1 EM1">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">EM1</button>
           </div>
-        </div>
-        <div class="row hh" ng-show="hh">
-          <div class="col-lg-12">
-            <h4>Hi Hat</h4>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('hh')">Hi Hat</button>
-            </div>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('hh')">+</button>
-            </div>
+          <div class="col-lg-1 fsm">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">fsm</button>
           </div>
-        </div>
-        <div class="row ht" ng-show="ht">
-          <div class="col-lg-12">
-            <h4>Hi Tom</h4>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('ht')">Hi Tom</button>
-            </div>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('ht')">+</button>
-            </div>
+          <div class="col-lg-1 fsm2">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">fsm2</button>
           </div>
-        </div>
-        <div class="row lt" ng-show="lt">
-          <div class="col-lg-12">
-            <h4>Low Tom</h4>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('lt')">Low Tom</button>
-            </div>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('lt')">+</button>
-            </div>
+          <div class="col-lg-1 gsm">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">gsm</button>
           </div>
-        </div>
-        <div class="row mt" ng-show="mt">
-          <div class="col-lg-12">
-            <h4>Mid Tom</h4>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('mt')">Mid Tom</button>
-            </div>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('mt')">+</button>
-            </div>
+          <div class="col-lg-1 gsm2">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">gsm2</button>
           </div>
-        </div>
-        <div class="row oh" ng-show="oh">
-          <div class="col-lg-12">
-            <h4>Open Hat</h4>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('oh')">Open Hat</button>
-            </div>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('oh')">+</button>
-            </div>
+          <div class="col-lg-1 AM">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">AM</button>
           </div>
-        </div>
-        <div class="row rd" ng-show="rd">
-          <div class="col-lg-12">
-            <h4>Ride</h4>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('rd')">Ride</button>
-            </div>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('rd')">+</button>
-            </div>
+          <div class="col-lg-1 AM1">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">AM1</button>
           </div>
-        </div>
-        <div class="row sd" ng-show="sd">
-          <div class="col-lg-12">
-            <h4>Snare</h4>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('sd')">Snare</button>
-            </div>
-            <div class="col-lg-1">
-              <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('sd')">+</button>
-            </div>
+          <br>
+          <br>
+          <div class="col-lg-1 AM2">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">AM2</button>
           </div>
-        </div>
+          <div class="col-lg-1 BM1">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">BM1</button>
+          </div>
+          <div class="col-lg-1 BM2">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">BM2</button>
+          </div>
+          <div class="col-lg-1 B7">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">B7</button>
+          </div>
+          <div class="col-lg-1 csm">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">csm</button>
+          </div>
+          <div class="col-lg-1 csm1">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">csm1</button>
+          </div>
+          <div class="col-lg-1 csm2">
+              <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">csm2</button>
+          </div>
       </div>
     </div>
-  </div>
+    </div>
+
+
+        <!-- F Major -->
+        <div>
+          <button class="btn btn-primary button-chord" type="button" data-toggle="collapse" data-target=".collapse-exampleF" aria-expanded="false" aria-controls="collapseExample">
+              F Maj
+          </button>
+            <div class="collapse collapse-exampleF">
+          <div id="fMajChords" class="row">
+              <div class="col-lg-1 FM">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">FM</button>
+              </div>
+              <div class="col-lg-1 FM2">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">FM2</button>
+              </div>
+              <div class="col-lg-1 gm">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">gm</button>
+              </div>
+              <div class="col-lg-1 gm2">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">gm2</button>
+              </div>
+              <div class="col-lg-1 am">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">am</button>
+              </div>
+              <div class="col-lg-1 am1">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">am1</button>
+              </div>
+              <div class="col-lg-1 am2">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">am2</button>
+              </div>
+              <div class="col-lg-1 BbM1">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">BbM1</button>
+              </div>
+              <br>
+              <br>
+              <div class="col-lg-1 BbM2">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">BbM2</button>
+              </div>
+              <div class="col-lg-1 CM">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">CM</button>
+              </div>
+              <div class="col-lg-1 CM1">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">CM1</button>
+              </div>
+              <div class="col-lg-1 CM2">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">CM2</button>
+              </div>
+              <div class="col-lg-1 C7">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">C7</button>
+              </div>
+              <div class="col-lg-1 dm">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">dm</button>
+              </div>
+              <div class="col-lg-1 dm1">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button chord-button" ng-click="playChord($event)">dm1</button>
+              </div>
+          </div>
+        </div>
+        </div>
+
+
+        <!-- G Major -->
+        <div>
+          <button class="btn btn-primary button-chord" type="button" data-toggle="collapse" data-target=".collapse-exampleG" aria-expanded="false" aria-controls="collapseExample">
+              G Maj
+          </button>
+            <div class="collapse collapse-exampleG">
+          <div id="gMajChords" class="row">
+              <div class="col-lg-1 GM">
+                  <button type="button" class="btn btn-default btn-lg GM chord-button chord-button" ng-click="playChord($event)">GM</button>
+              </div>
+              <div class="col-lg-1 GM2">
+                  <button type="button" class="btn btn-default btn-lg GM2 chord-button chord-button" ng-click="playChord($event)">GM2</button>
+              </div>
+              <div class="col-lg-1 am">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button" ng-click="playChord($event)">am</button>
+              </div>
+              <div class="col-lg-1 am1">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button" ng-click="playChord($event)">am1</button>
+              </div>
+              <div class="col-lg-1 am2">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button" ng-click="playChord($event)">am2</button>
+              </div>
+              <div class="col-lg-1 bm1">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button" ng-click="playChord($event)">bm1</button>
+              </div>
+              <div class="col-lg-1 bm2">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button" ng-click="playChord($event)">bm2</button>
+              </div>
+              <div class="col-lg-1 CM">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button" ng-click="playChord($event)">CM</button>
+              </div>
+              <br>
+              <br>
+              <div class="col-lg-1 CM1">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button" ng-click="playChord($event)">CM1</button>
+              </div>
+              <div class="col-lg-1 CM2">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button" ng-click="playChord($event)">CM2</button>
+              </div>
+              <div class="col-lg-1 DM">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button" ng-click="playChord($event)">DM</button>
+              </div>
+              <div class="col-lg-1 DM1">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button" ng-click="playChord($event)">DM1</button>
+              </div>
+              <div class="col-lg-1 D7">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button" ng-click="playChord($event)">D7</button>
+              </div>
+              <div class="col-lg-1 em">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button" ng-click="playChord($event)">em</button>
+              </div>
+              <div class="col-lg-1 em1">
+                  <button type="button" class="btn btn-default btn-lg chord-button chord-button" ng-click="playChord($event)">em1</button>
+              </div>
+          </div>
+        </div>
+        </div>
+
+
+        <!-- A Major -->
+        <div>
+          <button class="btn btn-primary button-chord" type="button" data-toggle="collapse" data-target=".collapse-exampleA" aria-expanded="false" aria-controls="collapseExample">
+              A Maj
+          </button>
+          <div class="collapse collapse-exampleA">
+          <div id="aMajChords" class="row">
+              <div class="col-lg-1 AM">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">AM</button>
+              </div>
+              <div class="col-lg-1 AM1">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">AM1</button>
+              </div>
+              <div class="col-lg-1 AM2">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">AM2</button>
+              </div>
+              <div class="col-lg-1 bm1">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">bm1</button>
+              </div>
+              <div class="col-lg-1 bm2">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">bm2</button>
+              </div>
+              <div class="col-lg-1 csm">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">csm</button>
+              </div>
+              <div class="col-lg-1 csm1">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">csm1</button>
+              </div>
+              <div class="col-lg-1 csm2">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">csm2</button>
+              </div>
+              <br>
+              <br>
+              <div class="col-lg-1 DM">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">DM</button>
+              </div>
+              <div class="col-lg-1 DM1">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">DM1</button>
+              </div>
+              <div class="col-lg-1 EM">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">EM</button>
+              </div>
+              <div class="col-lg-1 EM1">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">EM1</button>
+              </div>
+              <div class="col-lg-1 E7">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">E7</button>
+              </div>
+              <div class="col-lg-1 fsm">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">fsm</button>
+              </div>
+              <div class="col-lg-1 fsm2">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">fsm2</button>
+              </div>
+          </div>
+        </div>
+        </div>
+
+
+        <!-- Bb Major -->
+        <div>
+          <button class="btn btn-primary button-chord" type="button" data-toggle="collapse" data-target=".collapse-exampleBb" aria-expanded="false" aria-controls="collapseExample">
+              Bb Maj
+          </button>
+            <div class="collapse collapse-exampleBb">
+          <div id="BbMajChords" class="row">
+              <div class="col-lg-1 BbM1">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">BbM1</button>
+              </div>
+              <div class="col-lg-1 BbM2">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">BbM2</button>
+              </div>
+              <div class="col-lg-1 cm">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">cm</button>
+              </div>
+              <div class="col-lg-1 cm1">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">cm1</button>
+              </div>
+              <div class="col-lg-1 cm2">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">cm2</button>
+              </div>
+              <div class="col-lg-1 dm">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">dm</button>
+              </div>
+              <div class="col-lg-1 dm1">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">dm1</button>
+              </div>
+              <div class="col-lg-1 EbM">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">EbM</button>
+              </div>
+              <br>
+              <br>
+              <div class="col-lg-1 EbM1">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">EbM1</button>
+              </div>
+              <div class="col-lg-1 FM">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">FM</button>
+              </div>
+              <div class="col-lg-1 FM2">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">FM2</button>
+              </div>
+              <div class="col-lg-1 F7">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">F7</button>
+              </div>
+              <div class="col-lg-1 gm2">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">gm2</button>
+              </div>
+              <div class="col-lg-1 gm">
+                  <button type="button" class="btn btn-default btn-lg chord-button" ng-click="playChord($event)">gm</button>
+              </div>
+          </div>
+        </div>
+        </div>
+
+    </div>
+    <div ng-show="drums" class="col-lg-12 drums text-center">
+        <h4>drums</h4>
+        <div class="row d-chooser">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('bd')">Bass Drum</button>
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('lt')">Low Tom</button>
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('mt')">Mid Tom</button>
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('ht')">High Tom</button>
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('sd')">Snare Drum</button>
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('cp')">Clap</button>
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('rd')">Ride</button>
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('oh')">Open Hat</button>
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('hh')">Hi Hat</button>
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-lg" ng-click="activeDrum('cr')">Crash</button>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="row">
+                    <div class="col-lg-4 d-rack">empty</div>
+                    <div class="col-lg-4 d-rack">empty</div>
+                    <div class="col-lg-4 d-rack">empty</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 d-rack">empty</div>
+                    <div class="col-lg-4 d-rack">empty</div>
+                    <div class="col-lg-4 d-rack">empty</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 d-rack">empty</div>
+                    <div class="col-lg-4 d-rack">empty</div>
+                    <div class="col-lg-4 d-rack">empty</div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="row bd" ng-show="bd">
+                    <div class="col-lg-12">
+                        <h4>Bass Drum</h4>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('bd')">Bass Drum</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('bd')">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cp" ng-show="cp">
+                    <div class="col-lg-12">
+                        <h4>Clap</h4>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('cp')">Clap</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('cp')">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cr" ng-show="cr">
+                    <div class="col-lg-12">
+                        <h4>Crash</h4>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('cr')">Crash</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('cr')">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row hh" ng-show="hh">
+                    <div class="col-lg-12">
+                        <h4>Hi Hat</h4>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('hh')">Hi Hat</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('hh')">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ht" ng-show="ht">
+                    <div class="col-lg-12">
+                        <h4>Hi Tom</h4>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('ht')">Hi Tom</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('ht')">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row lt" ng-show="lt">
+                    <div class="col-lg-12">
+                        <h4>Low Tom</h4>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('lt')">Low Tom</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('lt')">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt" ng-show="mt">
+                    <div class="col-lg-12">
+                        <h4>Mid Tom</h4>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('mt')">Mid Tom</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('mt')">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row oh" ng-show="oh">
+                    <div class="col-lg-12">
+                        <h4>Open Hat</h4>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('oh')">Open Hat</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('oh')">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row rd" ng-show="rd">
+                    <div class="col-lg-12">
+                        <h4>Ride</h4>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('rd')">Ride</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('rd')">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row sd" ng-show="sd">
+                    <div class="col-lg-12">
+                        <h4>Snare</h4>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="playDrum('sd')">Snare</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" class="btn btn-default btn-lg" ng-click="addToRack('sd')">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 </div>
