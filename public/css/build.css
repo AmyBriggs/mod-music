@@ -174,9 +174,47 @@ h4 {
   width: 2.5em;
   align-content: center;
   padding: 2px 1px;
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Maven Pro', sans-serif;
   font-weight: bold;
   color: rgb(14, 5, 24);
 
 }
+
+.collapse-exampleC {
+  padding: 5px;
+  overflow-y: auto;
+  height:auto;
+  max-height: 200px;
+}
+.collapse-exampleD {
+  padding: 5px;
+  overflow-y: auto;
+  height:auto;
+  max-height: 200px;
+}
+.collapse-exampleEb {
+  padding: 5px;
+  overflow-y: auto;
+  height:auto;
+  max-height: 200px;
+}
+
+.button-chord {
+  background-color: rgb(21, 20, 33);
+  border: 1px solid silver;
+  display:flex;
+  width: 75px;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+.button-chord:hover, .button-chord:active, .button-chord:focus {
+  background-color: rgb(64, 61, 163) !important;
+  box-shadow: none;
+  border: 1px solid silver;
+}
+
+/*.button-chord:active:focus {
+  background-color: darkgrey !important;
+  box-shadow: none;
+}*/
