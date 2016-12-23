@@ -289,31 +289,31 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
     },
     707: {
       bd: new Howl({
-       urls: ['sounds/drums/707/bd.wav']
+       urls: ['sounds/drums/707/bd.aiff']
       }),
       cp: new Howl({
-       urls: ['sounds/drums/707/cp.wav']
+       urls: ['sounds/drums/707/cp.aiff']
       }),
       cr: new Howl({
-       urls: ['sounds/drums/707/cr.wav']
+       urls: ['sounds/drums/707/cr.aiff']
       }),
       hh: new Howl({
-       urls: ['sounds/drums/707/hh.wav']
+       urls: ['sounds/drums/707/hh.aiff']
       }),
       ht: new Howl({
-       urls: ['sounds/drums/707/ht.wav']
+       urls: ['sounds/drums/707/ht.aiff']
       }),
       lt: new Howl({
-       urls: ['sounds/drums/707/lt.wav']
+       urls: ['sounds/drums/707/lt.aiff']
       }),
       mt: new Howl({
-       urls: ['sounds/drums/707/mt.wav']
+       urls: ['sounds/drums/707/mt.aiff']
       }),
       oh: new Howl({
-       urls: ['sounds/drums/707/oh.wav']
+       urls: ['sounds/drums/707/oh.aiff']
       }),
       sd: new Howl({
-       urls: ['sounds/drums/707/sd.wav']
+       urls: ['sounds/drums/707/sd.aiff']
       })
     },
     808: {
