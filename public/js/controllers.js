@@ -542,16 +542,6 @@ $scope.stopPlay = function(){
    }
    timeoutId = requestAnimationFrame(schedule)
    }
-  //function for pausing
-  // function sleep(milliseconds) {
-  //  let start = new Date().getTime();
-  //  for (let i = 0; i < 1e7; i++) {
-  //   if ((new Date().getTime() - start) > milliseconds) {
-  //    break;
-  //   }
-  //  }
-  // }
-  //advance the note
  function advanceNote() {
   var secondsPerBeat = 60 / bpm;
   playIndex++;
