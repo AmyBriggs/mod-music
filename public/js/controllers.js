@@ -173,6 +173,21 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
   })
   },
   bass: {
+    GL: new Howl({
+     urls: ['sounds/bass/acoustic_bass-mp3/G1.mp3'],
+    }),
+    AbL: new Howl({
+     urls: ['sounds/bass/acoustic_bass-mp3/Ab1.mp3'],
+    }),
+    AL: new Howl({
+     urls: ['sounds/bass/acoustic_bass-mp3/A1.mp3'],
+    }),
+    BbL: new Howl({
+     urls: ['sounds/bass/acoustic_bass-mp3/Bb1.mp3'],
+    }),
+    BL: new Howl({
+     urls: ['sounds/bass/acoustic_bass-mp3/B1.mp3'],
+    }),
    C: new Howl({
     urls: ['sounds/bass/acoustic_bass-mp3/C2.mp3'],
    }),
@@ -208,7 +223,31 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    }),
    B: new Howl({
     urls: ['sounds/bass/acoustic_bass-mp3/B2.mp3'],
-   })
+  }),
+  C1: new Howl({
+   urls: ['sounds/bass/acoustic_bass-mp3/C3.mp3'],
+ }),
+  Cs1: new Howl({
+   urls: ['sounds/bass/acoustic_bass-mp3/Db3.mp3'],
+ }),
+  D1: new Howl({
+   urls: ['sounds/bass/acoustic_bass-mp3/D3.mp3'],
+ }),
+  Eb1: new Howl({
+   urls: ['sounds/bass/acoustic_bass-mp3/Eb3.mp3'],
+ }),
+  E1: new Howl({
+   urls: ['sounds/bass/acoustic_bass-mp3/E3.mp3'],
+ }),
+  F1: new Howl({
+   urls: ['sounds/bass/acoustic_bass-mp3/F3.mp3'],
+ }),
+  Fs1: new Howl({
+   urls: ['sounds/bass/acoustic_bass-mp3/Gb3.mp3'],
+ }),
+  G1: new Howl({
+   urls: ['sounds/bass/acoustic_bass-mp3/G3.mp3'],
+ })
   },
   drums: {
    bd: new Howl({
