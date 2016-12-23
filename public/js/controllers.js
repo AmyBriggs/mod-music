@@ -3,7 +3,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  $rootScope.vm = {};
  $rootScope.vm.build = [];
  //notes: instruments, chords: harmonic presets, drums: drum rack
- //variables used for display logic
+ //variables used for tempo and display logic
  $scope.notes = false;
  $scope.chords = false;
  $scope.drums = false;
@@ -12,14 +12,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
        value: 120
      };
 
- /*** TEMPO SELECTOR ***/
 
- // let speeds = []
- // let num = 34
- // while(num <= 250){
- //   speeds.push(num += 1)
- // }
- // $scope.speeds = speeds
 
  //variables used for side-accordion display logic
  $scope.collapsePiano = true; $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapseDrums = false;
@@ -116,7 +109,161 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
     urls: ['sounds/piano/acoustic_grand_piano-mp3/G5.mp3'],
   })
   },
-  guitar: {
+  electric: {
+    GL: new Howl({
+     urls: ['sounds/piano/electric_piano_1-mp3/G3.mp3'],
+    }),
+      AbL: new Howl({
+     urls: ['sounds/piano/electric_piano_1-mp3/Ab3.mp3'],
+    }),
+    AL: new Howl({
+     urls: ['sounds/piano/electric_piano_1-mp3/A3.mp3'],
+    }),
+    BbL: new Howl({
+     urls: ['sounds/piano/electric_piano_1-mp3/Bb3.mp3'],
+    }),
+    BL: new Howl({
+     urls: ['sounds/piano/electric_piano_1-mp3/B3.mp3'],
+    }),
+   C: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/C4.mp3'],
+   }),
+   Cs: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/Db4.mp3'],
+   }),
+   D: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/D4.mp3'],
+   }),
+   Eb: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/Eb4.mp3'],
+   }),
+   E: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/E4.mp3'],
+   }),
+   F: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/F4.mp3'],
+   }),
+   Fs: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/Gb4.mp3'],
+   }),
+   G: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/G4.mp3'],
+   }),
+   Ab: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/Ab4.mp3'],
+   }),
+   A: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/A4.mp3'],
+   }),
+   Bb: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/Bb4.mp3'],
+   }),
+   B: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/B4.mp3'],
+  }),
+   C1: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/C5.mp3'],
+  }),
+   Cs1: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/Db5.mp3'],
+  }),
+   D1: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/D5.mp3'],
+  }),
+   Eb1: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/Eb5.mp3'],
+  }),
+   E1: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/E5.mp3'],
+  }),
+   F1: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/F5.mp3'],
+  }),
+   Fs1: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/Gb5.mp3'],
+  }),
+   G1: new Howl({
+    urls: ['sounds/piano/electric_piano_1-mp3/G5.mp3']
+  })
+  },
+  organ: {
+    GL: new Howl({
+     urls: ['sounds/piano/church_organ-mp3/G3.mp3'],
+    }),
+      AbL: new Howl({
+     urls: ['sounds/piano/church_organ-mp3/Ab3.mp3'],
+    }),
+    AL: new Howl({
+     urls: ['sounds/piano/church_organ-mp3/A3.mp3'],
+    }),
+    BbL: new Howl({
+     urls: ['sounds/piano/church_organ-mp3/Bb3.mp3'],
+    }),
+    BL: new Howl({
+     urls: ['sounds/piano/church_organ-mp3/B3.mp3'],
+    }),
+   C: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/C4.mp3'],
+   }),
+   Cs: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/Db4.mp3'],
+   }),
+   D: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/D4.mp3'],
+   }),
+   Eb: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/Eb4.mp3'],
+   }),
+   E: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/E4.mp3'],
+   }),
+   F: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/F4.mp3'],
+   }),
+   Fs: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/Gb4.mp3'],
+   }),
+   G: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/G4.mp3'],
+   }),
+   Ab: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/Ab4.mp3'],
+   }),
+   A: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/A4.mp3'],
+   }),
+   Bb: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/Bb4.mp3'],
+   }),
+   B: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/B4.mp3'],
+  }),
+   C1: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/C5.mp3'],
+  }),
+   Cs1: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/Db5.mp3'],
+  }),
+   D1: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/D5.mp3'],
+  }),
+   Eb1: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/Eb5.mp3'],
+  }),
+   E1: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/E5.mp3'],
+  }),
+   F1: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/F5.mp3'],
+  }),
+   Fs1: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/Gb5.mp3'],
+  }),
+   G1: new Howl({
+    urls: ['sounds/piano/church_organ-mp3/G5.mp3']
+  })
+  },
+  nylon: {
     GL: new Howl({
      urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/G3.mp3'],
     }),
@@ -527,14 +674,6 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    }
  }
 
-
- /*** TEMPO SELECTOR ***/
-
- // let tempo = []
- // let num = 34
- // while(num <= 250){
- //   tempo.push(num += 1)
- // }
 
 
 
