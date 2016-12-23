@@ -226,16 +226,7 @@ p.legend{
   color:white;
   line-height:0.5em;
 }
-/*.button-chord:active:focus {
-  background-color: darkgrey !important;
-  box-shadow: none;
-=======
 
-/*.tempo-selector {
-  float: left;
-  margin-top: 32px;
-  margin-left: 15px;
-}*/
 
 .tempo-controls {
   float:left;
