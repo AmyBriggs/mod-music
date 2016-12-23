@@ -7,6 +7,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  $scope.notes = false;
  $scope.chords = false;
  $scope.drums = false;
+ $scope.current = '';
  //variables used for side-accordion display logic
  $scope.collapsePiano = true; $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapseDrums = false;
  //variables used for drum rack part display logic
@@ -441,7 +442,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
 
    }
    let chordNotes = chords[key][chord]
-   $scope.currentChord = [$scope.instrument, chord]
+   $scope.currentChord = [$scope.instrument, [key, chord]]
    for(var i = 0; i < chordNotes.length; i++){
      sounds[$scope.instrument][chordNotes[i]].play()
    }
@@ -475,6 +476,19 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    let label = document.getElementsByClassName(`${index} selected-instr`)[0]
    label.innerHTML = instr;
  }
+
+ $scope.checkPop = function(elem){
+   if($scope.currentNote){
+     $scope.current = $scope.currentNote
+     let note = $scope.current[1]
+     $scope.populate(elem)
+   } else if($scope.currentChord){
+     $scope.current = $scope.currentChord
+     let chord = $scope.current[1]
+     $scope.populateChord(elem)
+   }
+
+ }
  //populating the cells
  $scope.populate = function(elem){
    //applies color and notes to grid
@@ -482,6 +496,10 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    let rowIndex = elem.currentTarget.parentNode.className;
    let chosenInstr = $scope.currentNote[0];
    let note = $scope.currentNote[1];
+   console.log($rootScope.vm.build[rowIndex].instrument);
+   console.log('made it to populate');
+
+
   //  let chord = $scope.currentChord[1];
    if($rootScope.vm.build[rowIndex].instrument === chosenInstr) {
      elem.currentTarget.style.backgroundColor = colors[rowIndex];
@@ -494,6 +512,26 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
   //    elem.currentTarget.addEventListener('click', sounds[chosenInstr][chord].play());
   //  }
    updateBuild();
+ }
+
+ $scope.populateChord  = function(elem){
+   let rowIndex = elem.currentTarget.parentNode.className;
+   let chordArr = $scope.currentChord[1];
+   let key = chordArr[0];
+   let chord = chordArr[1];
+   let instrument = $scope.instrument;
+   if($rootScope.vm.build[rowIndex].instrument === instrument){
+     elem.currentTarget.style.backgroundColor = colors[rowIndex]
+     elem.currentTarget.className = `${chord}`
+     var playChordArr = chords[key][chord];
+     for(var i = 0; i < playChordArr.length; i++){
+       elem.currentTarget.addEventListener('click', sounds[instrument][playChordArr[i]].play())
+     }
+   }
+
+   updateBuild()
+
+
  }
  //updates build array with notes
  function updateBuild(){
