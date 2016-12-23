@@ -14,7 +14,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  //initialize play feature variables
  let playing = false;
  let playIndex;
- let loop_length = 16;
+ let loop_length = 32;
  //colors array for each grid row
  let colors = ['rgb(51, 5, 91)', 'rgb(69, 0, 147)', 'rgb(101, 2, 180)', 'rgb(152, 22, 255)'];
  let sounds = {
@@ -442,7 +442,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
        sounds[instrument][note].play();
      }
     }
-    sleep(800);
+    sleep(400);
     advanceNote();
    }
    }
