@@ -8,6 +8,19 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  $scope.chords = false;
  $scope.drums = false;
  $scope.current = '';
+ $scope.example = {
+       value: 120
+     };
+
+ /*** TEMPO SELECTOR ***/
+
+ // let speeds = []
+ // let num = 34
+ // while(num <= 250){
+ //   speeds.push(num += 1)
+ // }
+ // $scope.speeds = speeds
+
  //variables used for side-accordion display logic
  $scope.collapsePiano = true; $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapseDrums = false;
  //variables used for drum rack part display logic
@@ -513,6 +526,17 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
      gm2: ['D', 'G', 'Bb']
    }
  }
+
+
+ /*** TEMPO SELECTOR ***/
+
+ // let tempo = []
+ // let num = 34
+ // while(num <= 250){
+ //   tempo.push(num += 1)
+ // }
+
+
 
  /*** LOGIC FOR PLAYING SOUNDS ***/
  $scope.playNote = function(note) {
