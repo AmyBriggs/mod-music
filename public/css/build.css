@@ -222,21 +222,21 @@ h4 {
   cursor:pointer;
   cursor:hand;
 }
+.rack-td{
+  position:relative;
+}
+.rack-td > span{
+  font-size:18px;
+  position:absolute;
+  bottom:0;
+  right:0;
+  letter-spacing:0px;
+  color:rgb(10, 251, 63)
+}
 p.legend{
   color:white;
   line-height:0.5em;
 }
-/*.button-chord:active:focus {
-  background-color: darkgrey !important;
-  box-shadow: none;
-=======
-
-/*.tempo-selector {
-  float: left;
-  margin-top: 32px;
-  margin-left: 15px;
-}*/
-
 .tempo-controls {
   float:left;
   margin-left: 15px;
@@ -251,3 +251,7 @@ p.legend{
 .tempo-box {
   color: black;
 }
+/*.button-chord:active:focus {
+  background-color: darkgrey !important;
+  box-shadow: none;
+}*/

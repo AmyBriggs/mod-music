@@ -302,31 +302,31 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
     },
     707: {
       bd: new Howl({
-       urls: ['sounds/drums/707/bd.aiff']
+       urls: ['sounds/drums/707/bd.wav']
       }),
       cp: new Howl({
-       urls: ['sounds/drums/707/cp.aiff']
+       urls: ['sounds/drums/707/cp.wav']
       }),
       cr: new Howl({
-       urls: ['sounds/drums/707/cr.aiff']
+       urls: ['sounds/drums/707/cr.wav']
       }),
       hh: new Howl({
-       urls: ['sounds/drums/707/hh.aiff']
+       urls: ['sounds/drums/707/hh.wav']
       }),
       ht: new Howl({
-       urls: ['sounds/drums/707/ht.aiff']
+       urls: ['sounds/drums/707/ht.wav']
       }),
       lt: new Howl({
-       urls: ['sounds/drums/707/lt.aiff']
+       urls: ['sounds/drums/707/lt.wav']
       }),
       mt: new Howl({
-       urls: ['sounds/drums/707/mt.aiff']
+       urls: ['sounds/drums/707/mt.wav']
       }),
       oh: new Howl({
-       urls: ['sounds/drums/707/oh.aiff']
+       urls: ['sounds/drums/707/oh.wav']
       }),
       sd: new Howl({
-       urls: ['sounds/drums/707/sd.aiff']
+       urls: ['sounds/drums/707/sd.wav']
       })
     },
     808: {
@@ -557,22 +557,11 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
      sounds[$scope.instrument][chordNotes[i]].play()
    }
  }
- $scope.playDrum = function(part) {
-  sounds.drums[part].play()
+ $scope.playDrum = function(elem){
+   let rackId = elem.currentTarget.parentNode.parentNode.parentNode.id;
+   let part = elem.currentTarget.innerText.substr(0,2);
+   sounds.drums[rackId][part].play();
  }
-
- //adding drum parts to actual rack
-  $scope.addToRack = function(part){
-    let rack = document.getElementsByClassName('d-rack');
-    let partHtml = `<button type="button" class="btn btn-default btn-lg" onclick="playDrum('${part}')">${part}</button>`;
-    for(let i = 0; i < rack.length; i++){
-      if(rack[i].innerHTML === 'empty'){
-        rack[i].innerHTML = partHtml;
-        break;
-      }
-    }
-  }
-
 //logic for when you choose an instrument
  $scope.addInstr = function(instr) {
    //push into build array
