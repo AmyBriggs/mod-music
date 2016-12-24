@@ -184,7 +184,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
     urls: ['sounds/piano/electric_piano_1-mp3/G5.mp3']
   })
   },
-  
+
   nylon: {
     GL: new Howl({
      urls: ['sounds/guitar/acoustic_guitar_nylon-mp3/G3.mp3'],
