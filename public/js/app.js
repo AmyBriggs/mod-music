@@ -1,1 +1,1 @@
-var app = angular.module('modmusic', ['ngRoute'])
+var app = angular.module('modmusic', ['ngAnimate', 'ngRoute', 'ngResource', 'ngCookies'])

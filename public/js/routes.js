@@ -4,5 +4,10 @@ app.config(function($routeProvider, $locationProvider){
       templateUrl: '../views/build.html',
       controller: 'BuildController'
     })
+
+    .when('/login', {
+    templateUrl: '../views/login.html',
+    controller: 'LoginController'
+  })
     $locationProvider.html5Mode(true)
 })

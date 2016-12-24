@@ -1,0 +1,36 @@
+html, body {
+  background-color: rgb(41, 40, 42);
+  padding: 50px;
+}
+
+h1 {
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+  font-size:50px;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+#username {
+  background-color: silver;
+}
+
+#password {
+  background-color: silver;
+}
+
+#password-label {
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+.control-label {
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+#login-submit {
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+  
+}
