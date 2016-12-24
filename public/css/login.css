@@ -39,8 +39,11 @@ h1 {
 
 #login-submit {
   color: black;
+  float: right;
+  margin-right: 5px;
   font-family: 'Maven Pro', sans-serif;
   border: 1px solid silver !important;
+  width: 6em;
 }
 #login-submit:hover {
   color: black;
@@ -51,4 +54,11 @@ h1 {
   color: black;
   font-family: 'Maven Pro', sans-serif;
   border: 1px solid silver !important;
+}
+#signup-submit {
+  color: black;
+  float: right;
+  font-family: 'Maven Pro', sans-serif;
+  border: 1px solid silver !important;
+  width: 6em;
 }
