@@ -1,5 +1,15 @@
 app.controller('LoginController', function($scope, LoginService, $location, $cookies) {
 
+  // $scope.checkUser = function(user){
+  //   if(!returningUser){
+  //     $scope.submitSignUp()
+  //     console.log(newUser);
+  //   } else {
+  //     $scope.submitLogIn(returningUser)
+  //     console.log(newUser);
+  //   }
+  // }
+
 
   $scope.submitSignUp = function(newUser) {
     LoginService.signup.save(newUser, function(returnedObject) {
