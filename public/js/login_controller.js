@@ -1,17 +1,15 @@
-app.controller('LoginController', function($scope, LoginService, UserService, $location, $cookies) {
-
-
+app.controller('LoginController', function($scope, LoginService, $location, $cookies) {
 
   $scope.submitSignUp = function(newUser) {
     LoginService.signup.save(newUser, function(returnedObject) {
-      let user = returnedObject[0]
+      let user = newUser
+      console.log(user);
       if (user.length === undefined) {
         $cookies.putObject('loggedIn', user)
         console.log('user', user);
         $scope.newUser = {}
         $scope.signUp.$setPristine()
         $location.url('/')
-
       } else if (user.length !== 0) {
         $scope.error = user
       }
