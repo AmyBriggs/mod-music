@@ -254,6 +254,17 @@ h4 {
   letter-spacing:0px;
   color:rgb(10, 251, 63)
 }
+.my-rack{
+  position:relative;
+}
+.minus{
+  font-size:18px;
+  position:absolute;
+  bottom:0;
+  right:0;
+  letter-spacing:0px;
+  color:red;
+}
 p.legend{
   color:white;
   line-height:0.5em;

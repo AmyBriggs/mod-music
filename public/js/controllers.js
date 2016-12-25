@@ -12,11 +12,8 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  $scope.example = {
        value: 120
      };
-
  //variables used for side-accordion display logic
  $scope.collapsePiano = true; $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapseDrums = false;
- //variables used for drum rack part display logic
- $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
  //initialize play feature variables
  let playing = false;
  let playIndex;
@@ -777,6 +774,16 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    $scope.currentDrums = [rackId, part];
    sounds.drums[rackId][part].play();
  }
+ function playDrum(){
+   var innerText = this.innerText;
+   innerText = innerText.substr(0,innerText.length-1);
+   innerText = innerText.split(' ');
+   var rackId = innerText[0];
+   var part = innerText[1];
+   $scope.current = 'drums';
+   $scope.currentDrums = [rackId, part];
+   sounds.drums[rackId][part].play();
+ }
 //logic for when you choose an instrument
  $scope.addInstr = function(instr) {
    //push into build array
@@ -790,7 +797,29 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    let label = document.getElementsByClassName(`${index} selected-instr`)[0]
    label.innerHTML = instr;
  }
+ $scope.addToRack = function(elem){
+   let rackId = elem.currentTarget.parentNode.parentNode.parentNode.parentNode.id;
+   let part = elem.currentTarget.parentNode.innerText.substr(0,2);
+   $scope.currentDrums = [rackId, part];
+   var myRack = document.getElementsByClassName('my-rack');
+   var newPart = document.createElement('span');
+   newPart.innerText = '-';
+   newPart.className = "minus";
+   for(var i = 0; i < myRack.length; i++){
+     if(myRack[i].innerHTML==''){
+        myRack[i].innerText = rackId + ` ${part}`;
+        myRack[i].appendChild(newPart);
+        newPart.addEventListener('click', removeFromRack);
+        myRack[i].addEventListener('click', playDrum);
+        break;
+     }
+   }
+ }
 
+ function removeFromRack(){
+   this.parentNode.removeEventListener('click', playDrum);
+   this.parentNode.innerHTML = '';
+ }
  $scope.checkPop = function(elem){
    if($scope.current == 'note'){
      $scope.populate(elem)
@@ -813,7 +842,6 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    if($rootScope.vm.build[rowIndex].instrument === chosenInstr) {
      elem.currentTarget.style.backgroundColor = colors[rowIndex];
      elem.currentTarget.className = `${note}`;
-     elem.currentTarget.addEventListener('click', sounds[chosenInstr][note].play());
    }
    updateBuild();
  }
@@ -828,9 +856,6 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
      elem.currentTarget.style.backgroundColor = colors[rowIndex]
      elem.currentTarget.className = `${key} ${chord}`
      var playChordArr = chords[key][chord];
-     for(var i = 0; i < playChordArr.length; i++){
-       elem.currentTarget.addEventListener('click', sounds[instrument][playChordArr[i]].play())
-     }
    }
    updateBuild()
  }
@@ -843,7 +868,6 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    if($rootScope.vm.build[rowIndex].instrument === instrument){
      elem.currentTarget.style.backgroundColor = colors[rowIndex]
      elem.currentTarget.className = `${rackId} ${part}`
-     elem.currentTarget.addEventListener('click', sounds.drums[rackId][part].play());
    }
    updateBuild()
  }
@@ -988,50 +1012,5 @@ $scope.stopPlay = function(){
           playChord($scope.key, chord);
         });
       }
- }
- $scope.activeDrum = function(part) {
-   //drum rack parts
-  switch (part) {
-   case 'bd':
-    $scope.bd = true;
-    $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
-    break;
-   case 'cp':
-    $scope.cp = true;
-    $scope.bd = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
-    break;
-   case 'cr':
-    $scope.cr = true;
-    $scope.bd = false; $scope.cp = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
-    break;
-   case 'hh':
-    $scope.hh = true;
-    $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
-    break;
-   case 'ht':
-    $scope.ht = true;
-    $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
-    break;
-   case 'lt':
-    $scope.lt = true;
-    $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.mt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
-    break;
-   case 'mt':
-    $scope.mt = true;
-    $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.oh = false; $scope.rd = false; $scope.sd = false;
-    break;
-   case 'oh':
-    $scope.oh = true;
-    $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.rd = false; $scope.sd = false;
-    break;
-   case 'rd':
-    $scope.rd = true;
-    $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.sd = false;
-    break;
-   case 'sd':
-    $scope.sd = true;
-    $scope.bd = false; $scope.cp = false; $scope.cr = false; $scope.hh = false; $scope.ht = false; $scope.lt = false; $scope.mt = false; $scope.oh = false; $scope.rd = false;
-    break;
-  }
  }
 }])

@@ -514,22 +514,22 @@
     <div ng-show="drums" class="drums row text-center">
       <h4 class="note-label">Drum Rack</h4><br>
       <div class="col-lg-2">
-        <h4 class="note-label">Your Rack</h4>
+        <h4 class="note-label">My Rack</h4>
         <table class="d-rack">
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td class="my-rack"></td>
+            <td class="my-rack"></td>
+            <td class="my-rack"></td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td class="my-rack"></td>
+            <td class="my-rack"></td>
+            <td class="my-rack"></td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td class="my-rack"></td>
+            <td class="my-rack"></td>
+            <td class="my-rack"></td>
           </tr>
         </table>
       </div>
@@ -537,19 +537,19 @@
         <h4 class="note-label">TR-606</h4>
         <table class="d-rack" id="606">
           <tr>
-            <td class="rack-td" ng-click="playDrum($event)">oh<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">hh<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">cr<span>+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">oh<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">hh<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">cr<span ng-click="addToRack($event)">+</span></td>
           </tr>
           <tr>
-            <td class="rack-td" ng-click="playDrum($event)">lt<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">mt<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">ht<span>+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">lt<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">mt<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">ht<span ng-click="addToRack($event)">+</span></td>
           </tr>
           <tr>
-            <td class="rack-td" ng-click="playDrum($event)">bd<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">sd<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">cp<span>+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">bd<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">sd<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">cp<span ng-click="addToRack($event)">+</span></td>
           </tr>
         </table>
       </div>
@@ -557,19 +557,19 @@
         <h4 class="note-label">TR-707</h4>
         <table class="d-rack" id="707">
           <tr>
-            <td class="rack-td" ng-click="playDrum($event)">oh<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">hh<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">cr<span>+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">oh<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">hh<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">cr<span ng-click="addToRack($event)">+</span></td>
           </tr>
           <tr>
-            <td class="rack-td" ng-click="playDrum($event)">lt<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">mt<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">ht<span>+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">lt<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">mt<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">ht<span ng-click="addToRack($event)">+</span></td>
           </tr>
           <tr>
-            <td class="rack-td" ng-click="playDrum($event)">bd<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">sd<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">cp<span>+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">bd<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">sd<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">cp<span ng-click="addToRack($event)">+</span></td>
           </tr>
         </table>
       </div>
@@ -577,19 +577,19 @@
         <h4 class="note-label">TR-808</h4>
         <table class="d-rack" id="808">
           <tr>
-            <td class="rack-td" ng-click="playDrum($event)">oh<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">hh<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">cr<span>+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">oh<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">hh<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">cr<span ng-click="addToRack($event)">+</span></td>
           </tr>
           <tr>
-            <td class="rack-td" ng-click="playDrum($event)">lt<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">mt<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">ht<span>+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">lt<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">mt<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">ht<span ng-click="addToRack($event)">+</span></td>
           </tr>
           <tr>
-            <td class="rack-td" ng-click="playDrum($event)">bd<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">sd<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">cp<span>+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">bd<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">sd<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">cp<span ng-click="addToRack($event)">+</span></td>
           </tr>
         </table>
       </div>
@@ -597,19 +597,19 @@
         <h4 class="note-label">TR-909</h4>
         <table class="d-rack" id="909">
           <tr>
-            <td class="rack-td" ng-click="playDrum($event)">oh<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">hh<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">cr<span>+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">oh<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">hh<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">cr<span ng-click="addToRack($event)">+</span></td>
           </tr>
           <tr>
-            <td class="rack-td" ng-click="playDrum($event)">lt<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">mt<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">ht<span>+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">lt<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">mt<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">ht<span ng-click="addToRack($event)">+</span></td>
           </tr>
           <tr>
-            <td class="rack-td" ng-click="playDrum($event)">bd<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">sd<span>+</span></td>
-            <td class="rack-td" ng-click="playDrum($event)">cp<span>+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">bd<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">sd<span ng-click="addToRack($event)">+</span></td>
+            <td class="rack-td" ng-click="playDrum($event)">cp<span ng-click="addToRack($event)">+</span></td>
           </tr>
         </table>
       </div>
