@@ -3,7 +3,7 @@ app.service('LoginService', function($resource){
     signup: $resource('signup', {id: '@id'}, {
       'save': {
         method: 'POST',
-        isArray: false
+        isArray: true
       }
     }),
 

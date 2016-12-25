@@ -3,11 +3,12 @@ app.controller('LoginController', function($scope, LoginService, $location, $coo
   $scope.submitSignUp = function(newUser) {
     LoginService.signup.save(newUser, function(returnedObject) {
       let user = newUser
-      console.log(user);
+      
       if (user.length === undefined) {
         $cookies.putObject('loggedIn', user)
-        console.log('user', user);
+
         $scope.newUser = {}
+        console.log(user);
         $scope.signUp.$setPristine()
         $location.url('/')
       } else if (user.length !== 0) {

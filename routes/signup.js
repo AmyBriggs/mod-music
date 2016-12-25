@@ -4,7 +4,6 @@ var knex = require('../knex')
 var bcrypt = require('bcrypt')
 
 router.post ('/', function(req, res, next) {
-  console.log(req.body);
   knex('users')
     .where('username', req.body.username)
     .then(function(user){
