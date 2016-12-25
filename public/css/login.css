@@ -1,8 +1,15 @@
-html, body {
+html {
+  background-color: rgb(41, 40, 42);
+  /*padding-top: 5%;
+  padding-right: 15%;
+  padding-left: 15%;*/
+}
+
+.form-body {
   background-color: rgb(41, 40, 42);
   padding-top: 5%;
-  padding-right: 15%;
-  padding-left: 15%;
+  padding-right: 25%;
+  padding-left: 25%;
 }
 
 h1 {
@@ -38,6 +45,7 @@ h1 {
 }
 
 #login-submit {
+  background-color: silver;
   color: black;
   float: right;
   margin-right: 5px;
@@ -75,4 +83,11 @@ a {
 
 a:hover {
   color: silver;
+}
+
+.splash-text {
+  margin-top: 2em;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 4%;
 }
