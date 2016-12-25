@@ -925,7 +925,6 @@ $scope.stopPlay = function(){
   if (playIndex == loop_length) {
    playIndex = 0;
   }
-
   noteTime += 0.25 * secondsPerBeat
  }
  /*** DISPLAY LOGIC ***/
@@ -974,14 +973,18 @@ $scope.stopPlay = function(){
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable(dataPts);
-
         var options = {
-          pieHole: 0.4,
+          pieHole: 0.3,
           legend: {position: 'none'},
           backgroundColor: { fill:'transparent' },
-          chartArea:{left:0,top:0,width:"100%",height:"100%"}
+          chartArea:{left:0,top:10,bottom:10,width:"100%",height:"100%"},
+          enableInteractivity:true,
+          pieSliceBorderColor:"black",
+          pieSliceText: 'label',
+          pieSliceTextStyle:{color: "black", fontName: "Maven Pro", fontSize: "10px"},
+          tooltip:{trigger:'none'},
+          colors:['rgb(190, 190, 190)']
         };
-
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
         chart.draw(data, options);
       }
