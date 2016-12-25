@@ -758,9 +758,8 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
   $scope.current = 'note';
   $scope.currentNote = [$scope.instrument, note];
  }
- $scope.playChord = function(elem){
-   let key = elem.currentTarget.parentNode.parentNode.id
-   let chord = elem.currentTarget.innerHTML
+ function playChord(key, chord){
+   console.log(key, chord);
    if(chord.includes('#')){
      chord.replace('#', 's')
    }
@@ -902,9 +901,7 @@ $scope.stopPlay = function(){
        }
      }
     }
-
     drawPlayhead(playIndex);
-
     advanceNote();
    }
    timeoutId = requestAnimationFrame(schedule)
@@ -917,8 +914,6 @@ $scope.stopPlay = function(){
     newRows += ' playing'
     console.log(newRows);
   }
-
-
  function advanceNote() {
   var secondsPerBeat = 60 / bpm;
   playIndex++;
@@ -965,11 +960,11 @@ $scope.stopPlay = function(){
    $scope.key = key;
    var chordArray = Object.keys(chords[key]);
    var dataPts = [];
-   dataPts.push(['Meow', 'MEOW']);
+   dataPts.push([key, '']);
    for(var i = 0; i < chordArray.length; i++){
      dataPts.push([chordArray[i], 1]);
    }
-   google.charts.load("current", {packages:["corechart"]});
+   google.charts.load("visualization", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable(dataPts);
@@ -981,20 +976,18 @@ $scope.stopPlay = function(){
           enableInteractivity:true,
           pieSliceBorderColor:"black",
           pieSliceText: 'label',
-          pieSliceTextStyle:{color: "black", fontName: "Maven Pro", fontSize: "10px"},
+          pieSliceTextStyle:{color: "black", fontName: "Maven Pro", fontSize: "15px"},
           tooltip:{trigger:'none'},
           colors:['rgb(190, 190, 190)']
         };
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-        chart.draw(data, options);
+        var chart = new google.visualization.PieChart(document.getElementById('donut'));
+        setTimeout(function(){ chart.draw(data, options); }, 1);
+        google.visualization.events.addListener(chart, 'select', function() {
+          var selectedItem = chart.getSelection()[0].row;
+          var chord = dataPts[selectedItem+1][0];
+          playChord($scope.key, chord);
+        });
       }
- }
- $scope.resize = function(){
-  // var canvas =  document.getElementsByClassName('canvasjs-chart-canvas')
-  // for(var i = 0; i < canvas.length; i++){
-  //   canvas[i].width = '100px';
-  //   canvas[i].height = '100px';
-  // }
  }
  $scope.activeDrum = function(part) {
    //drum rack parts
