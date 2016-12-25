@@ -8,7 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
-var signup = require('./routes/signup')
+var signup = require('./routes/signup');
+var profile = require('./routes/profile')
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/login', login);
 app.use('/signup', signup);
+app.use('/profile', profile);
 
 app.all('*', (req,res,next) => {
   res.sendFile('layout.html', { root: __dirname + '/public/'});
