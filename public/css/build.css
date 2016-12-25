@@ -262,7 +262,7 @@ p.legend{
 .tempo-box {
   color: black;
 }
-/*.button-chord:active:focus {
-  background-color: darkgrey !important;
-  box-shadow: none;
-}*/
+
+.playing {
+  background-color: white;
+}

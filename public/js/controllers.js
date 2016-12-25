@@ -902,10 +902,23 @@ $scope.stopPlay = function(){
        }
      }
     }
+
+    drawPlayhead(playIndex);
+
     advanceNote();
    }
    timeoutId = requestAnimationFrame(schedule)
    }
+
+  function drawPlayhead(xindex){
+    let lastIndex = (xindex + loop_length - 1) % loop_length;
+    let newRows = ('data-col' + xindex);
+    let oldRows = ('data-col' + lastIndex)
+    newRows += ' playing'
+    console.log(newRows);
+  }
+
+
  function advanceNote() {
   var secondsPerBeat = 60 / bpm;
   playIndex++;
