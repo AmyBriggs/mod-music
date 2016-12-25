@@ -5,6 +5,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
  //notes: instruments, chords: harmonic presets, drums: drum rack
  //variables used for tempo and display logic
  $scope.notes = false;
+ $scope.key = '';
  $scope.chords = false;
  $scope.drums = false;
  $scope.current = '';
@@ -750,9 +751,6 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    }
  }
 
-
-
-
  /*** LOGIC FOR PLAYING SOUNDS ***/
  $scope.playNote = function(note) {
   sounds[$scope.instrument][note].play()
@@ -950,6 +948,37 @@ $scope.stopPlay = function(){
    $scope.chords = true;
    $scope.drums = false;
   }
+ }
+ $scope.showChords = function(key){
+   $scope.key = key;
+   var chordArray = Object.keys(chords[key]);
+   var dataPts = [];
+   dataPts.push(['Meow', 'MEOW']);
+   for(var i = 0; i < chordArray.length; i++){
+     dataPts.push([chordArray[i], 1]);
+   }
+   google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(dataPts);
+
+        var options = {
+          pieHole: 0.4,
+          legend: {position: 'none'},
+          backgroundColor: { fill:'transparent' },
+          chartArea:{left:0,top:0,width:"100%",height:"100%"}
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+ }
+ $scope.resize = function(){
+  // var canvas =  document.getElementsByClassName('canvasjs-chart-canvas')
+  // for(var i = 0; i < canvas.length; i++){
+  //   canvas[i].width = '100px';
+  //   canvas[i].height = '100px';
+  // }
  }
  $scope.activeDrum = function(part) {
    //drum rack parts

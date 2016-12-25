@@ -161,7 +161,17 @@ h4 {
   cursor:pointer;
   cursor:hand;
 }
-
+.key-pick{
+  width:95%;
+  height:170px;
+  color:silver;
+  cursor:pointer;
+  cursor:hand;
+}
+.chartContainer{
+  width:100px;
+  height:100px;
+}
 .chord-button {
   border-radius: 50%;
   border: 1px solid silver;

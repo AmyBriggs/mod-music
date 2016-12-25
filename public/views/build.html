@@ -495,7 +495,22 @@
     <!-- Chord Selection for Instruments -->
 
     <div ng-show="chords && instrument!=='bass'" class="col-lg-3 notes text-center">
-        <h4>{{ instrument }} chords</h4>
+        <h4>{{ instrument }} chords</h4><br>
+        <table ng-show="key==''" class="key-pick">
+          <tr>
+            <td ng-click="showChords('cMajChords');resize();">C Maj</td>
+            <td ng-click="showChords('dMajChords')">D Maj</td>
+            <td ng-click="showChords('ebMajChords')">Eb Maj</td>
+            <td ng-click="showChords('eMajChords')">E Maj</td>
+          </tr>
+          <tr>
+            <td ng-click="showChords('fMajChords')">F Maj</td>
+            <td ng-click="showChords('gMajChords')">G Maj</td>
+            <td ng-click="showChords('aMajChords')">A Maj</td>
+            <td ng-click="showChords('bbMajChords')">Bb Maj</td>
+          </tr>
+        </table>
+        <div ng-show="key!=''" id="donutchart" style="width: 100%;"></div>
         <!-- C Major -->
         <div>
             <button class="btn btn-primary button-chord" type="button" data-toggle="collapse" data-target=".collapse-exampleC" aria-expanded="false" aria-controls="collapseExample">
