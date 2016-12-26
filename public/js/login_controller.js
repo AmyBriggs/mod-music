@@ -1,4 +1,6 @@
 app.controller('LoginController', function($scope, LoginService, $location, $cookies) {
+  $scope.user = 'Amy'
+
   $scope.submitSignUp = function() {
     let newUser = {
       username: $scope.newUser.username,
