@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(41, 40, 42);
+    padding-left: none !important;
+}
+
+p {
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+}

@@ -23,5 +23,11 @@ app.config(function($routeProvider, $locationProvider){
     templateUrl: '../views/signup.html',
     controller: 'LoginController'
   })
+
+  .when('/profile', {
+  templateUrl: '../views/profile.html',
+  controller: 'ProfileController'
+})
+
     $locationProvider.html5Mode(true)
 })

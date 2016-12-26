@@ -886,6 +886,10 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
 $scope.stopPlay = function(){
   cancelAnimationFrame(timeoutId);
 }
+
+$scope.resetPage = function(){
+  location.reload()
+}
  $scope.startPlay = function() {
    playIndex = 0;
   noteTime = 0.0;
