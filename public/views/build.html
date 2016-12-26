@@ -9,7 +9,8 @@
     <span>modmusic</span>
   </div>
   <div class="col-lg-4 text-center time-sigs">
-    <span class="time-sig">2/4</span><span class="time-sig">3/4</span><span class="time-sig">4/4</span><span class="time-sig">6/8</span>
+    <span class="time-sig">Save</span>
+    <!-- <span class="time-sig">3/4</span><span class="time-sig">4/4</span><span class="time-sig">6/8</span> -->
   </div>
     <!-- <div class="col-lg-12 text-center"> -->
         <!-- Tempo controller -->
@@ -503,7 +504,7 @@
         <span class="chord-label back" ng-show="key!=''" ng-click="key=''; ">&#x25c0;</span><span ng-show="key==''" class="chord-label">{{ instrument }} chords</span><span ng-show="key!=''" class="chord-label">{{ key }}</span><p></p>
         <table ng-show="key==''" class="key-pick">
           <tr>
-            <td ng-click="showChords('cMajChords');resize();">C Maj</td>
+            <td ng-click="showChords('cMajChords')">C Maj</td>
             <td ng-click="showChords('dMajChords')">D Maj</td>
             <td ng-click="showChords('ebMajChords')">Eb Maj</td>
             <td ng-click="showChords('eMajChords')">E Maj</td>

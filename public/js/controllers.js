@@ -756,7 +756,6 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', function($
   $scope.currentNote = [$scope.instrument, note];
  }
  function playChord(key, chord){
-   console.log(key, chord);
    if(chord.includes('#')){
      chord.replace('#', 's')
    }
@@ -907,8 +906,6 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', function($
      }
    }
  }
-
-
 
  $scope.populateChord  = function(elem){
    let rowIndex = elem.currentTarget.parentNode.className;
