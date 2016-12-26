@@ -815,7 +815,6 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
      }
    }
  }
-
  function removeFromRack(){
    this.parentNode.removeEventListener('click', playDrum);
    this.parentNode.innerHTML = '';
