@@ -1,4 +1,4 @@
-app.controller('BuildController', ['$scope','$rootScope', function($scope, $rootScope) {
+app.controller('BuildController', ['$scope','$rootScope', '$cookies', function($scope, $rootScope, $cookies) {
   //$rootScope.vm.build: data structure representing our grid
  $rootScope.vm = {};
  $rootScope.vm.build = [];
@@ -792,10 +792,35 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    let instrObj = {}
    instrObj.instrument = instr
    instrObj.notes = []
-   $rootScope.vm.build.push(instrObj)
-   let index = $rootScope.vm.build.length-1
-   let label = document.getElementsByClassName(`${index} selected-instr`)[0]
-   label.innerHTML = instr;
+   if($rootScope.vm.build.length === 0){
+     $rootScope.vm.build.push(instrObj);
+     let label = document.getElementsByClassName(`0 selected-instr`)[0]
+     label.innerHTML = instr;
+   }else{
+     for(var i = 0; i < $rootScope.vm.build.length; i++){
+       if($rootScope.vm.build[i] === undefined){
+         $rootScope.vm.build.push(instrObj);
+         let label = document.getElementsByClassName(`${i} selected-instr`)[0]
+         label.innerHTML = instr;
+         break;
+       }
+     }
+   }
+
+ }
+ $scope.clearInstr = function(elem){
+   var index = elem.currentTarget.className.split(' ')[0];
+   elem.currentTarget.innerHTML = '';
+   var row = document.getElementsByClassName(index)[1];
+   var cells = row.children;
+   console.log(cells);
+   for(var i = 0; i < cells.length; i++){
+     if(cells[i].getAttribute('filled')){
+       cells[i].className = '';
+       cells[i].style.backgroundColor = null;
+     }
+   }
+   $rootScope.vm.build[index] = undefined;
  }
 
   function clearInstr() {
@@ -849,9 +874,15 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    let rowIndex = elem.currentTarget.parentNode.className;
    let chosenInstr = $scope.currentNote[0];
    let note = $scope.currentNote[1];
-   if($rootScope.vm.build[rowIndex].instrument === chosenInstr) {
-     elem.currentTarget.style.backgroundColor = colors[rowIndex];
-     elem.currentTarget.className = `${note}`;
+   if(elem.currentTarget.getAttribute('filled')){
+     elem.currentTarget.className = '';
+     elem.currentTarget.style.backgroundColor = null;
+   }else{
+     if($rootScope.vm.build[rowIndex].instrument === chosenInstr) {
+       elem.currentTarget.style.backgroundColor = colors[rowIndex];
+       elem.currentTarget.className = `${note}`;
+       elem.currentTarget.setAttribute('filled', true);
+     }
    }
    updateBuild();
  }
@@ -877,10 +908,16 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    let key = chordArr[0];
    let chord = chordArr[1];
    let instrument = $scope.instrument;
-   if($rootScope.vm.build[rowIndex].instrument === instrument){
-     elem.currentTarget.style.backgroundColor = colors[rowIndex]
-     elem.currentTarget.className = `${key} ${chord}`
-     var playChordArr = chords[key][chord];
+   if(elem.currentTarget.getAttribute('filled')){
+     elem.currentTarget.className = '';
+     elem.currentTarget.style.backgroundColor = null;
+   }else{
+     if($rootScope.vm.build[rowIndex].instrument === instrument){
+       elem.currentTarget.style.backgroundColor = colors[rowIndex]
+       elem.currentTarget.className = `${key} ${chord}`
+       elem.currentTarget.setAttribute('filled', true);
+       var playChordArr = chords[key][chord];
+     }
    }
    updateBuild()
  }
@@ -891,9 +928,15 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
    let instrument = 'drums';
    let rackId = $scope.currentDrums[0];
    let part = $scope.currentDrums[1];
-   if($rootScope.vm.build[rowIndex].instrument === instrument){
-     elem.currentTarget.style.backgroundColor = colors[rowIndex]
-     elem.currentTarget.className = `${rackId} ${part}`
+   if(elem.currentTarget.getAttribute('filled')){
+     elem.currentTarget.className = '';
+     elem.currentTarget.style.backgroundColor = null;
+   }else{
+     if($rootScope.vm.build[rowIndex].instrument === instrument){
+       elem.currentTarget.style.backgroundColor = colors[rowIndex]
+       elem.currentTarget.className = `${rackId} ${part}`
+       elem.currentTarget.setAttribute('filled', true);
+     }
    }
    updateBuild()
  }
@@ -907,6 +950,7 @@ app.controller('BuildController', ['$scope','$rootScope', function($scope, $root
        $rootScope.vm.build[i].notes[j] = cells[j].className;
      }
    }
+   console.log($rootScope.vm.build);
  }
 
  $scope.clearBuild = function(){
@@ -923,10 +967,10 @@ $scope.resetPage = function(){
   location.reload()
 }
  $scope.startPlay = function() {
-   playIndex = 0;
+  playIndex = 0;
   noteTime = 0.0;
   startTime = context.currentTime + aheadTime;
-   schedule();
+  schedule();
  }
 
  function schedule() {

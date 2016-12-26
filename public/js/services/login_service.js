@@ -7,7 +7,7 @@ app.service('LoginService', function($resource){
       }
     }),
 
-    login: $resource('login/:id', {id: '@id'}, {
+    login: $resource('login', {id: '@id'}, {
       'save': {
         method: 'POST',
         isArray: false

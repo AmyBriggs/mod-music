@@ -2,12 +2,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/login.css">
 
-<div class="form-body">
+<div ng-controller="LoginController" class="form-body">
   <h1>modmusic</h1>
 
   <p class="error">{{error}}</p>
 
-  <form name="signUp" ng-submit="submitSignUp(newUser)">
+  <form name="signUp">
 
     <div class="form-group" ng-class="{'has-error' : signUp.username.$invalid && !signUp.username.$pristine, 'has-success' : signUp.username.$valid }">
       <label class="control-label" for="username">Username:</label>
@@ -22,8 +22,8 @@
       <small ng-show="signUp.password.$error.maxlength" class="help-block">Maximum length 30 characters.</small>
     </div>
 
-    <button type="submit" id="signup-submit" class="btn btn-default" ng-disabled="signUp.$invalid">Signup</button>
-    <button ng-click=submitLogIn(returningUser) id="login-submit" class="btn btn-default" ng-disabled="logIn.$invalid">Login</button>
+    <button ng-click="submitSignUp()" id="signup-submit" class="btn btn-default" ng-disabled="signUp.$invalid">Signup</button>
+    <button ng-click=submitLogIn() id="login-submit" class="btn btn-default" ng-disabled="logIn.$invalid">Login</button>
 
   </form>
 
