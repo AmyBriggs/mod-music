@@ -822,6 +822,17 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', function($
    }
    $rootScope.vm.build[index] = undefined;
  }
+
+  function clearInstr() {
+   //clear InstrObj from build array
+  $rootScope.vm.build = []
+  let labels = document.getElementsByClassName(`selected-instr`)
+  for(var i = 0; i < labels.length; i++){
+    labels[i].innerHTML = ''
+  }
+  labels = []
+ }
+
  $scope.addToRack = function(elem){
    let rackId = elem.currentTarget.parentNode.parentNode.parentNode.parentNode.id;
    let part = elem.currentTarget.parentNode.innerText.substr(0,2);
@@ -876,6 +887,21 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', function($
    updateBuild();
  }
 
+  function unPopulate(){
+    //clears attached sound and color from grid
+   for(let i = 0; i < $rootScope.vm.build.length; i++){
+     let row = document.getElementsByClassName(`${i}`)[1];
+     let cells = row.children;
+     for(let j = 0; j < cells.length; j++){
+       cells[j].removeAttribute("data-col", j);
+       cells[j].className = ''
+       cells[j].style.backgroundColor = null
+     }
+   }
+ }
+
+
+
  $scope.populateChord  = function(elem){
    let rowIndex = elem.currentTarget.parentNode.className;
    let chordArr = $scope.currentChord[1];
@@ -895,6 +921,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', function($
    }
    updateBuild()
  }
+
 
  $scope.populateDrums = function(elem){
    let rowIndex = elem.currentTarget.parentNode.className;
@@ -924,6 +951,11 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', function($
      }
    }
    console.log($rootScope.vm.build);
+ }
+
+ $scope.clearBuild = function(){
+   unPopulate()
+   clearInstr()
  }
 
 //play functionality
