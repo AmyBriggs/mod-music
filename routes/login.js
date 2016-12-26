@@ -11,7 +11,7 @@ router.post('/', function(req, res, next){
       if(user) {
         let passwordMatch = bcrypt.compareSync(req.body.password, user.hashed_pass)
         if(passwordMatch === true){
-          console.log(user);
+          delete user.hashed_pass;
           res.json(user)
         } else {
           let error = {

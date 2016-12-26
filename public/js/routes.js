@@ -1,33 +1,25 @@
-app.config(function($httpProvider){
-  $httpProvider.defaults.withCredentials = true
+app.config(function($httpProvider) {
+ $httpProvider.defaults.withCredentials = true
 })
 
 app.config(['$resourceProvider', function($resourceProvider) {
-  $resourceProvider.defaults.stripTrailingSlashes = false
+ $resourceProvider.defaults.stripTrailingSlashes = false
 }])
 
-
-app.config(function($routeProvider, $locationProvider){
-  $routeProvider
-    .when('/', {
-      templateUrl: '../views/build.html',
-      controller: 'BuildController'
-    })
-
-    .when('/login', {
-    templateUrl: '../views/login.html',
-    controller: 'LoginController'
+app.config(function($routeProvider, $locationProvider) {
+ $routeProvider
+  .when('/', {
+   templateUrl: '../views/build.html',
+   controller: 'BuildController'
   })
-
-    .when('/signup', {
-    templateUrl: '../views/signup.html',
-    controller: 'LoginController'
+ .when('/login', {
+   templateUrl: '../views/login.html',
+   controller: 'LoginController'
   })
-
   .when('/profile', {
-  templateUrl: '../views/profile.html',
-  controller: 'ProfileController'
-})
+   templateUrl: '../views/profile.html',
+   controller: 'ProfileController'
+  })
 
-    $locationProvider.html5Mode(true)
+ $locationProvider.html5Mode(true)
 })
