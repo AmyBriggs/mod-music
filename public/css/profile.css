@@ -1,6 +1,17 @@
 body {
     background-color: rgb(41, 40, 42);
-    padding-left: none !important;
+    color: silver;
+    font-family: 'Maven Pro', sans-serif;
+    padding: none;
+}
+
+#sidebar {
+  margin-top: 5em;
+}
+
+.sidebar {
+  border-right: 1px solid silver;
+  padding-left: 3em;
 }
 
 p {
@@ -11,4 +22,17 @@ p {
 .media-object {
   height: 10em;
   width: auto;
+  border-radius: 50%;
+}
+
+h1  {
+  font-size: 40px;
+  color: purple;
+}
+
+.projects {
+  text-align: center;
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+  padding-top: none !important;
 }

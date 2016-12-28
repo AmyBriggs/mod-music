@@ -4,19 +4,19 @@
 
 <div ng-controller="ProfileController">
 
-<h1>Welcome, {{ user }}</h1>
-<img class="media-object" ng-src= {{ image }} />
-<h3>{{ desc }}</h3>
-<h3>Projects: {{ projects }}</h3>
-<h3>Views: {{ views }}</h3>
 
-<div class="container">
-  <div class="col-lg-3" id="sidebar">
-    <p>Here is where the profile picture and user information goes.</p>
-
+<div class="container-fluid">
+  <div class="col-lg-3 sidebar">
+    <div  id="sidebar">
+      <img class="media-object" ng-src= "{{ image }}" />
+      <h1>{{ user }}</h1>
+      <h3>{{ desc }}</h3>
+      <h3>Projects: {{ projects }}</h3>
+      <h3>Views: {{ views }}</h3>
+    </div>
   </div>
   <div class="col-lg-9" id="profile-info">
-    <p>Here is where the user project information goes.</p>
+    <h1 class="projects">PROJECTS</h1>
   </div>
 
 </div>
