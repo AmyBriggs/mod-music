@@ -1,4 +1,4 @@
-app.controller('BuildController', ['$scope','$rootScope', '$cookies', function($scope, $rootScope, $cookies) {
+app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveService', function($scope, $rootScope, $cookies, SaveService) {
   //$rootScope.vm.build: data structure representing our grid
  $rootScope.vm = {};
  $rootScope.vm.build = [];
@@ -1107,5 +1107,14 @@ $scope.resetPage = function(){
           playChord($scope.key, chord);
         });
       }
+ }
+ $scope.saveProject = function(){
+   var userObj = angular.fromJson($cookies.getAll().loggedIn);
+   userObj.projTitle = $scope.projTitle;
+   userObj.genre = $scope.genre[0];
+   userObj.desc = $scope.desc;
+   userObj.build = $rootScope.vm.build;
+   SaveService.save(userObj, function(retObj){
+   })
  }
 }])

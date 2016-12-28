@@ -6,7 +6,7 @@ exports.up = function(knex) {
       .references('id')
       .inTable('users')
       .onDelete('CASCADE');
-    table.json('instrObj').default('{}');
+    table.specificType('build', 'json[]');
     table.integer('views')
       .notNullable()
       .default(0);

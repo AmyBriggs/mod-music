@@ -12,14 +12,26 @@ span {
   padding-top:2%;
   padding-left:3%;
 }
-.time-sig{
+.save{
   font-size:20px;
-  margin-left:3%;
-  margin-right:3%;
-  padding-left:1%;
-  padding-right:1%;
+  margin-right:4%;
+  padding:1%;
+  letter-spacing:1px;
   color:white;
+  border:1px solid white;
   background-color:rgb(69, 69, 69);
+  cursor:pointer;
+  cursor:hand;
+}
+.inner-save{
+  background-color:rgb(41, 40, 42);
+  font-family:"Maven Pro", sans-serif;
+}
+#saveModalLabel{
+  font-size:30px;
+}
+.modal-body{
+  color:white;
 }
 .whole{
   margin-right:1%;
