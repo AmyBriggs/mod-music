@@ -24,7 +24,7 @@
 </div>
 <div class="row whole">
   <div class="col-lg-1 instrument text-center">
-    <table>
+    <table id="instrTable">
       <tr>
         <td ng-click="clearInstr($event)" class="7 selected-instr">
         </td>
@@ -60,9 +60,9 @@
     </table>
   </div>
   <div class="col-lg-8 grid text-center">
-    <div class="prev-grid">a
+    <div ng-show="back" ng-click="grid=grid-1;checkGrid();downGrid()" class="prev-grid">&#9664;
     </div>
-    <table class="grid-table">
+    <table id="buildTable">
       <tr class="7" ng-click="activeInstr()" ng-class="{'active': isActive}">
         <td ng-click="checkPop($event)"></td>
         <td ng-click="checkPop($event)"></td>
@@ -336,7 +336,9 @@
         <td ng-click="checkPop($event)"></td>
       </tr>
     </table>
-    <div class="next-grid">a
+    <div ng-show="add" ng-click="addGrid();checkGrid();" class="next-grid">+
+    </div>
+    <div ng-show="next" ng-click="grid=grid+1;checkGrid();upGrid();" class="next-grid">&#9654;
     </div>
   </div>
   <div class="col-lg-3 rack text-center">

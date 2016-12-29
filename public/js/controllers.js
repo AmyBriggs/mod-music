@@ -5,6 +5,8 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
  //notes: instruments, chords: harmonic presets, drums: drum rack
  //variables used for tempo and display logic
  $scope.grid = 1;
+ $scope.totalGrid = 1;
+ $scope.first = true;
  $scope.notes = false;
  $scope.key = '';
  $scope.chords = false;
@@ -748,7 +750,121 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
      gm2: ['D', 'G', 'Bb']
    }
  }
- 
+ checkGrid();
+ function checkGrid(){
+   if($scope.totalGrid > 1){
+     $scope.next = true;
+     $scope.add = false;
+     $scope.back = false;
+   }else{
+     $scope.add = true;
+     $scope.back = false;
+     $scope.next = false;
+   }
+ }
+ $scope.addGrid = function(){
+   $scope.totalGrid++;
+   $scope.grid++;
+   freshGrid();
+ }
+ $scope.checkGrid = function(){
+   if($scope.grid === 1 && $scope.totalGrid > 1){
+     $scope.back = false;
+     $scope.next = true;
+     $scope.add = false;
+   }
+   else if($scope.grid === 1 && $scope.totalGrid === 1){
+     $scope.back = false;
+     $scope.next = false;
+     $scope.add = true;
+   }
+   else if($scope.grid < $scope.totalGrid){
+     $scope.back = true;
+     $scope.next = true;
+     $scope.add = false;
+   }else{
+     $scope.next = false;
+     $scope.back = true;
+     $scope.add = true;
+   }
+ }
+ function freshGrid(){
+   var instrTable = document.getElementById('instrTable');
+   var instrRows = instrTable.children[0].children;
+   for(var i = 0; i < instrRows.length; i++){
+     var num = instrRows[i].children[0].className.split(' ')[0];
+     instrRows[i].children[0].className = `${parseInt(num)+8} selected-instr`;
+     instrRows[i].children[0].innerHTML = '';
+   }
+   var buildTable = document.getElementById('buildTable');
+   var buildRows = buildTable.children[0].children;
+   for(var i = 0; i < buildRows.length; i++){
+     var cells = buildRows[i].children;
+     for(var j = 0; j < cells.length; j++){
+       if(cells[j].getAttribute('filled')){
+         cells[j].className = '';
+         cells[j].style.backgroundColor = null;
+       }
+     }
+     var num = parseInt(buildRows[i].className);
+     buildRows[i].className = `${num+8}`;
+   }
+ }
+ $scope.downGrid = function(){
+   var instrTable = document.getElementById('instrTable');
+   var instrRows = instrTable.children[0].children;
+   for(var i = 0; i < instrRows.length; i++){
+     var num = instrRows[i].children[0].className.split(' ')[0];
+     instrRows[i].children[0].className = `${parseInt(num)-8} selected-instr`;
+     instrRows[i].children[0].innerHTML = '';
+   }
+   var buildTable = document.getElementById('buildTable');
+   var buildRows = buildTable.children[0].children;
+   for(var i = 0; i < buildRows.length; i++){
+     var cells = buildRows[i].children;
+     for(var j = 0; j < cells.length; j++){
+       if(cells[j].getAttribute('filled')){
+         cells[j].className = '';
+         cells[j].style.backgroundColor = null;
+       }
+     }
+     var num = parseInt(buildRows[i].className);
+     buildRows[i].className = `${num-8}`;
+   }
+   loadGrid();
+ }
+ $scope.upGrid = function(){
+   freshGrid();
+   loadGrid();
+ }
+ function loadGrid(){
+   var instrTable = document.getElementById('instrTable');
+   var instrRows = instrTable.children[0].children;
+   for(var i = instrRows.length-1; i >= 0; i--){
+     var num = instrRows[i].children[0].className.split(' ')[0];
+     if($rootScope.vm.build[num] === undefined){
+       instrRows[i].children[0].innerHTML = '';
+     }else{
+       instrRows[i].children[0].innerHTML = $rootScope.vm.build[num].instrument;
+     }
+   }
+   var buildTable = document.getElementById('buildTable');
+   var buildRows = buildTable.children[0].children;
+   for(var i = buildRows.length-1; i >= 0; i--){
+     var num = buildRows[i].className;
+     var cells = buildRows[i].children;
+     if($rootScope.vm.build[num] === undefined){
+     }else{
+       for(var j = 0; j < cells.length; j++){
+         if($rootScope.vm.build[num].notes[j] === ''){}
+         else{
+           cells[j].style.backgroundColor = colors[num%8];
+           cells[j].className = $rootScope.vm.build[num].notes[j];
+         }
+       }
+     }
+   }
+ }
  /*** LOGIC FOR PLAYING SOUNDS ***/
  $scope.playNote = function(note) {
   sounds[$scope.instrument][note].play()
@@ -792,25 +908,23 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
    let instrObj = {}
    instrObj.instrument = instr
    instrObj.notes = []
-   if($rootScope.vm.build.length === 0){
-     $rootScope.vm.build.push(instrObj);
-     let label = document.getElementsByClassName(`0 selected-instr`)[0]
+   let labels = document.getElementsByClassName('selected-instr');
+   let indices = [];
+   for(var i = labels.length-1; i >= 0; i--){
+     indices.push(labels[i].className.split(' ')[0]);
+   }
+   if($rootScope.vm.build[indices[0]] === undefined){
+     $rootScope.vm.build[indices[0]] = instrObj;
+     let label = document.getElementsByClassName(`${indices[0]} selected-instr`)[0];
      label.innerHTML = instr;
    }else{
-     let done = false;
-     for(var i = 0; i < $rootScope.vm.build.length; i++){
-       if($rootScope.vm.build[i] === undefined){
-         $rootScope.vm.build[i] = instrObj;
-         let label = document.getElementsByClassName(`${i} selected-instr`)[0]
+     for(var i = 0; i < indices.length; i++){
+       if($rootScope.vm.build[indices[i]] === undefined){
+         $rootScope.vm.build[indices[i]] = instrObj;
+         let label = document.getElementsByClassName(`${indices[i]} selected-instr`)[0]
          label.innerHTML = instr;
-         done = true;
          break;
        }
-     }
-     if(done === false){
-       $rootScope.vm.build.push(instrObj);
-       let label = document.getElementsByClassName(`${i} selected-instr`)[0]
-       label.innerHTML = instr;
      }
    }
 
@@ -820,7 +934,6 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
    elem.currentTarget.innerHTML = '';
    var row = document.getElementsByClassName(index)[1];
    var cells = row.children;
-   console.log(cells);
    for(var i = 0; i < cells.length; i++){
      if(cells[i].getAttribute('filled')){
        cells[i].className = '';
@@ -887,7 +1000,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
      elem.currentTarget.removeAttribute('filled');
    }else{
      if($rootScope.vm.build[rowIndex].instrument === chosenInstr) {
-       elem.currentTarget.style.backgroundColor = colors[rowIndex];
+       elem.currentTarget.style.backgroundColor = colors[rowIndex%8];
        elem.currentTarget.className = `${note}`;
        elem.currentTarget.setAttribute('filled', true);
      }
@@ -950,13 +1063,15 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
  }
  //updates build array with notes
  function updateBuild(){
-   for(let i = 0; i < $rootScope.vm.build.length; i++){
+   for(let i = $scope.grid*8-8; i < $scope.grid*8; i++){
+     if($rootScope.vm.build[i] !== undefined){
      let row = document.getElementsByClassName(`${i}`)[1];
      let cells = row.children;
      for(let j = 0; j < cells.length; j++){
        cells[j].setAttribute("data-col", j);
        $rootScope.vm.build[i].notes[j] = cells[j].className;
      }
+   }
    }
  }
 
@@ -971,7 +1086,8 @@ $scope.resetPage = function(){
   location.reload()
 }
  $scope.startPlay = function() {
-  playIndex = 0;
+  playIndex = $scope.grid*8-8;
+  loop_length = playIndex+32;
   noteTime = 0.0;
   startTime = context.currentTime + aheadTime;
   schedule();
@@ -1017,7 +1133,7 @@ $scope.resetPage = function(){
      cancelAnimationFrame(timeoutId);
    }
   function drawPlayhead(playIndex){
-    var table = document.getElementsByClassName('grid-table')[0];
+    var table = document.getElementById('buildTable');
     var rows = table.children[0].children;
     for(var i = 0; i < rows.length; i++){
       for(var j = 0; j < rows[i].children.length; j++){
