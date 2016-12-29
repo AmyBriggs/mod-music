@@ -4,9 +4,24 @@ app.controller('ProfileController', function($scope, ProfileService, LoginServic
     $scope.views = user.views
     $scope.desc = user.desc
     $scope.img = user.img
-    userProjects = []
-    ProfileService.get(user, function(retObj){
-      console.log(user);
-      console.log(retObj);
+
+    ProfileService.get(user).then(function(data){
+    $scope.projectsArr = []
+    for(var i = 0; i < data.length; i++){
+      let project = {
+        title: data[i].title,
+        genre: data[i].genre,
+        created: data[i].created_at,
+        updated: data[i].updated_at,
+        views: data[i].views,
+        desc: data[i].desc,
+        votes: data[i].votes
+      }
+      $scope.projectsArr.push(project)
+    }
+
+    $scope.projects = $scope.projectsArr.length;
+    console.log($scope.projects);
+
     })
  })

@@ -17,6 +17,26 @@
   </div>
   <div class="col-lg-9" id="profile-info">
     <h1 class="projects">PROJECTS</h1>
+    <div ng-repeat="project in projectsArr">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="media">
+
+                <div class="media-body">
+                    <p>Title: {{project.title}}</p>
+                    <p>Updated: {{project.updated}}</p>
+                    <p>Created: {{project.created}}</p>
+                    <p>Genre: {{project.genre}}</p>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
   </div>
 
 </div>
