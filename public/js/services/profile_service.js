@@ -1,18 +1,20 @@
-app.service("ProfileService", function($resource) {
-  return {
-    users: $resource('profile', {id: '@id'}, {
-      'update': {
-        method: 'PUT'
-      },
-      'get': {
-        method:'GET',
-        isArray:false
-      },
-      'save': {
-        method:'POST',
-        isArray:true
-      }
-    })
-  }
-
-})
+// app.service('ProfileService', function($http){
+//   return {
+//     get: function(userObj){
+//       return $http.get('/profile', userObj).then(function(data) {
+//         console.log(data);
+//          return data.data;
+//       })
+//     }
+//   }
+// })
+app.service('ProfileService', function($http){
+ return {
+   get: function(userObj){
+     console.log(userObj);
+     return $http.get('/profile', userObj).then(function(data) {
+       console.log(data);
+        return data.data;
+     })
+   }
+ }
