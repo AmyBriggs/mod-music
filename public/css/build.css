@@ -65,7 +65,6 @@ a{
     margin-left: 15px;
     float: left;
 }
-
 #reset {
   height: 50%;
   font-size: 1em;
@@ -73,16 +72,27 @@ a{
   opacity: 0.80;
   margin-left: 15px;
 }
-
-.grid{
-
+.prev-grid{
+  background-color:rgb(67, 64, 70);
+  color:white;
+  width:2.5%;
+  float:left;
+  height:300px;
+}
+.next-grid{
+  background-color:rgb(67, 64, 70);
+  color:white;
+  width:2.5%;
+  float:left;
+  height:300px;
 }
 table{
-  width:98%;
+  width:92.5%;
+  margin-left:1%;
+  margin-right:1%;
   height:300px;
-  margin-left:2%;
+  float:left;
 }
-
 td{
   width:3%;
   background-color:rgb(69, 69, 69);

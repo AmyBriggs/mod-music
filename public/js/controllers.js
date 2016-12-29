@@ -4,6 +4,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
  $rootScope.vm.build = [];
  //notes: instruments, chords: harmonic presets, drums: drum rack
  //variables used for tempo and display logic
+ $scope.grid = 1;
  $scope.notes = false;
  $scope.key = '';
  $scope.chords = false;
@@ -747,7 +748,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
      gm2: ['D', 'G', 'Bb']
    }
  }
-
+ 
  /*** LOGIC FOR PLAYING SOUNDS ***/
  $scope.playNote = function(note) {
   sounds[$scope.instrument][note].play()
