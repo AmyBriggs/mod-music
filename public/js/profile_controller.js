@@ -1,9 +1,12 @@
 app.controller('ProfileController', function($scope, ProfileService, LoginService, $location, $cookies) {
-  $scope.users = ProfileService.users.query()
-  $scope.cookies = $cookies.getAll();
-  var user = angular.fromJson($scope.cookies.loggedIn);
-  $scope.user = user.username;
-  $scope.desc = user.desc
-  $scope.image = user.img;
-  $scope.views = user.views;
-})
+    var user = angular.fromJson($cookies.getAll().loggedIn);
+    $scope.username = user.username
+    $scope.views = user.views
+    $scope.desc = user.desc
+    $scope.img = user.img
+    userProjects = []
+    ProfileService.get(user, function(retObj){
+      console.log(user);
+      console.log(retObj);
+    })
+ })
