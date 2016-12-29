@@ -11,9 +11,8 @@
 app.service('ProfileService', function($http){
  return {
    get: function(userObj){
-     console.log(userObj);
      return $http.post('/profile', userObj).then(function(data) {
-       console.log(data);
+       console.log(data.data);
         return data.data;
      })
    }
