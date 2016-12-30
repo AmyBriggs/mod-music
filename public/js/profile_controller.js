@@ -14,7 +14,7 @@ app.controller('ProfileController', function($scope, ProfileService, LoginServic
         created: data[i].created_at,
         updated: data[i].updated_at,
         views: data[i].views,
-        desc: data[i].desc,
+        desc: data[i].project_desc,
         votes: data[i].votes
       }
       $scope.projectsArr.push(project)

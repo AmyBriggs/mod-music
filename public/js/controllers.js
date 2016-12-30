@@ -1017,6 +1017,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
      let cells = row.children;
      for(let j = 0; j < cells.length; j++){
        cells[j].removeAttribute("data-col", j);
+       cells[j].removeAttribute("filled");
        cells[j].className = ''
        cells[j].style.backgroundColor = null
      }
@@ -1082,10 +1083,6 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
  }
 
 //play functionality
-
-$scope.resetPage = function(){
-  location.reload()
-}
 
  $scope.startPlay = function() {
   playIndex = $scope.grid*8-8;
