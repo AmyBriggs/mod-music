@@ -789,6 +789,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
    }
  }
  function freshGrid(){
+   console.log('oi');
    var instrTable = document.getElementById('instrTable');
    var instrRows = instrTable.children[0].children;
    for(var i = 0; i < instrRows.length; i++){
@@ -855,11 +856,13 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
    for(var i = buildRows.length-1; i >= 0; i--){
      var num = buildRows[i].className;
      var cells = buildRows[i].children;
+     console.log($rootScope.vm.build[num]);
      if($rootScope.vm.build[num] === undefined){
      }else{
        for(var j = 0; j < cells.length; j++){
          if($rootScope.vm.build[num].notes[j] === ''){}
          else{
+           console.log('hey');
            cells[j].style.backgroundColor = colors[num%8];
            cells[j].className = $rootScope.vm.build[num].notes[j];
          }
