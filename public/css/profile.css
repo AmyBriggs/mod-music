@@ -10,7 +10,6 @@ body {
 }
 
 .sidebar {
-  border-right: 1px solid silver;
   padding-left: 3em;
 }
 
@@ -35,4 +34,28 @@ h1  {
   color: silver;
   font-family: 'Maven Pro', sans-serif;
   padding-top: none !important;
+}
+
+.profile-heading {
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+  margin-right: 15em;
+  margin-top: -0.5em;
+  margin-bottom: -0.5em;
+
+}
+
+#project-title {
+  margin-left: -1em;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+#project-update {
+  margin-left: -0.5em;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+#project-genre {
+  margin-left: 0.5em;
+  font-family: 'Maven Pro', sans-serif;
 }

@@ -7,7 +7,7 @@
 
 <div class="container-fluid">
   <div class="col-lg-3 sidebar">
-    <div  id="sidebar">
+    <div class="example example-solid" id="sidebar">
       <img class="media-object" ng-src= "{{ img }}" />
       <h1>{{ username }}</h1>
       <h3>{{ desc }}</h3>
@@ -15,8 +15,60 @@
       <h3>Views: {{ views }}</h3>
     </div>
   </div>
-  <div class="col-lg-9" id="profile-info">
-    <h1 class="projects">PROJECTS</h1>
+  <!-- <div class="col-lg-9" id="profile-info">
+    <div class="row">
+      <h1 class="projects">PROJECTS</h1>
+      <hr>
+      <h4><span class="title-span">TITLE</span><span class="updated-span">UPDATED</span><span class="created-span">CREATED</span><span class="genre-span">GENRE</span></h4>
+      <hr>
+
+    </div>
+    <div ng-repeat="project in projectsArr">
+    <p><span class="title-span">{{project.title}}</span><span class="updated-span">{{project.updated | date}}</span><span class="created-span">{{project.created | date}}</span><span class="genre-span">{{project.genre}}</span></p>
+
+
+
+
   </div>
 
-</div>
+</div> -->
+
+  <div class="col-lg-9" id="profile-info">
+    <div class="row">
+      <h1 class="projects">PROJECTS</h1>
+      <hr class="hr">
+      <div class="row">
+        <div class="col-lg-3">
+          <h4 class="profile-heading">TITLE</h4>
+        </div>
+        <div class="col-lg-3">
+          <h4 class="profile-heading">UPDATED</h4>
+        </div>
+        <div class="col-lg-3">
+          <h4 class="profile-heading">CREATED</h4>
+        </div>
+        <div class="col-lg-3">
+          <h4 class="profile-heading">GENRE</h4>
+        </div>
+
+      </div>
+      <hr class="hr">
+    </div>
+
+    <div class="row">
+      <div ng-repeat="project in projectsArr">
+          <div class="col-lg-3">
+          <p id="project-title">{{project.title}}</p>
+        </div>
+          <div class="col-lg-3">
+          <p id="project-update">{{project.updated | date}}</p>
+        </div>
+          <div class="col-lg-3">
+          <p id="project-create">{{project.created | date}}</p>
+        </div>
+          <div class="col-lg-3">
+          <p id="project-genre">{{project.genre}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
