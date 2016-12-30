@@ -1147,10 +1147,7 @@ $scope.resetPage = function(){
       }
 
     }
-    // let lastIndex = (xindex + loop_length - 1) % loop_length;
-    // let newRows = ('data-col' + xindex);
-    // let oldRows = ('data-col' + lastIndex)
-    // newRows += ' playing'
+
   }
  function advanceNote() {
   var secondsPerBeat = 120 / $scope.bpm;
