@@ -24,7 +24,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
  let timeoutId;
  let startTime;
  let aheadTime = 0.200;
- let bpm = 60;
+ $scope.bpm = 120;
  let context = new AudioContext();
  let gain = context.createGain();
  gain.connect(context.destination);
@@ -1086,6 +1086,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
 $scope.resetPage = function(){
   location.reload()
 }
+
  $scope.startPlay = function() {
   playIndex = $scope.grid*8-8;
   loop_length = playIndex+32;
@@ -1152,7 +1153,7 @@ $scope.resetPage = function(){
     // newRows += ' playing'
   }
  function advanceNote() {
-  var secondsPerBeat = 60 / bpm;
+  var secondsPerBeat = 120 / $scope.bpm;
   playIndex++;
   if (playIndex == loop_length) {
    playIndex = 0;

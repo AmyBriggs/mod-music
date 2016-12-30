@@ -45,6 +45,48 @@ a{
   cursor:pointer;
   cursor:hand;
 }
+.spinner {
+  float:left;
+  margin-top: 26px;
+  margin-left:3%;
+  margin-bottom: 20px;
+  width: 85px;
+}
+.spinner input {
+  background-color:rgb(67, 64, 70);
+  font-family:"Maven Pro", sans-serif;
+  color:white;
+  text-align: right;
+}
+.input-group-btn-vertical {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  display: table-cell;
+}
+.input-group-btn-vertical > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 8px;
+  margin-left: -1px;
+  position: relative;
+  border-radius: 0;
+}
+.input-group-btn-vertical > .btn:first-child {
+  border-top-right-radius: 4px;
+}
+.input-group-btn-vertical > .btn:last-child {
+  margin-top: -2px;
+  border-bottom-right-radius: 4px;
+}
+.input-group-btn-vertical i{
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
 #play {
     height: 50%;
     font-size: 2em;
@@ -67,10 +109,13 @@ a{
 }
 #reset {
   height: 50%;
-  font-size: 1em;
-  color: white !important;
-  opacity: 0.80;
+  font-size: 2em;
+  color: white;
+  opacity: 0.60;
+  margin-top: 1em;
+  margin-bottom: 20px;
   margin-left: 15px;
+  float: left;
 }
 .prev-grid{
   background-color:rgb(67, 64, 70);
@@ -256,9 +301,7 @@ h4 {
   font-family: 'Maven Pro', sans-serif;
   font-weight: bold;
   color: rgb(14, 5, 24);
-
 }
-
 .collapse-exampleC {
   padding: 5px;
   overflow-y: auto;
