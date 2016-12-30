@@ -804,6 +804,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
        if(cells[j].getAttribute('filled')){
          cells[j].className = '';
          cells[j].style.backgroundColor = null;
+         cells[j].removeAttribute('filled');
        }
      }
      var num = parseInt(buildRows[i].className);
@@ -826,6 +827,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
        if(cells[j].getAttribute('filled')){
          cells[j].className = '';
          cells[j].style.backgroundColor = null;
+         cells[j].removeAttribute('filled');
        }
      }
      var num = parseInt(buildRows[i].className);
@@ -1007,7 +1009,6 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
    }
    updateBuild();
  }
-
   function unPopulate(){
     //clears attached sound and color from grid
    for(let i = 0; i < $rootScope.vm.build.length; i++){
@@ -1042,7 +1043,6 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
    updateBuild()
  }
 
-
  $scope.populateDrums = function(elem){
    let rowIndex = elem.currentTarget.parentNode.className;
    let instrument = 'drums';
@@ -1062,17 +1062,17 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
    updateBuild()
  }
  //updates build array with notes
- function updateBuild(){
-   for(let i = $scope.grid*8-8; i < $scope.grid*8; i++){
-     if($rootScope.vm.build[i] !== undefined){
-     let row = document.getElementsByClassName(`${i}`)[1];
-     let cells = row.children;
-     for(let j = 0; j < cells.length; j++){
-       cells[j].setAttribute("data-col", j);
-       $rootScope.vm.build[i].notes[j] = cells[j].className;
-     }
+ function updateBuild() {
+  for (let i = $scope.grid * 8 - 8; i < $scope.grid * 8; i++) {
+   if ($rootScope.vm.build[i] !== undefined) {
+    let row = document.getElementsByClassName(`${i}`)[1];
+    let cells = row.children;
+    for (let j = 0; j < cells.length; j++) {
+     cells[j].setAttribute("data-col", j);
+     $rootScope.vm.build[i].notes[j] = cells[j].className;
+    }
    }
-   }
+  }
  }
 
  $scope.clearBuild = function(){
