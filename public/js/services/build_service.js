@@ -1,9 +1,13 @@
-app.service('SaveService', function($http){
+app.service('BuildService', function($http){
   return {
     save: function(projData){
-      console.log(projData);
       return $http.post('/save', projData).then(function(data) {
          return data.data;
+      })
+    },
+    load: function(projData){
+      return $http.post('/load', projData).then(function(data){
+        return data.data;
       })
     }
   }

@@ -57,7 +57,7 @@
     <div class="row">
       <div ng-repeat="project in projectsArr">
           <div class="col-lg-3">
-          <p id="project-title">{{project.title}}</p>
+          <p id="project-title" ng-click="loadProject(project.title)">{{project.title}}</p>
         </div>
           <div class="col-lg-3">
           <p id="project-update">{{project.updated | date}}</p>

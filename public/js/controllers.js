@@ -1,7 +1,23 @@
-app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveService', function($scope, $rootScope, $cookies, SaveService) {
+app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildService', '$window', function($scope, $rootScope, $cookies, BuildService, $window) {
+  if($window.localStorage){
+    BuildService.load($window.localStorage).then(function(data) {
+      $scope.projTitle = data.title;
+      $scope.genre = data.genre;
+      $scope.desc = `Originally by: ${data.username}`;
+      if(data.build == ''){
+        $rootScope.vm.build = [];
+      }else{
+        $rootScope.vm.build = data.build;
+        loadGrid();
+        updateBuild();
+      }
+    })
+  }else{
+    $rootScope.vm.build = [];
+  }
   //$rootScope.vm.build: data structure representing our grid
  $rootScope.vm = {};
- $rootScope.vm.build = [];
+
  //notes: instruments, chords: harmonic presets, drums: drum rack
  //variables used for tempo and display logic
  $scope.grid = 1;
@@ -1196,7 +1212,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
       rows[i].children[11].style.borderColor = "black silver black black";
       rows[i].children[19].style.borderColor = "black silver black black";
       rows[i].children[23].style.borderColor = "black silver black black";
-      rows[i].children[27].style.borderColor = "black silver black black";  
+      rows[i].children[27].style.borderColor = "black silver black black";
     }
   }
 
@@ -1281,7 +1297,8 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
    userObj.genre = $scope.genre[0];
    userObj.desc = $scope.desc;
    userObj.build = $rootScope.vm.build;
-   SaveService.save(userObj, function(retObj){
+   $window.localStorage.clear();
+   BuildService.save(userObj, function(retObj){
    })
  }
 }])

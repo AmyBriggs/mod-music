@@ -48,6 +48,8 @@ h1  {
 #project-title {
   margin-left: -1em;
   font-family: 'Maven Pro', sans-serif;
+  cursor:pointer;
+  cursor:hand;
 }
 
 #project-update {

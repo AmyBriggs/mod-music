@@ -1,4 +1,4 @@
-app.controller('ProfileController', function($scope, ProfileService, LoginService, $location, $cookies) {
+app.controller('ProfileController', function($scope, ProfileService, $location, $cookies, $window) {
     var user = angular.fromJson($cookies.getAll().loggedIn);
     $scope.username = user.username
     $scope.views = user.views
@@ -9,6 +9,8 @@ app.controller('ProfileController', function($scope, ProfileService, LoginServic
     $scope.projectsArr = []
     for(var i = 0; i < data.length; i++){
       let project = {
+        user_id: data[i].user_id,
+        id: data[i].project_id,
         title: data[i].title,
         genre: data[i].genre,
         created: data[i].created_at,
@@ -19,9 +21,19 @@ app.controller('ProfileController', function($scope, ProfileService, LoginServic
       }
       $scope.projectsArr.push(project)
     }
-
     $scope.projects = $scope.projectsArr.length;
-    console.log($scope.projects);
-
     })
+    $scope.loadProject = function(title){
+      var project = {};
+      for(var i = 0; i < $scope.projectsArr.length; i++){
+        if($scope.projectsArr[i].title === title){
+          project.user_id = $scope.projectsArr[i].user_id;
+          project.proj_id = $scope.projectsArr[i].id;
+        }
+      }
+      for(var key in project){
+          $window.localStorage[key] = project[key];
+        }
+      $location.path('/');
+    }
  })

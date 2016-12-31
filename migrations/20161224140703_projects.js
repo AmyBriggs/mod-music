@@ -10,7 +10,7 @@ exports.up = function(knex) {
     table.integer('views')
       .notNullable()
       .default(0);
-    table.string('title')
+    table.string('title').unique();
     table.string('desc');
     table.string('genre');
     table.integer('votes').default(0);

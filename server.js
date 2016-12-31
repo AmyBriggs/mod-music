@@ -10,6 +10,7 @@ var login = require('./routes/login');
 var signup = require('./routes/signup');
 var profile = require('./routes/profile')
 var save = require('./routes/save');
+var load = require('./routes/load');
 
 var app = express();
 // view engine setup
@@ -25,6 +26,7 @@ app.use('/login', login);
 app.use('/signup', signup);
 app.use('/profile', profile);
 app.use('/save', save);
+app.use('/load', load);
 
 app.all('*', (req,res,next) => {
   res.sendFile('layout.html', { root: __dirname + '/public/'});
