@@ -2,7 +2,7 @@ body {
     background-color: rgb(41, 40, 42);
     color: silver;
     font-family: 'Maven Pro', sans-serif;
-    padding: none;
+    padding-top: 5%;
 }
 
 #sidebar {
@@ -19,9 +19,8 @@ p {
 }
 
 .media-object {
-  height: 10em;
-  width: auto;
-  border-radius: 50%;
+width: 20em;
+
 }
 
 h1  {
@@ -58,4 +57,14 @@ h1  {
 #project-genre {
   margin-left: 0.5em;
   font-family: 'Maven Pro', sans-serif;
+}
+
+.card {
+  background-color: rgb(57, 52, 60);
+  opacity: 0.8;
+  border-radius: 5%;
+}
+
+#media-background: {
+  color: orange;
 }
