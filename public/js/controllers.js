@@ -1,5 +1,6 @@
 app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildService', '$window', function($scope, $rootScope, $cookies, BuildService, $window) {
-  if($window.localStorage){
+   $rootScope.vm = {};
+  if($window.localStorage > 0){
     BuildService.load($window.localStorage).then(function(data) {
       $scope.projTitle = data.title;
       $scope.genre = data.genre;
@@ -16,7 +17,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
     $rootScope.vm.build = [];
   }
   //$rootScope.vm.build: data structure representing our grid
- $rootScope.vm = {};
+
 
  //notes: instruments, chords: harmonic presets, drums: drum rack
  //variables used for tempo and display logic
