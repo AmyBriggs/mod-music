@@ -6,8 +6,8 @@
     <div class="input-group spinner">
       <input ng-model="bpm" type="text" class="form-control" value="120">
       <div class="input-group-btn-vertical">
-        <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
-        <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+        <button class="btn btn-default" ng-click="bpm=bpm+1;" type="button"><i class="fa fa-caret-up"></i></button>
+        <button class="btn btn-default" ng-click="bpm=bpm-1;" type="button"><i class="fa fa-caret-down"></i></button>
       </div>
     </div>
     <i class="fa fa-play" ng-click="startPlay()" id="play" aria-hidden="true"></i><i class="fa fa-stop" ng-click="stopPlay()" id="stop" aria-hidden="true"></i><i class="fa fa-refresh" ng-click="clearBuild()" id="reset" aria-hidden="true"></i>
