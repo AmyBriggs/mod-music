@@ -1151,13 +1151,13 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'SaveServi
     var table = document.getElementById('buildTable');
     var rows = table.children[0].children;
     for(var i = 0; i < rows.length; i++){
-      rows[i].children[0].style.borderColor = "black black black green";
+      rows[i].children[0].style.borderColor = "black black black silver";
         rows[i].children[0].style.borderWidth = "1px 1px 2px 3px";
-      rows[i].children[7].style.borderColor = "black green black black";
+      rows[i].children[7].style.borderColor = "black silver black black";
       rows[i].children[7].style.borderWidth = "1px 3px 2px 1px";
-      rows[i].children[15].style.borderColor = "black green black black";
+      rows[i].children[15].style.borderColor = "black silver black black";
       rows[i].children[15].style.borderWidth = "1px 3px 2px 1px";
-      rows[i].children[23].style.borderColor = "black green black black";
+      rows[i].children[23].style.borderColor = "black silver black black";
       rows[i].children[23].style.borderWidth = "1px 3px 2px 1px";
       rows[i].children[3].style.borderColor = "black silver black black";
       rows[i].children[11].style.borderColor = "black silver black black";
