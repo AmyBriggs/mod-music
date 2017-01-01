@@ -1,17 +1,25 @@
 body {
-    background-color: rgb(41, 40, 42);
+    background: linear-gradient(rgb(18, 18, 31), grey);
     color: silver;
     font-family: 'Maven Pro', sans-serif;
     padding-top: 5%;
 }
 
-#sidebar {
-  margin-top: 5em;
+.navbar {
+  background-color: rgb(18, 18, 31);
+  border: none;
+  padding: none;
 }
 
-.sidebar {
-  padding-left: 3em;
+.navbar:after {
+  color: black;
 }
+
+nav::after {
+  content: none;
+  color: black;
+}
+
 
 p {
   color: silver;
@@ -19,14 +27,22 @@ p {
 }
 
 .media-object {
-width: 20em;
+height: 15em;
+width: 15em;
+margin-bottom: 1.5em;
+margin-left: 1em;
 border-radius: 50%;
+}
 
+#logo {
+  font-size: 36px;
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
 }
 
 h1  {
   font-size: 40px;
-  color: purple;
+  color: silver;
 }
 
 .projects {
@@ -62,12 +78,51 @@ h1  {
   font-family: 'Maven Pro', sans-serif;
 }
 
-.card {
-  background-color: rgb(57, 52, 60);
-  opacity: 0.8;
-  border-radius: 5%;
-}
 
 #media-heading {
-  background-color: orange;
+  background-image: url('img/chain.jpg')
+  background: linear-gradient(rgb(18, 18, 31), grey);
+  opacity: 0.9;
+}
+
+.media-heading {
+  margin-left: 40px;
+}
+
+.media-list {
+  margin-left: 40px;
+}
+
+#h3-project-title {
+  font-family: 'Maven Pro', sans-serif;
+  color: rgb(11, 9, 13) !important;
+}
+
+#thumbnail {
+  max-width: 15em;
+  height: auto;
+}
+
+#panel {
+  background: url('../public/img/brick.jpg');
+  border: none !important;
+  padding: none !important;
+  opacity: 0.9;
+}
+
+#sort-nav {
+  background-color: rgb(18, 18, 31);
+  border-radius: none !important;
+}
+
+#sort-logo {
+  font-size: 24px;
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+#logout {
+  font-size: 14px;
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
 }
