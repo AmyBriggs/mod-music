@@ -20,6 +20,7 @@ p {
 
 .media-object {
 width: 20em;
+border-radius: 50%;
 
 }
 
@@ -65,6 +66,6 @@ h1  {
   border-radius: 5%;
 }
 
-#media-background: {
-  color: orange;
+#media-heading {
+  background-color: orange;
 }
