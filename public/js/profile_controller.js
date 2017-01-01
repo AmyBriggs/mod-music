@@ -5,6 +5,9 @@ app.controller('ProfileController', function($scope, ProfileService, $location, 
     $scope.desc = user.desc
     $scope.img = user.img
 
+    $scope.search = ''
+
+
     ProfileService.get(user).then(function(data){
     $scope.projectsArr = []
     for(var i = 0; i < data.length; i++){

@@ -119,10 +119,18 @@ h1  {
   font-size: 24px;
   color: silver;
   font-family: 'Maven Pro', sans-serif;
+  margin-right: 3em;
 }
 
 #logout {
   font-size: 14px;
   color: silver;
   font-family: 'Maven Pro', sans-serif;
+}
+
+li {
+  font-size: 16px;
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+  margin-right: 3em;
 }

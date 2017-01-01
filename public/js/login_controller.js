@@ -26,7 +26,6 @@ app.controller('LoginController', function($scope, LoginService, $location, $coo
       password: $scope.newUser.password
     }
     LoginService.login.save(user, function(returnedObject) {
-      console.log(returnedObject);
       if(user.username.length === 0 || user.password.length === 0) {
         $scope.error = "Please fill out both fields."
       }else if(returnedObject.message){
@@ -36,5 +35,11 @@ app.controller('LoginController', function($scope, LoginService, $location, $coo
         $location.url('/profile')
       }
     })
+  }
+
+  $scope.logOut = function() {
+    $cookies.remove('loggedIn', loggedIn)
+    console.log('hey');
+    $location.url('/login')
   }
 })
