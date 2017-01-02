@@ -1159,61 +1159,81 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
           rows[i].children[j].style.opacity = 1;
         }
       }
-
     }
+  }
 
+  //Time Signatures//
+
+  function setGrid() {
+    var table = document.getElementById('buildTable');
+    var rows = table.children[0].children;
+    for(var i = 0; i < rows.length; i++){
+      for(var j = 0; j < 32; j++){
+        rows[i].children[j].style.borderColor = "black black black black";
+        rows[i].children[j].style.borderWidth = "1px 1px 2px 1px";
+      }
+    }
   }
 
   $scope.twoFour = function(){
+    setGrid()
     var table = document.getElementById('buildTable');
     var rows = table.children[0].children;
     for(var i = 0; i < rows.length; i++){
-      rows[i].children[0].style.borderColor = "black black black silver";
+      for(var j = 3; j < 32; j+=4 ){
+        rows[i].children[0].style.borderColor = "black black black silver";
         rows[i].children[0].style.borderWidth = "1px 1px 2px 3px";
-      rows[i].children[7].style.borderColor = "black silver black black";
-      rows[i].children[7].style.borderWidth = "1px 3px 2px 1px";
-      rows[i].children[15].style.borderColor = "black silver black black";
-      rows[i].children[15].style.borderWidth = "1px 3px 2px 1px";
-      rows[i].children[23].style.borderColor = "black silver black black";
-      rows[i].children[23].style.borderWidth = "1px 3px 2px 1px";
-      rows[i].children[3].style.borderColor = "black silver black black";
-      rows[i].children[11].style.borderColor = "black silver black black";
-      rows[i].children[19].style.borderColor = "black silver black black";
-      rows[i].children[27].style.borderColor = "black silver black black";
+        rows[i].children[j].style.borderColor = "black silver black black";
+        rows[i].children[j].style.borderWidth = "1px 1px 2px 1px";
+      }
+      for(var k = 7; k < 32; k+=8){
+        rows[i].children[k].style.borderColor = "black silver black black";
+        rows[i].children[k].style.borderWidth = "1px 3px 2px 1px";
+      }
     }
   }
   $scope.threeFour = function(){
+    setGrid()
     var table = document.getElementById('buildTable');
     var rows = table.children[0].children;
     for(var i = 0; i < rows.length; i++){
-      rows[i].children[0].style.borderColor = "black black black silver";
-      rows[i].children[0].style.borderWidth = "1px 1px 2px 3px";
-      rows[i].children[11].style.borderColor = "black silver black black";
-      rows[i].children[11].style.borderWidth = "1px 3px 2px 1px";
-      rows[i].children[23].style.borderColor = "black silver black black";
-      rows[i].children[23].style.borderWidth = "1px 3px 2px 1px";
-      rows[i].children[3].style.borderColor = "black silver black black";
-      rows[i].children[7].style.borderColor = "black silver black black";
-      rows[i].children[15].style.borderColor = "black silver black black";
-      rows[i].children[19].style.borderColor = "black silver black black";
-      rows[i].children[27].style.borderColor = "black silver black black";
-      rows[i].children[31].style.borderColor = "black silver black black";
+      for(var j = 3; j < 32; j+=4){
+        rows[i].children[0].style.borderColor = "black black black silver";
+        rows[i].children[j].style.borderColor = "black silver black black";
+      }
+      for(var j = 11; j < 32; j+=12){
+        rows[i].children[j].style.borderColor = "black silver black black";
+        rows[i].children[j].style.borderWidth = "1px 3px 2px 1px";
+      }
+      // rows[i].children[0].style.borderColor = "black black black silver";
+      // rows[i].children[0].style.borderWidth = "1px 1px 2px 3px";
+      // rows[i].children[11].style.borderColor = "black silver black black";
+      // rows[i].children[11].style.borderWidth = "1px 3px 2px 1px";
+      // rows[i].children[23].style.borderColor = "black silver black black";
+      // rows[i].children[23].style.borderWidth = "1px 3px 2px 1px";
+      // rows[i].children[3].style.borderColor = "black silver black black";
+      // rows[i].children[7].style.borderColor = "black silver black black";
+      // rows[i].children[15].style.borderColor = "black silver black black";
+      // rows[i].children[19].style.borderColor = "black silver black black";
+      // rows[i].children[27].style.borderColor = "black silver black black";
+      // rows[i].children[31].style.borderColor = "black silver black black";
     }
   }
   $scope.fourFour = function(){
+    setGrid()
     var table = document.getElementById('buildTable');
     var rows = table.children[0].children;
     for(var i = 0; i < rows.length; i++){
-      rows[i].children[0].style.borderColor = "black black black silver";
-      rows[i].children[0].style.borderWidth = "1px 1px 2px 3px";
-      rows[i].children[15].style.borderColor = "black silver black black";
-      rows[i].children[15].style.borderWidth = "1px 3px 2px 1px";
-      rows[i].children[3].style.borderColor = "black silver black black";
-      rows[i].children[7].style.borderColor = "black silver black black";
-      rows[i].children[11].style.borderColor = "black silver black black";
-      rows[i].children[19].style.borderColor = "black silver black black";
-      rows[i].children[23].style.borderColor = "black silver black black";
-      rows[i].children[27].style.borderColor = "black silver black black";
+      for(var j = 3; j < 32; j+=4 ){
+        rows[i].children[0].style.borderColor = "black black black silver";
+        rows[i].children[0].style.borderWidth = "1px 1px 2px 3px";
+        rows[i].children[j].style.borderColor = "black silver black black";
+        rows[i].children[j].style.borderWidth = "1px 1px 2px 1px";
+      }
+      for(var k = 15; k < 32; k+=16){
+        rows[i].children[k].style.borderColor = "black silver black black";
+        rows[i].children[k].style.borderWidth = "1px 3px 2px 1px";
+      }
     }
   }
 
