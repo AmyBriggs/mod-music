@@ -5,6 +5,13 @@ html {
   padding-left: 15%;*/
 }
 
+.splash {
+  background: url('../img/galaxy.jpg');
+  background-size:cover;
+
+
+}
+
 .form-body {
   background-color: rgb(41, 40, 42);
   padding-top: 5%;
