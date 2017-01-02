@@ -1,6 +1,6 @@
 app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildService', '$window', function($scope, $rootScope, $cookies, BuildService, $window) {
    $rootScope.vm = {};
-  if($window.localStorage > 0){
+  if($window.localStorage.length > 0){
     BuildService.load($window.localStorage).then(function(data) {
       $scope.projTitle = data.title;
       $scope.genre = data.genre;
