@@ -37,9 +37,5 @@ app.controller('LoginController', function($scope, LoginService, $location, $coo
     })
   }
 
-  $scope.logOut = function() {
-    $cookies.remove('loggedIn', loggedIn)
-    console.log('hey');
-    $location.url('/login')
-  }
+
 })
