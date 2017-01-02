@@ -10,7 +10,7 @@ html {
   background-size:cover;
   font-family:'Maven Pro', sans-serif;
   color: silver;
-  padding-bottom: 100px;
+  padding-bottom: 200px;
 }
 
 .glyphicon {
@@ -32,7 +32,7 @@ h1 {
   font-size: 70px;
   letter-spacing: 3px;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 200px;
 }
 
 button {
@@ -118,3 +118,49 @@ a:hover {
   padding-right: 15%;
   padding-top: 4%;
 }
+
+.tech {
+  background-color: rgb(41, 40, 42);
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.tech-header {
+  font-size: 50px;
+  margin-bottom: 4%;
+  color: white;
+  opacity: 0.8;
+}
+
+p {
+  font-size: 18px;
+  color: white;
+  opacity: 0.8;
+  margin-bottom: 4%;
+}
+
+.features {
+  padding-top: 3.5%;
+}
+
+.social {
+  background-color: white;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.social-label{
+  padding-top:5%;
+  color:black;
+}
+
+.social-header {
+  color: black;
+  font-size: 50px;
+}
+
+/*span {
+  padding-top: 3%;
+  padding-left: 8em;
+  padding-right: 8em;
+}*/
