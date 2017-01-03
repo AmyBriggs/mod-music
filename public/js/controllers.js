@@ -1005,7 +1005,12 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
    if($scope.current == 'drums'){
      $scope.populateDrums(elem)
    }
-
+ }
+ $scope.preUnpopulate = function(elem){
+   elem.currentTarget.className = '';
+   elem.currentTarget.style.backgroundColor = null;
+   elem.currentTarget.removeAttribute('filled');
+   updateBuild();
  }
  //populating the cells
  $scope.populate = function(elem){
@@ -1100,7 +1105,13 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
  }
 
 //play functionality
-
+ $scope.playAll = function(){
+   playIndex = 0;
+   loop_length = $scope.totalGrid*8;
+   noteTime = 0.0;
+   startTime = context.currentTime + aheadTime;
+   schedule();
+ }
  $scope.startPlay = function() {
   playIndex = $scope.grid*8-8;
   loop_length = playIndex+32;
@@ -1108,46 +1119,39 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
   startTime = context.currentTime + aheadTime;
   schedule();
  }
-
- function schedule() {
+ function schedule(){
    var currentTime = context.currentTime;
    currentTime -= startTime;
-   while (noteTime < currentTime + aheadTime) {
-    let allSquares = document.querySelectorAll("[data-col]");
-    let currentSquares = [];
-    for (let i = 0; i < allSquares.length; i++) {
-     if (allSquares[i].getAttribute("data-col") == playIndex) {
-      currentSquares.push(allSquares[i]);
-     }
-    }
-    for (let i = 0; i < currentSquares.length; i++) {
-     let index = currentSquares[i].parentNode.className;
-     let instrument = $rootScope.vm.build[index].instrument;
-     let note = currentSquares[i].className.split(' ');
-     if(note[0] == ''){
-     }else{
-       if(instrument === 'drums'){
-         sounds.drums[note[0]][note[1]].play();
-       }else{
-         if(note.length > 1){
-           var playChordArr = chords[note[0]][note[1]];
-           for(var j = 0; j < playChordArr.length; j++){
-             sounds[instrument][playChordArr[j]].play()
+   while(noteTime < currentTime + aheadTime){
+     for(var i = 0; i < $rootScope.vm.build.length; i++){
+       if($rootScope.vm.build[i] === undefined){}else{
+         let current = $rootScope.vm.build[i];
+         if (current.notes[playIndex] == '') {} else {
+          if (current.instrument === 'drums') {
+           sounds.drums[current.notes[playIndex][0]][current.notes[playIndex][1]].play();
+          } else {
+           if (current.notes[playIndex].length > 2) {
+            var arr = current.notes[playIndex].split(' ');
+            var playChordArr = chords[arr[0]][arr[1]];
+            for (var j = 0; j < playChordArr.length; j++) {
+             sounds[current.instrument][playChordArr[j]].play()
+            }
+           } else {
+            sounds[current.instrument][current.notes[playIndex][0]].play();
            }
-         }else{
-           sounds[instrument][note[0]].play();
+          }
          }
        }
      }
-    }
-    drawPlayhead(playIndex);
-    advanceNote();
+     drawPlayhead(playIndex);
+     advanceNote();
    }
    timeoutId = requestAnimationFrame(schedule)
-   }
-   $scope.stopPlay = function(){
-     cancelAnimationFrame(timeoutId);
-   }
+ }
+
+ $scope.stopPlay = function() {
+  cancelAnimationFrame(timeoutId);
+ }
   function drawPlayhead(playIndex){
     var table = document.getElementById('buildTable');
     var rows = table.children[0].children;
@@ -1159,17 +1163,27 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
           rows[i].children[j].style.opacity = 1;
         }
       }
-
     }
-
   }
 
+  function advanceNote() {
+   var secondsPerBeat = 120 / $scope.bpm;
+   playIndex++;
+   if(playIndex % 32 === 0){
+     $scope.upGrid();
+   }
+   if (playIndex == loop_length) {
+    // playIndex = 0;
+    cancelAnimationFrame(timeoutId);
+   }
+   noteTime += 0.25 * secondsPerBeat
+  }
   $scope.twoFour = function(){
     var table = document.getElementById('buildTable');
     var rows = table.children[0].children;
     for(var i = 0; i < rows.length; i++){
       rows[i].children[0].style.borderColor = "black black black silver";
-        rows[i].children[0].style.borderWidth = "1px 1px 2px 3px";
+      rows[i].children[0].style.borderWidth = "1px 1px 2px 3px";
       rows[i].children[7].style.borderColor = "black silver black black";
       rows[i].children[7].style.borderWidth = "1px 3px 2px 1px";
       rows[i].children[15].style.borderColor = "black silver black black";
@@ -1216,15 +1230,6 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
       rows[i].children[27].style.borderColor = "black silver black black";
     }
   }
-
- function advanceNote() {
-  var secondsPerBeat = 120 / $scope.bpm;
-  playIndex++;
-  if (playIndex == loop_length) {
-   playIndex = 0;
-  }
-  noteTime += 0.25 * secondsPerBeat
- }
  /*** DISPLAY LOGIC ***/
  $scope.collapse = function(instr) {
    //side-accordion
