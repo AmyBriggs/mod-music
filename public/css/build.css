@@ -22,6 +22,8 @@ span {
   background-color:rgb(69, 69, 69);
   cursor:pointer;
   cursor:hand;
+  border-radius: 5%;
+  font-family: 'Maven Pro', sans-serif;
 }
 .inner-save{
   background-color:rgb(41, 40, 42);
