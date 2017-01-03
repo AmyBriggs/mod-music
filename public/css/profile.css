@@ -151,3 +151,8 @@ li {
 #search {
   margin-right: 4em;
 }
+
+#new {
+  font-size: 32px;
+  color:rgb(10, 251, 63);
+}
