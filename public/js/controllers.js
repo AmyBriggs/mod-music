@@ -4,8 +4,9 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
     BuildService.load($window.localStorage).then(function(data) {
       $scope.projTitle = data.title;
       $scope.genre = data.genre;
-      $scope.desc = `Originally by: ${data.username}`;
-      if(data.build == ''){
+      $scope.desc = `Originally by: ${data.username}, "${data.desc}"`;
+      console.log(data.build);
+      if(data.build == '' || data.build == null){
         $rootScope.vm.build = [];
          $rootScope.vm.totalGrid = 1;
       }else{
