@@ -18,7 +18,7 @@ html {
 }
 
 .giphy-embed {
-  width: 
+  width:
 }
 .form-body {
   background-color: transparent;
@@ -183,23 +183,26 @@ p {
   font-size: 1em;
 }
 
-.footer-connect > i {
-  font-size: 36px;
-  padding-left: 10px;
-  padding-right: 10px;
-
+.footer-connect {
+  font-size: 24px;
 }
 
 #github {
   color: rgb(92, 144, 163);
+  font-size: 1.6em;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 #linkedin {
-
+  color: white;
+  font-size: 1.6em;
+  margin-right: 20px;
 }
 
 #email {
   color: rgb(204, 64, 64);
+  font-size: 1.6em;
   opacity: 0.7;
 }
 
