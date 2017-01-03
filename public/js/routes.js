@@ -20,6 +20,9 @@ app.config(function($routeProvider, $locationProvider) {
    templateUrl: '../views/profile.html',
    controller: 'ProfileController'
   })
-
+  .when('/discover', {
+   templateUrl: '../views/discover.html',
+   controller: 'DiscoverController'
+  })
  $locationProvider.html5Mode(true)
 })

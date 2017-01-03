@@ -11,6 +11,7 @@ var signup = require('./routes/signup');
 var profile = require('./routes/profile')
 var save = require('./routes/save');
 var load = require('./routes/load');
+var discover = require('./routes/discover');
 
 
 var app = express();
@@ -28,6 +29,7 @@ app.use('/signup', signup);
 app.use('/profile', profile);
 app.use('/save', save);
 app.use('/load', load);
+app.use('/discover', discover);
 
 
 app.all('*', (req,res,next) => {
