@@ -1,8 +1,7 @@
 html {
   background-color: rgb(41, 40, 42);
-  /*padding-top: 5%;
-  padding-right: 15%;
-  padding-left: 15%;*/
+  padding-bottom:0;
+  margin-bottom:0;
 }
 
 .splash {
@@ -164,3 +163,47 @@ p {
   padding-left: 8em;
   padding-right: 8em;
 }*/
+
+.footer {
+  background-color: rgb(41, 40, 42);
+  padding-top: 100px;
+}
+
+.footer-header {
+  font-size: 50px;
+}
+
+.connect-header {
+  font-size: 24px;
+}
+
+.headphones-footer {
+  font-size: 1em;
+}
+
+.footer-connect > i {
+  font-size: 36px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+
+#github {
+  color: rgb(92, 144, 163);
+}
+
+#linkedin {
+
+}
+
+#email {
+  color: rgb(204, 64, 64);
+  opacity: 0.7;
+}
+
+.copyright {
+  font-size: 14px;
+  color: white;
+  margin-left: 2%;
+  margin-bottom: 1%;
+}
