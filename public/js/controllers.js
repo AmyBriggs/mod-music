@@ -929,7 +929,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
      var cells = buildRows[i].children;
      if($rootScope.vm.build[num] === undefined || $rootScope.vm.build[num] === null){
      }else{
-       for(var j = $rootScope.vm.grid*32-32; j < $rootScope.vm.grid*32-1; j++){
+       for(var j = $rootScope.vm.grid*32-32; j < $rootScope.vm.grid*32; j++){
          if($rootScope.vm.build[num].notes[j] === '' || $rootScope.vm.build[num].notes.length == 0){}
          else{
            cells[j%32].setAttribute('filled', true);
@@ -1194,7 +1194,8 @@ $scope.playAll = function(){
          let current = $rootScope.vm.build[i];
          if(current.notes[playIndex] == undefined || current.notes[playIndex] == ''){}else{
            if (current.instrument === 'drums') {
-            sounds.drums[current.notes[playIndex][0]][current.notes[playIndex][1]].play();
+            var drums = current.notes[playIndex].split(' ');
+            sounds.drums[drums[0]][drums[1]].play();
            } else {
             if (current.notes[playIndex].length > 3) {
              var arr = current.notes[playIndex].split(' ');
@@ -1241,16 +1242,12 @@ $scope.playAll = function(){
   function advanceNote() {
    var secondsPerBeat = 120 / $scope.bpm;
    playIndex++;
-   if (playIndex == loop_length) {
-    cancelAnimationFrame(timeoutId);
-   } else {
     if (playIndex % 32 == 0 && playIndex < loop_length) {
      $rootScope.vm.grid++;
      freshGrid();
      loadGrid();
     }
     noteTime += 0.25 * secondsPerBeat
-   }
   }
 
   //Time Signatures//
