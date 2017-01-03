@@ -1,0 +1,159 @@
+html,body {
+    background: linear-gradient(rgb(18, 18, 31), grey);
+    color: silver;
+    font-family: 'Maven Pro', sans-serif;
+    height: 100%;
+
+}
+
+.navbar {
+  background-color: rgb(18, 18, 31);
+  border: none;
+  padding: none;
+}
+
+.navbar:after {
+  color: black;
+}
+
+nav::after {
+  content: none;
+  color: black;
+}
+
+#logo {
+  font-size: 36px;
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+h1  {
+  font-size: 40px;
+  color: silver;
+}
+
+.users{
+  margin-left:0.3%;
+  margin-right:0.3%;
+}
+.user{
+  background-color:rgb(18, 18, 31);
+  width:11.5%;
+  margin-left:0.5%;
+  margin-right:0.5%;
+  float:left;
+  padding-top:1%;
+  min-height:190px;
+}
+.user > img{
+  max-width:10em;
+  max-height:10em;
+}
+.projects {
+  text-align: center;
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+  padding-top: none !important;
+}
+
+.profile-heading {
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+  margin-right: 15em;
+  margin-top: -0.5em;
+  margin-bottom: -0.5em;
+
+}
+
+#project-title {
+  margin-left: -1em;
+  font-family: 'Maven Pro', sans-serif;
+  cursor:pointer;
+  cursor:hand;
+}
+
+#project-update {
+  margin-left: -0.5em;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+#project-genre {
+  margin-left: 0.5em;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+
+#media-heading {
+  background-image: url('img/chain.jpg')
+  background: linear-gradient(rgb(18, 18, 31), grey);
+  opacity: 0.9;
+  height:100%;
+}
+
+.media-heading {
+
+}
+
+.media-headings {
+  margin-top: 0;
+  margin-left: 40px;
+  align-items: center;
+}
+
+.media-list {
+  margin-left: 40px;
+  font-family: 'Maven Pro', sans-serif;
+  color: rgb(11, 9, 13);
+}
+
+#h3-project-title {
+  font-family: 'Maven Pro', sans-serif;
+  color: rgb(11, 9, 13) !important;
+}
+
+#thumbnail {
+  max-width: 15em;
+  height: auto;
+}
+
+#panel {
+  background-color: lightgrey;
+  border: none !important;
+  padding: none !important;
+  opacity: 0.9;
+  height: 200px;
+}
+
+#sort-nav {
+  background-color: rgb(18, 18, 31);
+  border-radius: none !important;
+}
+
+#sort-logo {
+  font-size: 24px;
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+  margin-right: 3em;
+}
+
+#logout {
+  font-size: 14px;
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+li {
+  font-size: 16px;
+  color: silver;
+  font-family: 'Maven Pro', sans-serif;
+  margin-right: 3em;
+}
+
+#search {
+  margin-right: 4em;
+}
+
+#new {
+  font-size: 32px;
+  color:rgb(10, 251, 63);
+}

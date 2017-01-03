@@ -1,4 +1,4 @@
-body {
+html,body {
     background: linear-gradient(rgb(18, 18, 31), grey);
     color: silver;
     font-family: 'Maven Pro', sans-serif;

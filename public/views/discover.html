@@ -23,29 +23,23 @@
         </form>
       </div>
     </div>
-  </nav>
-  <div class="col-lg-12 projects-panel">
-    <!-- <div ng-repeat="project in projectsArr | orderBy: '-updated' | filter:search">
-      <div class="col-lg-6">
-        <div class="panel panel-default" id="panel">
-          <div class="panel-body">
-            <div class="media">
-              <div class="media-left">
-                <img id="thumbnail" src="img/thumbnail1.png" />
-              </div>
-              <div class="media-body">
-                <h3 class="media-heading"><a id="h3-project-title" ng-click="loadProject(project.title)">{{project.title}}</a></h3>
-                <p class="media-list">{{project.desc}}</p>
-                <p class="media-list">Genre: {{project.genre}}</p>
-                <p class="media-list">Created: {{project.created | date}}</p>
-                <p class="media-list">Updated: {{project.updated | date}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
+  </nav><br><br>
+  <h1 class="text-center">Discover</h1>
+  <div class="col-lg-12 users-panel">
+    <hr><h3>users</h3><hr>
+    <div class="row users">
+      <div class="user text-center" ng-repeat="user in users">
+        <img ng-src="{{user.img}}" alt=""><br><br>
+        {{user.username}}
       </div>
-
-    </div> -->
-
+    </div>
+  </div>
+  <div class="col-lg-12 genre-panel">
+    <hr><h3>genre</h3><hr>
+    <div class="row">
+      <div class="col-lg-4" ng-show="gClassical" ng-repeat="project in classical">
+        {{project.title}}
+      </div>
+    </div>
   </div>
 </div>

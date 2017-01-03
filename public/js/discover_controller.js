@@ -1,9 +1,20 @@
 app.controller('DiscoverController', function($scope, DiscoverService, $location, $cookies, $window) {
-    DiscoverService.get();
-
-    // .then(function(data){
-    //
-    // })
+  $scope.gClassical = true;
+  $scope.gAlternative = true;
+  $scope.gElectronic = true;
+  $scope.gRnB = true;
+  $scope.gPop = true;
+  $scope.gRock = true;
+    DiscoverService.get().then(function(data){
+      $scope.users = data.users;
+      $scope.classical = data.classical;
+      $scope.alternative = data.alternative;
+      $scope.electronic = data.electronic;
+      $scope.rnb = data.rnb;
+      $scope.pop = data.pop;
+      $scope.rock = data.rock;
+      console.log($scope.classical);
+    })
     $scope.loadProject = function(title){
       var project = {};
       for(var i = 0; i < $scope.projectsArr.length; i++){
