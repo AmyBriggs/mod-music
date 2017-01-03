@@ -21,8 +21,8 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
 
  //notes: instruments, chords: harmonic presets, drums: drum rack
  //variables used for tempo and display logic
- $scope.grid = 1;
- $scope.totalGrid = 1;
+ $rootScope.vm.grid = 1;
+ $rootScope.vm.totalGrid = 1;
  $scope.first = true;
  $scope.notes = false;
  $scope.key = '';
@@ -769,7 +769,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
  }
  checkGrid();
  function checkGrid(){
-   if($scope.totalGrid > 1){
+   if($rootScope.vm.totalGrid > 1){
      $scope.next = true;
      $scope.add = false;
      $scope.back = false;
@@ -780,22 +780,22 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
    }
  }
  $scope.addGrid = function(){
-   $scope.totalGrid++;
-   $scope.grid++;
+   $rootScope.vm.totalGrid++;
+   $rootScope.vm.grid++;
    freshGrid();
  }
  $scope.checkGrid = function(){
-   if($scope.grid === 1 && $scope.totalGrid > 1){
+   if($rootScope.vm.grid === 1 && $rootScope.vm.totalGrid > 1){
      $scope.back = false;
      $scope.next = true;
      $scope.add = false;
    }
-   else if($scope.grid === 1 && $scope.totalGrid === 1){
+   else if($rootScope.vm.grid === 1 && $rootScope.vm.totalGrid === 1){
      $scope.back = false;
      $scope.next = false;
      $scope.add = true;
    }
-   else if($scope.grid < $scope.totalGrid){
+   else if($rootScope.vm.grid < $rootScope.vm.totalGrid){
      $scope.back = true;
      $scope.next = true;
      $scope.add = false;
@@ -803,6 +803,28 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
      $scope.next = false;
      $scope.back = true;
      $scope.add = true;
+   }
+ }
+ function clearGrid(){
+   var instrTable = document.getElementById('instrTable');
+   var instrRows = instrTable.children[0].children;
+   for(var i = instrRows.length-1; i >= 0; i--){
+     instrRows[i].children[0].className = `${7-i} selected-instr`;
+     instrRows[i].children[0].innerHTML = '';
+   }
+   var buildTable = document.getElementById('buildTable');
+   var buildRows = buildTable.children[0].children;
+   for(var i = 0; i < buildRows.length; i++){
+     var cells = buildRows[i].children;
+     for(var j = 0; j < cells.length; j++){
+       if(cells[j].getAttribute('filled')){
+         cells[j].className = '';
+         cells[j].style.backgroundColor = null;
+         cells[j].removeAttribute('filled');
+       }
+     }
+     var num = parseInt(buildRows[i].className);
+     buildRows[i].className = `${7-i}`;
    }
  }
  function freshGrid(){
@@ -861,7 +883,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
    var instrRows = instrTable.children[0].children;
    for(var i = instrRows.length-1; i >= 0; i--){
      var num = instrRows[i].children[0].className.split(' ')[0];
-     if($rootScope.vm.build[num] === undefined){
+     if($rootScope.vm.build[num] === undefined || $rootScope.vm.build[num] === null){
        instrRows[i].children[0].innerHTML = '';
      }else{
        instrRows[i].children[0].innerHTML = $rootScope.vm.build[num].instrument;
@@ -872,14 +894,14 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
    for(var i = buildRows.length-1; i >= 0; i--){
      var num = buildRows[i].className;
      var cells = buildRows[i].children;
-     if($rootScope.vm.build[num] === undefined){
+     if($rootScope.vm.build[num] === undefined || $rootScope.vm.build[num] === null){
      }else{
-       for(var j = 0; j < cells.length; j++){
-         if($rootScope.vm.build[num].notes[j] === ''){}
+       for(var j = $rootScope.vm.grid*32-32; j < $rootScope.vm.grid*32-1; j++){
+         if($rootScope.vm.build[num].notes[j] === '' || $rootScope.vm.build[num].notes.length == 0){}
          else{
-           cells[j].setAttribute('filled', true);
-           cells[j].style.backgroundColor = colors[num%8];
-           cells[j].className = $rootScope.vm.build[num].notes[j];
+           cells[j%32].setAttribute('filled', true);
+           cells[j%32].style.backgroundColor = colors[num%8];
+           cells[j%32].className = $rootScope.vm.build[num].notes[j];
          }
        }
      }
@@ -1053,7 +1075,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
      elem.currentTarget.style.backgroundColor = null;
    }else{
      if($rootScope.vm.build[rowIndex].instrument === instrument){
-       elem.currentTarget.style.backgroundColor = colors[rowIndex]
+       elem.currentTarget.style.backgroundColor = colors[rowIndex%8]
        elem.currentTarget.className = `${key} ${chord}`
        elem.currentTarget.setAttribute('filled', true);
        var playChordArr = chords[key][chord];
@@ -1073,7 +1095,7 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
      elem.currentTarget.style.backgroundColor = null;
    }else{
      if($rootScope.vm.build[rowIndex].instrument === instrument){
-       elem.currentTarget.style.backgroundColor = colors[rowIndex]
+       elem.currentTarget.style.backgroundColor = colors[rowIndex%8]
        elem.currentTarget.className = `${rackId} ${part}`
        elem.currentTarget.setAttribute('filled', true);
      }
@@ -1082,13 +1104,13 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
  }
  //updates build array with notes
  function updateBuild() {
-  for (let i = $scope.grid * 8 - 8; i < $scope.grid * 8; i++) {
-   if ($rootScope.vm.build[i] !== undefined) {
+  for (let i = $rootScope.vm.grid * 8 - 8; i < $rootScope.vm.grid * 8; i++) {
+   if ($rootScope.vm.build[i] !== undefined && $rootScope.vm.build[i] !== null) {
     let row = document.getElementsByClassName(`${i}`)[1];
     let cells = row.children;
-    for (let j = 0; j < cells.length; j++) {
-     cells[j].setAttribute("data-col", j);
-     $rootScope.vm.build[i].notes[j] = cells[j].className;
+    for (let j = $rootScope.vm.grid * 32-32; j < $rootScope.vm.grid * 32; j++) {
+     cells[j%32].setAttribute("data-col", j);
+     $rootScope.vm.build[i].notes[j] = cells[j%32].className;
     }
    }
   }
@@ -1100,9 +1122,18 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
  }
 
 //play functionality
-
+$scope.playAll = function(){
+  playIndex = 0;
+  loop_length = $rootScope.vm.totalGrid*32-1;
+  noteTime = 0.0;
+  startTime = context.currentTime + aheadTime;
+  $rootScope.vm.grid = 1;
+  clearGrid();
+  loadGrid();
+  schedule();
+}
  $scope.startPlay = function() {
-  playIndex = $scope.grid*8-8;
+  playIndex = $rootScope.vm.grid*32-32;
   loop_length = playIndex+32;
   noteTime = 0.0;
   startTime = context.currentTime + aheadTime;
@@ -1112,54 +1143,81 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
  function schedule() {
    var currentTime = context.currentTime;
    currentTime -= startTime;
-   while (noteTime < currentTime + aheadTime) {
-    let allSquares = document.querySelectorAll("[data-col]");
-    let currentSquares = [];
-    for (let i = 0; i < allSquares.length; i++) {
-     if (allSquares[i].getAttribute("data-col") == playIndex) {
-      currentSquares.push(allSquares[i]);
+   while(noteTime < currentTime + aheadTime){
+     if (playIndex == loop_length + 1) {
+       cancelAnimationFrame(timeoutId);
+       var table = document.getElementById('buildTable');
+       var rows = table.children[0].children;
+       for(var i = 0; i < rows.length; i++){
+         for(var j = 0; j < rows[i].children.length; j++){
+             rows[i].children[j].style.opacity = 1;
+         }
+       }
+       break;
      }
-    }
-    for (let i = 0; i < currentSquares.length; i++) {
-     let index = currentSquares[i].parentNode.className;
-     let instrument = $rootScope.vm.build[index].instrument;
-     let note = currentSquares[i].className.split(' ');
-     if(note[0] == ''){
-     }else{
-       if(instrument === 'drums'){
-         sounds.drums[note[0]][note[1]].play();
-       }else{
-         if(note.length > 1){
-           var playChordArr = chords[note[0]][note[1]];
-           for(var j = 0; j < playChordArr.length; j++){
-             sounds[instrument][playChordArr[j]].play()
+     for(var i = 0; i < $rootScope.vm.build.length; i++){
+       if($rootScope.vm.build[i] == undefined){}
+       else{
+         let current = $rootScope.vm.build[i];
+         if(current.notes[playIndex] == undefined || current.notes[playIndex] == ''){}else{
+           if (current.instrument === 'drums') {
+            sounds.drums[current.notes[playIndex][0]][current.notes[playIndex][1]].play();
+           } else {
+            if (current.notes[playIndex].length > 3) {
+             var arr = current.notes[playIndex].split(' ');
+             var playChordArr = chords[arr[0]][arr[1]];
+             for (var j = 0; j < playChordArr.length; j++) {
+              sounds[current.instrument][playChordArr[j]].play()
+             }
+            } else {
+             sounds[current.instrument][current.notes[playIndex]].play();
+            }
            }
-         }else{
-           sounds[instrument][note[0]].play();
          }
        }
      }
-    }
-    drawPlayhead(playIndex);
-    advanceNote();
+     drawPlayhead(playIndex);
+     advanceNote();
    }
    timeoutId = requestAnimationFrame(schedule)
    }
    $scope.stopPlay = function(){
      cancelAnimationFrame(timeoutId);
+     var table = document.getElementById('buildTable');
+     var rows = table.children[0].children;
+     for(var i = 0; i < rows.length; i++){
+       for(var j = 0; j < rows[i].children.length; j++){
+           rows[i].children[j].style.opacity = 1;
+       }
+     }
    }
   function drawPlayhead(playIndex){
     var table = document.getElementById('buildTable');
     var rows = table.children[0].children;
     for(var i = 0; i < rows.length; i++){
       for(var j = 0; j < rows[i].children.length; j++){
-        if(j === playIndex){
+        if(j === playIndex%32){
           rows[i].children[j].style.opacity = 0.5;
         }else{
           rows[i].children[j].style.opacity = 1;
         }
       }
     }
+  }
+
+  function advanceNote() {
+   var secondsPerBeat = 120 / $scope.bpm;
+   playIndex++;
+   if (playIndex == loop_length) {
+    cancelAnimationFrame(timeoutId);
+   } else {
+    if (playIndex % 32 == 0 && playIndex < loop_length) {
+     $rootScope.vm.grid++;
+     freshGrid();
+     loadGrid();
+    }
+    noteTime += 0.25 * secondsPerBeat
+   }
   }
 
   //Time Signatures//
@@ -1237,14 +1295,6 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
     }
   }
 
- function advanceNote() {
-  var secondsPerBeat = 120 / $scope.bpm;
-  playIndex++;
-  if (playIndex == loop_length) {
-   playIndex = 0;
-  }
-  noteTime += 0.25 * secondsPerBeat
- }
  /*** DISPLAY LOGIC ***/
  $scope.collapse = function(instr) {
    //side-accordion

@@ -61,7 +61,7 @@
     </table>
   </div>
   <div class="col-lg-8 grid text-center">
-    <div ng-show="back" ng-click="grid=grid-1;checkGrid();downGrid()" class="prev-grid">&#9664;
+    <div ng-show="back" ng-click="vm.grid=vm.grid-1;checkGrid();downGrid()" class="prev-grid">&#9664;
     </div>
     <table id="buildTable">
       <tr class="7" ng-click="activeInstr()" ng-class="{'active': isActive}">
@@ -337,9 +337,9 @@
         <td ng-click="checkPop($event)"></td>
       </tr>
     </table>
-    <div ng-show="add" style="color:rgb(12, 242, 0)" ng-click="addGrid();checkGrid();" class="next-grid">+
+    <div ng-show="add" style="color:rgb(12, 242, 0)" ng-click="addGrid(); checkGrid();" class="next-grid">+
     </div>
-    <div ng-show="next" ng-click="grid=grid+1;checkGrid();upGrid();" class="next-grid">&#9654;
+    <div ng-show="next" ng-click="vm.grid=vm.grid+1;checkGrid();upGrid();" class="next-grid">&#9654;
     </div>
   </div>
   <div class="col-lg-3 rack text-center">
