@@ -374,7 +374,7 @@
       </div>
       <div ng-show="collapseBass" class="col-lg-12 collapse-panel">
         <p class="panel-p" ng-click="notesOn('bass'); addInstr('bass')">Bass</p>
-        <p class="panel-p" ng-click="notesOn('elBass'); addInstr('elBass')">Electric</p>
+        <p class="panel-p" ng-click="notesOn('elBass'); addInstr('elBass')">Electric Bass</p>
       </div>
     </div>
     <div class="row">
@@ -507,7 +507,7 @@
   </div>
 
   <!-- Chord Selection for Instruments -->
-  <div ng-show="chords && instrument!=='bass'" class="col-lg-3 notes text-center">
+  <div ng-show="chords && (instrument!=='bass' && instrument !=='elBass')" class="col-lg-3 notes text-center">
     <p></p>
     <span class="chord-label back" ng-show="key!=''" ng-click="key=''; ">&#x25c0;</span><span ng-show="key==''" class="chord-label">{{ instrument }} chords</span><span ng-show="key!=''" class="chord-label">{{ key }}</span>
     <p></p>

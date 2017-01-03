@@ -8,6 +8,7 @@ app.controller('ProfileController', function($scope, ProfileService, $location, 
     $scope.search = ''
 
 
+
     ProfileService.get(user).then(function(data){
     $scope.projectsArr = []
     for(var i = 0; i < data.length; i++){
@@ -38,5 +39,11 @@ app.controller('ProfileController', function($scope, ProfileService, $location, 
           $window.localStorage[key] = project[key];
         }
       $location.path('/');
+    }
+
+    $scope.logOut = function() {
+      $cookies.remove('loggedIn')
+      console.log('hey');
+      $location.url('/login')
     }
  })
