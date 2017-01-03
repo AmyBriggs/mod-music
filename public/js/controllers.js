@@ -37,6 +37,9 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
      };
  //variables used for side-accordion display logic
  $scope.collapsePiano = true; $scope.collapseGuitar = false; $scope.collapseBass = false; $scope.collapseDrums = false;
+ $rootScope.vm.two = false;
+ $rootScope.vm.three = false;
+ $rootScope.vm.four = false;
  //initialize play feature variables
  let playing = false;
  let playIndex;
@@ -786,6 +789,15 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
    $rootScope.vm.totalGrid++;
    $rootScope.vm.grid++;
    freshGrid();
+   if($rootScope.vm.two){
+     twoFour();
+   }
+   if($rootScope.vm.three){
+     threeFour();
+   }
+   if($rootScope.vm.four){
+     fourFour();
+   }
  }
  $scope.checkGrid = function(){
    if($rootScope.vm.grid === 1 && $rootScope.vm.totalGrid > 1){
@@ -876,10 +888,28 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
      buildRows[i].className = `${num-8}`;
    }
    loadGrid();
+   if($rootScope.vm.two){
+     twoFour();
+   }
+   if($rootScope.vm.three){
+     threeFour();
+   }
+   if($rootScope.vm.four){
+     fourFour();
+   }
  }
  $scope.upGrid = function(){
    freshGrid();
    loadGrid();
+   if($rootScope.vm.two){
+     twoFour();
+   }
+   if($rootScope.vm.three){
+     threeFour();
+   }
+   if($rootScope.vm.four){
+     fourFour();
+   }
  }
  function loadGrid(){
    var instrTable = document.getElementById('instrTable');
@@ -1224,7 +1254,24 @@ $scope.playAll = function(){
   }
 
   //Time Signatures//
-
+  $scope.setTime = function(sig){
+    if(sig === 2){
+      $rootScope.vm.three = false;
+      $rootScope.vm.four = false;
+      $rootScope.vm.two = true;
+      twoFour();
+    }else if(sig === 3){
+      $rootScope.vm.two = false;
+      $rootScope.vm.four = false;
+      $rootScope.vm.three = true;
+      threeFour();
+    }else{
+      $rootScope.vm.two = false;
+      $rootScope.vm.three = false;
+      $rootScope.vm.four = true;
+      fourFour();
+    }
+  }
   function setGrid() {
     var table = document.getElementById('buildTable');
     var rows = table.children[0].children;
@@ -1235,8 +1282,7 @@ $scope.playAll = function(){
       }
     }
   }
-
-  $scope.twoFour = function(){
+  function twoFour(){
     setGrid()
     var table = document.getElementById('buildTable');
     var rows = table.children[0].children;
@@ -1253,7 +1299,7 @@ $scope.playAll = function(){
       }
     }
   }
-  $scope.threeFour = function(){
+  function threeFour(){
     setGrid()
     var table = document.getElementById('buildTable');
     var rows = table.children[0].children;
@@ -1262,25 +1308,27 @@ $scope.playAll = function(){
         rows[i].children[0].style.borderColor = "black black black silver";
         rows[i].children[j].style.borderColor = "black silver black black";
       }
-      for(var j = 11; j < 32; j+=12){
-        rows[i].children[j].style.borderColor = "black silver black black";
-        rows[i].children[j].style.borderWidth = "1px 3px 2px 1px";
+      if($rootScope.vm.grid*32 % 12 == 8){
+        for(var j = 11; j < 32; j+=12){
+          rows[i].children[j].style.borderColor = "black silver black black";
+          rows[i].children[j].style.borderWidth = "1px 3px 2px 1px";
+        }
       }
-      // rows[i].children[0].style.borderColor = "black black black silver";
-      // rows[i].children[0].style.borderWidth = "1px 1px 2px 3px";
-      // rows[i].children[11].style.borderColor = "black silver black black";
-      // rows[i].children[11].style.borderWidth = "1px 3px 2px 1px";
-      // rows[i].children[23].style.borderColor = "black silver black black";
-      // rows[i].children[23].style.borderWidth = "1px 3px 2px 1px";
-      // rows[i].children[3].style.borderColor = "black silver black black";
-      // rows[i].children[7].style.borderColor = "black silver black black";
-      // rows[i].children[15].style.borderColor = "black silver black black";
-      // rows[i].children[19].style.borderColor = "black silver black black";
-      // rows[i].children[27].style.borderColor = "black silver black black";
-      // rows[i].children[31].style.borderColor = "black silver black black";
+      if($rootScope.vm.grid*32 % 12 == 4){
+        for(var j = 3; j < 32; j+=12){
+          rows[i].children[j].style.borderColor = "black silver black black";
+          rows[i].children[j].style.borderWidth = "1px 3px 2px 1px";
+        }
+      }
+      if($rootScope.vm.grid*32 % 12 == 0){
+        for(var j = 7; j < 32; j+=12){
+          rows[i].children[j].style.borderColor = "black silver black black";
+          rows[i].children[j].style.borderWidth = "1px 3px 2px 1px";
+        }
+      }
     }
   }
-  $scope.fourFour = function(){
+  function fourFour(){
     setGrid()
     var table = document.getElementById('buildTable');
     var rows = table.children[0].children;

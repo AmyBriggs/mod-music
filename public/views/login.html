@@ -28,11 +28,8 @@
       <button ng-click="showForm = true; showLogin = true; showSignup=false;" ng-show="!showForm" name="button">Login</button>
       <button ng-click="showForm = true; showSignup = true; showLogin =false;" ng-show="!showForm" name="button">Signup</button>
       <div ng-show="showForm" class="form-body">
-
         <p class="error">{{error}}</p>
-
         <form name="signUp">
-
           <div class="form-group" ng-class="{'has-error' : signUp.username.$invalid && !signUp.username.$pristine, 'has-success' : signUp.username.$valid }">
             <input type="text" name="username" id="username" class="form-control" ng-model="newUser.username" ng-minlength="3" ng-maxlength="30" ng-required="true" placeholder="Username">
             <small ng-show="signUp.username.$error.minlength" class="help-block">Minimum 3 characters.</small>
