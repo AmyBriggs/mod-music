@@ -1,6 +1,7 @@
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Maven+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/build.css">
+
 <div ng-controller="BuildController" class="row">
   <div class="col-lg-4">
     <div class="input-group spinner">
@@ -16,9 +17,18 @@
     <span>modmusic</span>
   </div>
   <div class="col-lg-4 text-right time-sigs">
-    <span class="save" ng-click="setTime(2);">2/4</span>
+    <!-- <button ng-click="toggleButton()">Hide Context Menu Button</button> -->
+    <span class="save" ng-click="toggleMenu()" ng-hide="menu.isHidden">Time</span>
+
+    <span class="animated slideInRight" id="time-showing" ng-show="menu.isShowing">
+        <span class="save" id="two" ng-click="setTime(2);">2/4</span>
+        <span class="save" id="three" ng-click="setTime(3);">3/4</span>
+        <span class="save" id="four" ng-click="setTime(4);">4/4</span>
+    </span>
+    <!-- <span class="save" ng-click="setTime(2);">2/4</span>
     <span class="save" ng-click="setTime(3);">3/4</span>
-    <span class="save" ng-click="setTime(4);">4/4</span>
+    <span class="save" ng-click="setTime(4);">4/4</span> -->
+
     <span class="save" ng-click="playAll()">Play All</span>
     <span class="save" data-toggle="modal" data-target="#saveModal">Save</span>
   </div>

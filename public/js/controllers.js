@@ -1251,6 +1251,19 @@ $scope.playAll = function(){
   }
 
   //Time Signatures//
+
+
+    $scope.menu = {isShowing: false, isHidden: false};
+    $scope.toggleMenu = function ()
+    {
+        $scope.menu.isShowing = !$scope.menu.isShowing;
+    }
+    $scope.toggleButton = function ()
+    {
+        $scope.menu.isHidden = !$scope.menu.isHidden;
+    }
+
+
   $scope.setTime = function(sig){
     if(sig === 2){
       $rootScope.vm.three = false;

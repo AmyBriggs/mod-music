@@ -9,8 +9,8 @@ span {
   letter-spacing: 3px;
 }
 .time-sigs{
-  padding-top:2%;
-  padding-left:3%;
+  padding-top: 2%;
+  padding-left: 0;
 }
 .save{
   font-size:20px;
@@ -391,4 +391,25 @@ p.legend{
 
 .playing {
   background-color: white;
+}
+
+#time-showing {
+  padding: 0;
+  margin-top: 0;
+}
+
+#two {
+  padding-top: 0;
+  margin-right: 0;
+  margin-top: -1%;
+}
+#three {
+  padding: 0;
+  margin-right: 0;
+  margin-top: 0;
+}
+#four {
+  padding: 0;
+  margin-right: 0;
+  margin-top: 0;
 }
