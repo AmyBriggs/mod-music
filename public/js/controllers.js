@@ -7,14 +7,18 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
       $scope.desc = `Originally by: ${data.username}`;
       if(data.build == ''){
         $rootScope.vm.build = [];
+         $rootScope.vm.totalGrid = 1;
       }else{
         $rootScope.vm.build = data.build;
+        $rootScope.vm.totalGrid = Math.floor(data.build.length/8) + 1;
+        checkGrid();
         loadGrid();
         updateBuild();
       }
     })
   }else{
     $rootScope.vm.build = [];
+     $rootScope.vm.totalGrid = 1;
   }
   //$rootScope.vm.build: data structure representing our grid
 
@@ -22,7 +26,6 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
  //notes: instruments, chords: harmonic presets, drums: drum rack
  //variables used for tempo and display logic
  $rootScope.vm.grid = 1;
- $rootScope.vm.totalGrid = 1;
  $scope.first = true;
  $scope.notes = false;
  $scope.key = '';
