@@ -4,10 +4,7 @@ app.controller('ProfileController', function($scope, ProfileService, $location, 
     $scope.views = user.views
     $scope.desc = user.desc
     $scope.img = user.img
-
     $scope.search = ''
-
-
 
     ProfileService.get(user).then(function(data){
     $scope.projectsArr = []

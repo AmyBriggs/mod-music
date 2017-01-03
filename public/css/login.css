@@ -8,13 +8,16 @@ html {
   background: url('../img/studio2.jpg');
   background-size:cover;
   font-family:'Maven Pro', sans-serif;
-  color: silver;
+  color: white;
   padding-bottom: 200px;
 }
-
+.icons{
+  padding-top:1%;
+  padding-left:35%;
+  padding-right:35%;
+}
 .glyphicon {
   font-size: 2em;
-  padding: 22px;
 }
 
 .giphy-embed {
@@ -28,7 +31,7 @@ html {
 }
 
 h1 {
-  color: silver;
+  color: rgb(214, 214, 214);
   font-family: 'Maven Pro', sans-serif;
   font-size: 70px;
   letter-spacing: 3px;
@@ -39,12 +42,14 @@ h1 {
 button {
   margin-top: 15px;
   margin-right: 10px;
-  background-color: transparent;
-  border: 1px solid silver;
+  background-color: rgba(1,1,1,0.5);
+  color: rgb(214, 214, 214);
   width: 8.5em;
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 8%;
+  border-color: silver;
+  font-size:16px;
 
 }
 
