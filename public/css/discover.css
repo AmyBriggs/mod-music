@@ -1,9 +1,7 @@
-html,body {
+body {
     background: linear-gradient(rgb(18, 18, 31), grey);
     color: silver;
     font-family: 'Maven Pro', sans-serif;
-    height: 100%;
-
 }
 
 .navbar {
@@ -31,7 +29,9 @@ h1  {
   font-size: 40px;
   color: silver;
 }
-
+.users-panel{
+  margin-bottom:3%;
+}
 .users{
   margin-left:0.3%;
   margin-right:0.3%;
@@ -48,21 +48,74 @@ h1  {
 .user > img{
   max-width:10em;
   max-height:10em;
+  border-radius:25%;
+}
+.username{
+  position:relative;
+  top:5px;
+}
+.genre-panel{
+  padding-bottom:5%;
+}
+.genre-panel > hr{
+  margin-top:2px;
+  margin-bottom:2px;
+}
+.proj-img{
+  width:100%;
+}
+.proj-title{
+  font-size:24px;
+}
+.project{
+  padding-top:1%;
+  padding-bottom:1%;
+  background-color:rgb(18, 18, 31);
+  margin-left:1%;
+  margin-right:0.5%;
+  width:31.5%;
 }
 .projects {
-  text-align: center;
-  color: silver;
-  font-family: 'Maven Pro', sans-serif;
-  padding-top: none !important;
+  margin-top:2%;
+  cursor:pointer;
+  cursor:hand;
 }
-
+.select{
+  position:relative;
+  top:20px;
+  padding-top:8px;
+  padding-bottom:8px;
+  padding-left:15px;
+  padding-right:15px;
+  border-radius:8px;
+  margin-left:1.5%;
+  margin-right:1.5%;
+  font-size:17px;
+  background-color: rgb(40, 40, 75);
+  cursor:pointer;
+  cursor:hand;
+}
+.unselect{
+  position:relative;
+  top:20px;
+  padding-top:8px;
+  padding-bottom:8px;
+  padding-left:15px;
+  padding-right:15px;
+  border-radius:8px;
+  margin-left:1.5%;
+  margin-right:1.5%;
+  font-size:17px;
+  background-color:rgb(18, 18, 31);
+  cursor:pointer;
+  cursor:hand;
+}
 .profile-heading {
   color: silver;
   font-family: 'Maven Pro', sans-serif;
   margin-right: 15em;
   margin-top: -0.5em;
   margin-bottom: -0.5em;
-
 }
 
 #project-title {
