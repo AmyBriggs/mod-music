@@ -20,6 +20,10 @@ app.config(function($routeProvider, $locationProvider) {
    templateUrl: '../views/profile.html',
    controller: 'ProfileController'
   })
+  .when('/profile/:id', {
+   templateUrl: '../views/profile.html',
+   controller: 'PersonalController'
+  })
   .when('/discover', {
    templateUrl: '../views/discover.html',
    controller: 'DiscoverController'

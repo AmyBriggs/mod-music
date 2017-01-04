@@ -22,7 +22,7 @@
   <div class="col-lg-12 users-panel">
     <hr><h3>users</h3><hr>
     <div class="row users">
-      <div class="user text-center" ng-repeat="user in users">
+      <div ng-click="viewUser(user.username)" class="user text-center" ng-repeat="user in users">
         <img ng-src="{{user.img}}" alt=""><br>
         <span class="username">{{user.username}}</span>
       </div>
