@@ -2,8 +2,12 @@ app.controller('PersonalController', function($scope, PersonalService, $location
     var user = {
       username: $window.localStorage.view_user
     }
-
     PersonalService.get(user).then(function(data){
+      $scope.username = data[0].username;
+      $scope.img = data[0].img;
+      $scope.desc = data[0].desc;
+      $scope.projects = data.length;
+      $scope.views = data[0].views;
     $scope.projectsArr = []
     for(var i = 0; i < data.length; i++){
       let project = {
