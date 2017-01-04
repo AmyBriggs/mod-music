@@ -21,10 +21,12 @@ router.post('/', function(req, res, next){
       } else{
         knex('projects')
           .where('title', req.body.projTitle)
+          .returning('*')
           .update({
             build: req.body.build,
             desc: req.body.desc,
             genre: req.body.genre
+          }).then((project1) => {
           })
       }
     })

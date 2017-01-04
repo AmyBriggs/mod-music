@@ -35,12 +35,12 @@ app.controller('ProfileController', function($scope, ProfileService, $location, 
       for(var key in project){
           $window.localStorage[key] = project[key];
         }
-      $location.path('/');
+      $location.path('/build');
     }
 
     $scope.logOut = function() {
       $cookies.remove('loggedIn')
       console.log('hey');
-      $location.url('/login')
+      $location.url('/')
     }
  })

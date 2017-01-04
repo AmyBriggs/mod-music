@@ -8,11 +8,11 @@ app.config(['$resourceProvider', function($resourceProvider) {
 
 app.config(function($routeProvider, $locationProvider) {
  $routeProvider
-  .when('/', {
+  .when('/build', {
    templateUrl: '../views/build.html',
    controller: 'BuildController'
   })
- .when('/login', {
+ .when('/', {
    templateUrl: '../views/login.html',
    controller: 'LoginController'
   })
