@@ -173,3 +173,9 @@ li {
   margin-left: auto;
   margin-right: auto;
 }
+
+.text-center {
+  padding-top: none;
+  margin-top: -1em;
+  margin-bottom: 1em;
+}
