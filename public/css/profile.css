@@ -29,11 +29,10 @@ p {
 }
 
 .media-object {
-height: 18em;
-width: 18em;
+height: 19em;
+width: 19em;
 margin-bottom: 1.5em;
-align-items: center;
-/*margin-left: 4em;*/
+margin-left: 3.5em;
 border-radius: 50%;
 }
 
@@ -82,25 +81,22 @@ h1  {
 }
 
 
-#media-heading {
-  background-image: url('img/chain.jpg')
-  background: linear-gradient(rgb(18, 18, 31), grey);
-  opacity: 0.9;
-  height:100%;
-}
-
 .media-heading {
-
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 2em;
+  margin-right: 2em;
+  font-size: 18px;
 }
 
 .media-headings {
   margin-top: 0;
-  margin-left: 40px;
+  /*margin-left: 40px;*/
   align-items: center;
 }
 
 .media-list {
-  margin-left: 40px;
+  /*margin-left: 40px;*/
   font-family: 'Maven Pro', sans-serif;
   color: rgb(11, 9, 13);
 }
@@ -155,4 +151,25 @@ li {
 #new {
   font-size: 32px;
   color:rgb(10, 251, 63);
+}
+
+#panel-details {
+  align-content: center;
+
+}
+
+/*.profile-panel {
+  border-right: 1px solid black;
+}*/
+
+.media-left {
+  align-items: center;
+}
+
+#panel-username {
+  font-size: 36px;
+  text-align: center;
+  padding-left: 1em;
+  margin-left: auto;
+  margin-right: auto;
 }
