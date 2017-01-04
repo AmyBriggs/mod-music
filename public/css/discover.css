@@ -18,7 +18,29 @@ nav::after {
   content: none;
   color: black;
 }
-
+.glyphicon-plus {
+  padding-top:4%;
+  margin-right:25px;
+  cursor:pointer;
+  cursor:hand;
+}
+.discover{
+  margin-right:25px;
+  cursor:pointer;
+  cursor:hand;
+}
+.new{
+  cursor:pointer;
+  cursor:hand;
+}
+.logout{
+  cursor:pointer;
+  cursor:hand;
+}
+.glyphicon-log-out{
+  cursor:pointer;
+  cursor:hand;
+}
 #logo {
   font-size: 36px;
   color: silver;

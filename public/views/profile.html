@@ -4,67 +4,69 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
 <div class="profile">
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-                <a class="navbar-brand" id="logo">modmusic</a>
-                  <ul class="nav navbar-nav">
-                    <li><a href="#/logout">Title</a></li>
-                    <li><a href="#/logout">Genre</a></li>
-                    <li><a href="#/logout">Created</a></li>
-                    <li><a href="#/logout">Updated</a></li>
-                    <li><a href="/build" id="new">+</a></li>
-                  </ul>
-                  <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="search" placeholder="Search" ng-model="search">
-                      <a href="/" ng-click="logOut()" id="logout">Log Out</a>
-                    </div>
-                  </form>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <a href="/" class="navbar-brand" id="logo">modmusic</a>
+      <!-- <ul class="nav navbar-nav">
+        <li><a href="#/logout">Title</a></li>
+        <li><a href="#/logout">Genre</a></li>
+        <li><a href="#/logout">Created</a></li>
+        <li><a href="#/logout">Updated</a></li>
+        <li><a href="/build" id="new">+</a></li>
+      </ul> -->
+      <form class="navbar-form navbar-right">
+        <span class="discover" ng-click="discover()">Discover</span>
+        <span class="new" ng-click="newBuild()">New </span><i ng-click="newBuild()" class="glyphicon glyphicon-plus"></i>
+        <div class="form-group">
+          <input type="text" class="form-control" id="search" placeholder="Search" ng-model="search">
         </div>
-    </nav>
+        <span class="logout" ng-click="logOut()">Log Out </span><i ng-click="logOut()" class="glyphicon glyphicon-log-out"></i>
+      </form>
+    </div>
+  </nav>
 
-      <div class="col-lg-3 profile-panel">
+  <div class="col-lg-3 profile-panel">
+    <div class="row">
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object" ng-src="{{img}}">
+          </a>
+          <p id="panel-username">{{username}}</p>
+        </div>
         <div class="row">
-        <div class="media">
-          <div class="media-left">
-            <a href="#">
-              <img class="media-object" ng-src="{{img}}">
-            </a>
-            <p id="panel-username">{{username}}</p>
+          <div class="media-body" id="panel-details">
+            <p class="media-heading">{{desc}}</p>
+            <p class="media-heading">Projects: {{projects}}</p>
+            <p class="media-heading">Views: {{views}}</p>
           </div>
-          <div class="row">
-            <div class="media-body" id="panel-details">
-              <p class="media-heading">{{desc}}</p>
-              <p class="media-heading">Projects: {{projects}}</p>
-              <p class="media-heading">Views: {{views}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-lg-9 projects-panel">
+    <h1 class="text-center">projects</h1>
+    <div ng-repeat="project in projectsArr | orderBy: '-updated' | filter:search">
+      <div class="col-lg-6">
+        <div class="panel panel-default" id="panel">
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-left">
+                <img id="thumbnail" src="img/thumbnail1.png" />
+              </div>
+              <div class="media-body">
+                <h3 class="media-headings"><a id="h3-project-title" ng-click="loadProject(project.title)">{{project.title}}</a></h3>
+                <p class="media-list">{{project.desc}}</p>
+                <p class="media-list">Genre: {{project.genre}}</p>
+                <p class="media-list">Created: {{project.created | date}}</p>
+                <p class="media-list">Updated: {{project.updated | date}}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
     </div>
-    <div class="col-lg-9 projects-panel">
-      <h1 class="text-center">projects</h1>
-    <div ng-repeat="project in projectsArr | orderBy: '-updated' | filter:search">
-          <div class="col-lg-6">
-              <div class="panel panel-default" id="panel">
-                  <div class="panel-body">
-                      <div class="media">
-                          <div class="media-left">
-                              <img id="thumbnail" src="img/thumbnail1.png" />
-                          </div>
-                          <div class="media-body">
-                              <h3 class="media-headings"><a id="h3-project-title" ng-click="loadProject(project.title)">{{project.title}}</a></h3>
-                              <p class="media-list">{{project.desc}}</p>
-                              <p class="media-list">Genre: {{project.genre}}</p>
-                              <p class="media-list">Created: {{project.created | date}}</p>
-                              <p class="media-list">Updated: {{project.updated | date}}</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
 
-      </div>
-
-    </div>
+  </div>

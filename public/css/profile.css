@@ -149,12 +149,31 @@ li {
 }
 
 #search {
-  margin-right: 4em;
+  margin-right:25px;
+  background-color:rgb(18, 18, 31);
 }
 
-#new {
-  font-size: 32px;
-  color:rgb(10, 251, 63);
+.glyphicon-plus {
+  margin-right:25px;
+  cursor:pointer;
+  cursor:hand;
+}
+.discover{
+  margin-right:25px;
+  cursor:pointer;
+  cursor:hand;
+}
+.new{
+  cursor:pointer;
+  cursor:hand;
+}
+.logout{
+  cursor:pointer;
+  cursor:hand;
+}
+.glyphicon-log-out{
+  cursor:pointer;
+  cursor:hand;
 }
 
 #panel-details {

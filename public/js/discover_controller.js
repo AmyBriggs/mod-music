@@ -21,6 +21,17 @@ app.controller('DiscoverController', function($scope, DiscoverService, $location
    }
   }
  })
+ $scope.profile = function(){
+   $location.path('/profile')
+ }
+ $scope.newBuild = function(){
+   $window.localStorage.clear();
+   $location.path('/build');
+ }
+ $scope.logOut = function() {
+   $cookies.remove('loggedIn')
+   $location.path('/')
+ }
  $scope.viewUser = function(username){
    $window.localStorage.view_user = username;
    $location.path(`/profile/${username}`);

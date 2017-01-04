@@ -5,7 +5,7 @@ app.controller('ProfileController', function($scope, ProfileService, $location, 
     $scope.desc = user.desc
     $scope.img = user.img
     $scope.search = ''
-
+    
     ProfileService.get(user).then(function(data){
     $scope.projectsArr = []
     for(var i = 0; i < data.length; i++){
@@ -37,10 +37,15 @@ app.controller('ProfileController', function($scope, ProfileService, $location, 
         }
       $location.path('/build');
     }
-
+    $scope.discover = function(){
+      $location.path('/discover')
+    }
+    $scope.newBuild = function(){
+      $window.localStorage.clear();
+      $location.path('/build');
+    }
     $scope.logOut = function() {
       $cookies.remove('loggedIn')
-      console.log('hey');
-      $location.url('/')
+      $location.path('/')
     }
  })

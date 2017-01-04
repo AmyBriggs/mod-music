@@ -38,10 +38,15 @@ app.controller('PersonalController', function($scope, PersonalService, $location
   }
   $location.path('/build');
  }
-
+ $scope.discover = function(){
+   $location.path('/discover')
+ }
+ $scope.newBuild = function(){
+   $window.localStorage.clear();
+   $location.path('/build');
+ }
  $scope.logOut = function() {
-  $cookies.remove('loggedIn')
-  console.log('hey');
-  $location.url('/')
+   $cookies.remove('loggedIn')
+   $location.path('/')
  }
 })
