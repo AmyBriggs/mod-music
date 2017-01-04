@@ -82,14 +82,11 @@ h1  {
 }
 
 
-#media-heading {
-  background-image: url('img/chain.jpg')
-  background: linear-gradient(rgb(18, 18, 31), grey);
-  opacity: 0.9;
-  height:100%;
-}
-
 .media-heading {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 2em;
+  margin-right: 2em;
 
 }
 
@@ -155,4 +152,17 @@ li {
 #new {
   font-size: 32px;
   color:rgb(10, 251, 63);
+}
+
+#panel-details {
+  align-content: center;
+
+}
+
+.profile-panel {
+  border-right: 1px solid black;
+}
+
+.media-left {
+  align-items: center;
 }
