@@ -4,8 +4,11 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
     BuildService.load($window.localStorage).then(function(data) {
       $scope.projTitle = data.title;
       $scope.genre = data.genre;
-      $scope.desc = `Originally by: ${data.username}, "${data.desc}"`;
-      console.log(data.build);
+      if(data.desc.includes('Originally by: ')){
+        $scope.desc = `${data.desc}`;
+      }else{
+        $scope.desc = `Originally by: ${data.username}, "${data.desc}"`;
+      }
       if(data.build == '' || data.build == null){
         $rootScope.vm.build = [];
          $rootScope.vm.totalGrid = 1;
@@ -1426,6 +1429,7 @@ $scope.playAll = function(){
  }
  $scope.saveProject = function(){
    var userObj = angular.fromJson($cookies.getAll().loggedIn);
+   console.log(userObj);
    userObj.projTitle = $scope.projTitle;
    userObj.genre = $scope.genre[0];
    userObj.desc = $scope.desc;

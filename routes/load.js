@@ -18,6 +18,7 @@ router.post('/', function(req, res, next){
        resObj.title = user[i].title;
        resObj.username = user[i].username;
        resObj.genre = user[i].genre;
+       resObj.desc = user[i].project_desc;
      }
    }
    res.json(resObj);

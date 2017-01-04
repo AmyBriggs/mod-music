@@ -3,8 +3,13 @@ var router = express.Router()
 var knex = require('../knex')
 
 router.post('/', function(req, res, next){
+  var id = req.body.id;
+  var projTitle = req.body.projTitle;
   knex('projects')
-    .where('title', req.body.projTitle)
+    .where({
+      user_id: id,
+      title: projTitle
+    })
     .then((project) => {
       if(project.length == 0){
         knex('projects')
@@ -17,6 +22,8 @@ router.post('/', function(req, res, next){
           desc: req.body.desc,
           genre: req.body.genre,
           votes: 0
+        }).then((project2) => {
+          console.log(project2);
         })
       } else{
         knex('projects')
