@@ -21,6 +21,7 @@ router.post('/', function(req, res, next){
        resObj.desc = user[i].project_desc;
      }
    }
+   console.log(resObj);
    res.json(resObj);
  })
 })
