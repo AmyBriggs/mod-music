@@ -83,7 +83,7 @@ app.controller('DiscoverController', function($scope, DiscoverService, $location
         for(var key in project){
             $window.localStorage[key] = project[key];
           }
-        $location.path('/');
+        $location.path('/build');
       }
       if($scope.gAlternative){
         var project = {};
@@ -148,7 +148,7 @@ app.controller('DiscoverController', function($scope, DiscoverService, $location
         for(var key in project){
             $window.localStorage[key] = project[key];
           }
-        $location.path('/');
+        $location.path('/build');
       }
     }
 
