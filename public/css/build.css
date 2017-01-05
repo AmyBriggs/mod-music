@@ -429,8 +429,11 @@ p.legend{
   margin-top: 1.5em;
 }
 
-.dropdown-menu {
+.dropdown-menu-right {
   min-width: 40px !important;
+  background-color: rgb(41, 40, 42);
+  color: silver;
+  text-align: center;
   /*display: inline-block;*/
   /*vertical-align: middle;*/
   position: absolute;
