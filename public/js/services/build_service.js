@@ -7,6 +7,7 @@ app.service('BuildService', function($http){
     },
     load: function(projData){
       return $http.post('/load', projData).then(function(data){
+        console.log(data.data);
         return data.data;
       })
     }

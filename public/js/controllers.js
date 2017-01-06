@@ -446,22 +446,22 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
   },
   elBass: {
     GL: new Howl({
-     urls: ['sounds/bass/electric_bass_pick-mp3/G1.mp3'],
+     urls: ['sounds/bass/electric_bass_pick-mp3/G1.wav'],
     }),
     AbL: new Howl({
-     urls: ['sounds/bass/electric_bass_pick-mp3/Ab1.mp3'],
+     urls: ['sounds/bass/electric_bass_pick-mp3/Ab1.wav'],
     }),
     AL: new Howl({
-     urls: ['sounds/bass/electric_bass_pick-mp3/A1.mp3'],
+     urls: ['sounds/bass/electric_bass_pick-mp3/A1.wav'],
     }),
     BbL: new Howl({
-     urls: ['sounds/bass/electric_bass_pick-mp3/Bb1.mp3'],
+     urls: ['sounds/bass/electric_bass_pick-mp3/Bb1.wav'],
     }),
     BL: new Howl({
-     urls: ['sounds/bass/electric_bass_pick-mp3/B1.mp3'],
+     urls: ['sounds/bass/electric_bass_pick-mp3/B1.wav'],
     }),
    C: new Howl({
-    urls: ['sounds/bass/electric_bass_pick-mp3/C2.mp3'],
+    urls: ['sounds/bass/electric_bass_pick-mp3/C2.wav'],
    }),
    Cs: new Howl({
     urls: ['sounds/bass/electric_bass_pick-mp3/Db2.mp3'],
