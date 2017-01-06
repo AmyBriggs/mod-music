@@ -369,79 +369,79 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
   },
   bass: {
     GL: new Howl({
-     urls: ['sounds/bass/acoustic_bass-mp3/G1.mp3'],
+     urls: ['sounds/bass/acoustic_bass-mp3/G1.wav'],
     }),
     AbL: new Howl({
-     urls: ['sounds/bass/acoustic_bass-mp3/Ab1.mp3'],
+     urls: ['sounds/bass/acoustic_bass-mp3/Ab1.wav'],
     }),
     AL: new Howl({
-     urls: ['sounds/bass/acoustic_bass-mp3/A1.mp3'],
+     urls: ['sounds/bass/acoustic_bass-mp3/A1.wav'],
     }),
     BbL: new Howl({
-     urls: ['sounds/bass/acoustic_bass-mp3/Bb1.mp3'],
+     urls: ['sounds/bass/acoustic_bass-mp3/Bb1.wav'],
     }),
     BL: new Howl({
-     urls: ['sounds/bass/acoustic_bass-mp3/B1.mp3'],
+     urls: ['sounds/bass/acoustic_bass-mp3/B1.wav'],
     }),
    C: new Howl({
-    urls: ['sounds/bass/acoustic_bass-mp3/C2.mp3'],
+    urls: ['sounds/bass/acoustic_bass-mp3/C2.wav'],
    }),
    Cs: new Howl({
-    urls: ['sounds/bass/acoustic_bass-mp3/Db2.mp3'],
+    urls: ['sounds/bass/acoustic_bass-mp3/Db2.wav'],
    }),
    D: new Howl({
-    urls: ['sounds/bass/acoustic_bass-mp3/D2.mp3'],
+    urls: ['sounds/bass/acoustic_bass-mp3/D2.wav'],
    }),
    Eb: new Howl({
-    urls: ['sounds/bass/acoustic_bass-mp3/Eb2.mp3'],
+    urls: ['sounds/bass/acoustic_bass-mp3/Eb2.wav'],
    }),
    E: new Howl({
-    urls: ['sounds/bass/acoustic_bass-mp3/E2.mp3'],
+    urls: ['sounds/bass/acoustic_bass-mp3/E2.wav'],
    }),
    F: new Howl({
-    urls: ['sounds/bass/acoustic_bass-mp3/F2.mp3'],
+    urls: ['sounds/bass/acoustic_bass-mp3/F2.wav'],
    }),
    Fs: new Howl({
-    urls: ['sounds/bass/acoustic_bass-mp3/Gb2.mp3'],
+    urls: ['sounds/bass/acoustic_bass-mp3/Gb2.wav'],
    }),
    G: new Howl({
-    urls: ['sounds/bass/acoustic_bass-mp3/G2.mp3'],
+    urls: ['sounds/bass/acoustic_bass-mp3/G2.wav'],
    }),
    Ab: new Howl({
-    urls: ['sounds/bass/acoustic_bass-mp3/Ab2.mp3'],
+    urls: ['sounds/bass/acoustic_bass-mp3/Ab2.wav'],
    }),
    A: new Howl({
-    urls: ['sounds/bass/acoustic_bass-mp3/A2.mp3'],
+    urls: ['sounds/bass/acoustic_bass-mp3/A2.wav'],
    }),
    Bb: new Howl({
-    urls: ['sounds/bass/acoustic_bass-mp3/Bb2.mp3'],
+    urls: ['sounds/bass/acoustic_bass-mp3/Bb2.wav'],
    }),
    B: new Howl({
-    urls: ['sounds/bass/acoustic_bass-mp3/B2.mp3'],
+    urls: ['sounds/bass/acoustic_bass-mp3/B2.wav'],
   }),
   C1: new Howl({
-   urls: ['sounds/bass/acoustic_bass-mp3/C3.mp3'],
+   urls: ['sounds/bass/acoustic_bass-mp3/C3.wav'],
  }),
   Cs1: new Howl({
-   urls: ['sounds/bass/acoustic_bass-mp3/Db3.mp3'],
+   urls: ['sounds/bass/acoustic_bass-mp3/Db3.wav'],
  }),
   D1: new Howl({
-   urls: ['sounds/bass/acoustic_bass-mp3/D3.mp3'],
+   urls: ['sounds/bass/acoustic_bass-mp3/D3.wav'],
  }),
   Eb1: new Howl({
-   urls: ['sounds/bass/acoustic_bass-mp3/Eb3.mp3'],
+   urls: ['sounds/bass/acoustic_bass-mp3/Eb3.wav'],
  }),
   E1: new Howl({
-   urls: ['sounds/bass/acoustic_bass-mp3/E3.mp3'],
+   urls: ['sounds/bass/acoustic_bass-mp3/E3.wav'],
  }),
   F1: new Howl({
-   urls: ['sounds/bass/acoustic_bass-mp3/F3.mp3'],
+   urls: ['sounds/bass/acoustic_bass-mp3/F3.wav'],
  }),
   Fs1: new Howl({
-   urls: ['sounds/bass/acoustic_bass-mp3/Gb3.mp3'],
+   urls: ['sounds/bass/acoustic_bass-mp3/Gb3.wav'],
  }),
   G1: new Howl({
-   urls: ['sounds/bass/acoustic_bass-mp3/G3.mp3'],
+   urls: ['sounds/bass/acoustic_bass-mp3/G3.wav'],
  })
   },
   elBass: {
