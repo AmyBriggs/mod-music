@@ -26,7 +26,6 @@ app.controller('BuildController', ['$scope','$rootScope', '$cookies', 'BuildServ
   }
   //$rootScope.vm.build: data structure representing our grid
 
-
  //notes: instruments, chords: harmonic presets, drums: drum rack
  //variables used for tempo and display logic
  $rootScope.vm.grid = 1;
