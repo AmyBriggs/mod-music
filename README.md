@@ -19,3 +19,8 @@ Feel free to fork and clone this repo to add any feature you'd like and contact 
 3. **Roland TR-series samples**: Drum rack samples
 4. **Google Charts**: Used to render the chord wheel
 5. This app uses **AngularJS** for dynamic front-end rendering as well as **Bootstrap** for the static part. To build our database, we used **PostgreSQL** and **Express** to query it.
+
+###Next Steps
+1. Drag functionality - the user should be able to drag in and out of notes instead of clicking each grid square to add a note.
+2. Migrate from AngularJS to React.
+3. Introduce audio effects/processing.
