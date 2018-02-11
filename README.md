@@ -1,7 +1,7 @@
 #modmusic
 A digital audio workstation with an open-source production feature. Build, create, and learn about music production at the cellular level.
 
-Check out a walkthrough of our app here: *Coming soon*
+Check out a walkthrough of our app here: https://www.youtube.com/watch?v=dZlovZchMQ8&feature=youtu.be
 
 Our current deployed version is here: http://ablm-modmusic.herokuapp.com/
 
